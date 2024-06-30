@@ -46,6 +46,32 @@ export const RESUME_DESCRIPTION = `
     </style>
 
     <style>
+      @media (width <= 800px) {
+        main {
+          max-height: unset;
+          padding: 0.1in 0.2in;
+          line-height: 16pt;
+        }
+        section.header {
+          & ul {
+            & li:not(:last-child)::after {
+              content: "";
+              margin: 0 0.5em;
+            }
+          }
+        }
+        section.awards {
+          & ul {
+            display: unset;
+            & li:nth-child(even) {
+              text-align: left;
+            }
+          }
+        }
+      }
+    </style>
+
+    <style>
       main {
         font-family: "EB Garamond", serif;
         font-size: 10pt;
@@ -74,7 +100,9 @@ export const RESUME_DESCRIPTION = `
         text-align: center;
         & ul {
           list-style: none;
+          padding: 0;
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
 
           & li:not(:last-child)::after {
@@ -364,7 +392,7 @@ export const RESUME_DESCRIPTION = `
             </div>
             <ul>
               <li>
-                Labaratory for Nuclear Science: Developed responsive web
+                Laboratory for Nuclear Science: Developed responsive web
                 controls with ReactJS for the IsoDAR experiment, optimized Flask
                 and C++ code for reading speeds (30-75 Hz), and <a
                   href="https://doi.org/10.1016/j.nima.2023.168590"
