@@ -46,25 +46,27 @@ export const RESUME_DESCRIPTION = `
     </style>
 
     <style>
-      @media (width <= 800px) {
-        main {
-          max-height: unset;
-          padding: 0.1in 0.2in;
-          line-height: 16pt;
-        }
-        section.header {
-          & ul {
-            & li:not(:last-child)::after {
-              content: "";
-              margin: 0 0.5em;
+      @media not print {
+        @media (width <= 800px) {
+          main {
+            max-height: unset;
+            padding: 0.1in 0.2in;
+            line-height: 16pt;
+          }
+          section.header {
+            & ul {
+              & li:not(:last-child)::after {
+                content: "";
+                margin: 0 0.5em;
+              }
             }
           }
-        }
-        section.awards {
-          & ul {
-            display: unset;
-            & li:nth-child(even) {
-              text-align: left;
+          section.awards {
+            & ul {
+              display: unset;
+              & li:nth-child(even) {
+                text-align: left;
+              }
             }
           }
         }
