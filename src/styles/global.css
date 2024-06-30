@@ -29,6 +29,22 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
