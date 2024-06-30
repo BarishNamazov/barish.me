@@ -1,0 +1,22 @@
+---
+const today = new Date();
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer class={className}>
+  © {today.getFullYear()} Abutalib (Barish) Namazov. All rights reserved.
+</footer>
+
+<style>
+  footer {
+    padding: 1em 0;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+    color: rgb(var(--gray));
+    text-align: center;
+  }
+</style>

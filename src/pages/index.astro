@@ -1,0 +1,53 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: justify;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+    <!-- <Header /> -->
+    <main>
+      <h1>Abutalib-Barish Namazov</h1>
+      <p>
+        I am an engineer focused on computer science and software engineering. I
+        grew up in Baku, Azerbaijan and graduated with an undergraduate degree
+        from MIT in May 2024. My <a href="/about">about page</a> has a bit more.
+        You can also check out my setup and tools I use in
+        <a href="/computing">computing page</a>.
+      </p>
+      <p>
+        While I am eager about too many areas of computer science, lately I have
+        been thinking more about software design and modularity, especially in
+        web development. You can reach out to me via <a
+          href="mailto:hello@barish.me">email</a
+        >.
+      </p>
+      <p>
+        I am not currently looking for a job, but I am always interested in
+        talking about ideas and products. You can take a look into my <a
+          href="/resume">resume</a
+        >.
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>

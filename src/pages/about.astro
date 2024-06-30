@@ -1,0 +1,33 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: justify;
+      }
+
+      body {
+        height: 100vh;
+      }
+    </style>
+    <!-- <Header /> -->
+    <main>
+      <h1>About</h1>
+			<p>To be added.</p>
+			<a href="../">Go back.</a>
+    </main>
+    <Footer />
+  </body>
+</html>

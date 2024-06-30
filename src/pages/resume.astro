@@ -1,0 +1,456 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+
+export const RESUME_DESCRIPTION = `
+  I am a software engineer with experience in web development, software architecture, and performance engineering.
+  I have built production-grade systems from ground up, and I enjoy using the latest technologies.
+`.trim();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      titlePrefix="Resume"
+      title={SITE_TITLE}
+      description={RESUME_DESCRIPTION}
+    />
+
+    <script is:inline type="module">
+      document.getElementById("download").addEventListener("click", () => {
+        window.print();
+      });
+    </script>
+  </head>
+  <body>
+    <style media="print">
+      @media print {
+        @page {
+          size: letter;
+          margin: 0mm;
+        }
+
+        html {
+          margin: 0px;
+          font-variant-ligatures: none;
+        }
+
+        main {
+          margin: 0;
+          padding: 0.2in 0.3in;
+          border: none;
+        }
+      }
+    </style>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+      main {
+        font-family: "EB Garamond", serif;
+        font-size: 10pt;
+        background: white;
+        border: 1px solid black;
+        max-width: 8.5in;
+        max-height: 11in;
+        padding: 0.3in 0.4in;
+        box-sizing: border-box;
+        line-height: 14pt;
+        width: 100%;
+      }
+      h1 {
+        font-size: 12pt;
+      }
+      h2 {
+        font-size: 11pt;
+        margin-bottom: 4pt;
+      }
+      h3 {
+        font-size: 10pt;
+        margin-bottom: 0;
+      }
+
+      section.header {
+        text-align: center;
+        & ul {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+
+          & li:not(:last-child)::after {
+            content: "·";
+            font-weight: 900;
+            margin: 0 1em;
+          }
+        }
+      }
+
+      section:not(.header) {
+        margin-bottom: 10pt;
+        & h2 {
+          padding-bottom: 1pt;
+          border-bottom: 1px solid black;
+        }
+        & > ul {
+          padding-left: 8pt;
+          list-style: none;
+        }
+
+        & > ul ul {
+          padding-left: 10pt;
+          list-style: circle;
+        }
+      }
+      section.projects {
+        & ul {
+          padding-left: 18pt;
+          list-style: circle;
+        }
+      }
+
+      .item-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+        & .description {
+          font-style: italic;
+        }
+
+        & .location,
+        .date {
+          text-align: right;
+        }
+      }
+
+      section.awards {
+        & ul {
+          padding: 0;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          & li:nth-child(even) {
+            text-align: right;
+          }
+        }
+      }
+
+      .list-title {
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+      }
+      ul {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+
+    <style>
+      .page-topping {
+        text-align: center;
+        padding: 1em;
+        & a {
+          text-decoration: none;
+        }
+
+        & button {
+          padding: 0.8em 1.3em;
+          background: #1971c2;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-top: 1em;
+        }
+      }
+
+      main {
+        margin-bottom: 1em;
+      }
+    </style>
+
+    <section class="no-print page-topping">
+      <a href="../">Go back to the home page</a>
+      <p>Below is my resume, coded in HTML and CSS.</p>
+      <button id="download">Download PDF</button>
+    </section>
+
+    <main>
+      <section class="header">
+        <h1>Abutalib-Barish Namazov</h1>
+        <ul>
+          <li>Email: <a href="mailto:hello@barish.me">hello@barish.me</a></li>
+          <li>
+            Website: <a
+              href="https://barish.me"
+              target="_blank"
+              rel="noopener noreferrer">barish.me</a
+            >
+          </li>
+          <li>
+            LinkedIn: <a
+              href="https://www.linkedin.com/in/abutalib-namazov/"
+              target="_blank"
+              rel="noopener noreferrer">abutalib-namazov</a
+            >
+          </li>
+          <li>
+            Github: <a
+              href="https://github.com/BarishNamazov/"
+              target="_blank"
+              rel="noopener noreferrer">BarishNamazov</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="education">
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <div class="item-header">
+              <h3 class="organization">
+                Massachusetts Institute of Technology
+              </h3>
+              <span class="description">
+                Bachelor of Science in Computer Science and Engineering; GPA:
+                5.0/5.0
+              </span>
+              <span class="location">Cambridge, MA</span>
+              <span class="date">
+                <time datetime="2024-05">May 2024</time>
+              </span>
+            </div>
+            <p>
+              <span class="list-title">Relevant coursework</span>: Software
+              Construction, Advanced Algorithms, Discrete Math, Machine
+              Learning, Probability & Random Variables, Linear Algebra and
+              Optimization, Web Design, Compiler Design, Computer Systems
+            </p>
+            <p>
+              <span class="list-title">Leadership</span>: Founding President of <a
+                href="https://opencode.mit.edu/"
+                target="_blank"
+                rel="noopener noreferrer">Open-Code @ MIT</a
+              >, Fouding Vice-President of <a
+                href="https://vga.mit.edu/"
+                target="_blank"
+                rel="noopener noreferrer">Video Gamers Alliance</a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="experience">
+        <h2>Experience</h2>
+        <ul>
+          <li>
+            <div class="item-header">
+              <h3 class="organization">Software Design Group, MIT</h3>
+              <span class="description">Software Researcher</span>
+              <span class="location"> Cambridge, MA </span>
+              <span class="date">
+                <time datetime="2023-09">September 2023</time>
+                -
+                <time datetime="2024-05">May 2024</time>
+              </span>
+            </div>
+            <ul>
+              <li>
+                Created a <a
+                  href="https://github.com/kodless-org/conception"
+                  target="_blank"
+                  rel="noopener noreferrer">backend framework in TypeScript</a
+                > to support development of concept-driven, fully modular web applications.
+              </li>
+              <li>
+                Designed a <a
+                  href="https://github.com/kodless-org/kodless-frontend/blob/main/src/apps/freebook.hrml"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >HTML superset, natively reactive frontend DSL</a
+                > to use with LLM integration. Coded interpreter in Vue 3.
+              </li>
+              <li>
+                Developed <a
+                  href="https://github.com/kodless-org/kodless"
+                  target="_blank"
+                  rel="noopener noreferrer">Kodless</a
+                > from scratch using Nuxt, enabling fullstack web app creation via
+                natural language prompts.
+              </li>
+              <li>
+                Reduced student development time by over 50% in MIT classes;
+                Kodless featured in <a
+                  href="https://youtu.be/-0UOwE6zG_8"
+                  target="_blank"
+                  rel="noopener noreferrer">TEDxBoston</a
+                > and <a
+                  href="https://youtu.be/WgOhtH3lugk"
+                  target="_blank"
+                  rel="noopener noreferrer">Forbes-sponsored MIT CSAIL talk</a
+                >.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="item-header">
+              <h3 class="organization">Citadel LLC</h3>
+              <span class="description"
+                >Quantitative Research Enginering Intern in GQS</span
+              >
+              <span class="location">Chicago, IL</span>
+              <span class="date">
+                <time datetime="2023-06">June 2023</time>
+                -
+                <time datetime="2023-08">August 2023</time>
+              </span>
+            </div>
+            <ul>
+              <li>
+                Built an end-to-end Big Data pipeline (C++ with Python bindings)
+                to collect usage data from firm-wide APIs, managing transfer to
+                cloud storage. Developed an analytics framework and
+                visualization dashboard to monitor API performance and usage.
+              </li>
+              <li>
+                Optimized KDB Reader by implementing efficient sorting
+                techniques, enhancing processing speed, and conserving memory
+                for trade and quote data extraction.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="item-header">
+              <h3 class="organization">Microsoft</h3>
+              <span class="description">Software Engineering Intern</span>
+              <span class="location">Redmond, WA</span>
+              <span class="date">
+                <time datetime="2022-05">May 2022</time>
+                -
+                <time datetime="2022-08">August 2022</time>
+              </span>
+            </div>
+            <ul>
+              <li>
+                Developed a tool (C# and C++) to regenerate digitally signed XML
+                licenses with custom modifications, improving debugging and
+                enabling abstraction of licenses into readable objects.
+              </li>
+              <li>
+                Enhanced license validation and diagnostics to validate
+                restrictive conditions and improved a C++ diagnostic tool for
+                user-friendly output and license key-holder details.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="item-header">
+              <h3 class="organization">
+                Massachusetts Institute of Technology
+              </h3>
+              <span class="description"
+                >Research Assistant, Teaching Assistant</span
+              >
+              <span class="location">Cambridge, MA</span>
+              <span class="date">
+                <time datetime="2021-09">February 2021</time>
+                -
+                <time datetime="2023-05">May 2024</time>
+              </span>
+            </div>
+            <ul>
+              <li>
+                Labaratory for Nuclear Science: Developed responsive web
+                controls with ReactJS for the IsoDAR experiment, optimized Flask
+                and C++ code for reading speeds (30-75 Hz), and <a
+                  href="https://doi.org/10.1016/j.nima.2023.168590"
+                  target="_blank"
+                  rel="noopener noreferrer">published work in NIMA</a
+                >.
+              </li>
+              <li>
+                Haystack Group @ CSAIL: Contributed to a domain-specific app and
+                research, facilitating data calculations and graph visualization
+                for micro-journaling.
+              </li>
+              <li>
+                Teaching: Helped to teach more than 2000 students over multiple
+                semesters in classes Fundamentals of Programming, Software
+                Construction, Web Design, and Software Design. Authored
+                educational programming content in all of these classes.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="projects">
+        <h2>Projects and Voluntary Work</h2>
+        <ul>
+          <li>
+            Taught free and public competitive-programming classes to over 1000
+            students in Azerbaijan in winters of <a
+              href="https://tedbilik.github.io/kamp/"
+              target="_blank"
+              rel="noopener noreferrer">2023</a
+            > and <a
+              href="https://tedbilik.github.io/kamp/2024"
+              target="_blank"
+              rel="noopener noreferrer">2024</a
+            >.
+          </li>
+          <li>
+            Co-founded <a
+              href="https://fuiz.us"
+              target="_blank"
+              rel="noopener noreferrer">Fuiz</a
+            >, a Kahoot-like platform for online live quizzes. Coded in Rust,
+            SvelteKit, and serverless over Cloudflare.
+          </li>
+          <li>
+            Hosted a privacy and security talk in <a
+              href="https://opencode.mit.edu/"
+              target="_blank"
+              rel="noopener noreferrer">OpenCode @ MIT</a
+            > to help internet users understand and protect their privacy better.
+          </li>
+        </ul>
+      </section>
+      <section class="skills">
+        <h2>Programming skills</h2>
+        <p>
+          <span class="list-title">Languages</span>: C, C++, Rust, C#, Python,
+          JavaScript, TypeScript, HTML, CSS, Scheme
+        </p>
+        <p>
+          <span class="list-title">Technologies</span>: Git, UNIX/Bash, Vue,
+          SvelteKit, Express, FastAPI, NumPy, Pandas, Ray, Spark, WebSockets,
+          NoSQL, SQL, Serverless/Edge
+        </p>
+        <p>
+          <span class="list-title">Competitive Programming</span>: Strong
+          algorithmic thinking and broad knowledge of data structures; master
+          rank in Codeforces, 6 stars in CodeChef, and O(1) rank in HackerRank
+          (99.99th percentile)
+        </p>
+      </section>
+      <section class="awards">
+        <h2>Awards</h2>
+        <ul>
+          <li>International Olympiad in Informatics Bronze medal (2020)</li>
+          <li>International Zhautykov Olympiad Gold medal (2020)</li>
+          <li>International Olympiad of Metropolises Silver medal (2019)</li>
+          <li>National Olympiad in Informatics 3 Gold medals (2017-2019)</li>
+          <li>Junior Balkan Mathematics Olympiad Silver medal (2018)</li>
+          <li>National Olympiad in Mathematics Silver medal (2018)</li>
+        </ul>
+      </section>
+    </main>
+
+    <Footer class="no-print" />
+  </body>
+</html>
