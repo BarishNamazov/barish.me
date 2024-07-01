@@ -1,7 +1,10 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import { SITE_TITLE } from "../consts";
+
+import "../styles/resume.css";
 
 export const RESUME_DESCRIPTION = `
   I am a software engineer with experience in web development, software architecture, and performance engineering.
@@ -25,187 +28,15 @@ export const RESUME_DESCRIPTION = `
     </script>
   </head>
   <body>
-    <style media="print">
-      @media print {
-        @page {
-          size: letter;
-          margin: 0mm;
-        }
+    <article class="no-print page-topping">
+      <Header />
 
-        html {
-          margin: 0px;
-          font-variant-ligatures: none;
-        }
-
-        main {
-          margin: 0;
-          padding: 0.2in 0.3in;
-          border: none;
-        }
-      }
-    </style>
-
-    <style>
-      @media not print {
-        @media (width <= 800px) {
-          main {
-            padding: 0.1in 0.2in;
-            line-height: 16pt;
-          }
-          section.header {
-            & ul {
-              & li:not(:last-child)::after {
-                content: "";
-                margin: 0 0.5em;
-              }
-            }
-          }
-          section.awards {
-            & ul {
-              display: unset;
-              & li:nth-child(even) {
-                text-align: left;
-              }
-            }
-          }
-        }
-      }
-    </style>
-
-    <style>
-      main {
-        font-family: "EB Garamond", serif;
-        font-size: 10pt;
-        background: white;
-        border: 1px solid black;
-        max-width: 8.5in;
-        padding: 0.3in 0.4in;
-        box-sizing: border-box;
-        line-height: 14pt;
-        width: 100%;
-      }
-      h1 {
-        font-size: 12pt;
-      }
-      h2 {
-        font-size: 11pt;
-        margin-bottom: 4pt;
-      }
-      h3 {
-        font-size: 10pt;
-        margin-bottom: 0;
-      }
-
-      section.header {
-        text-align: center;
-        & ul {
-          list-style: none;
-          padding: 0;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-
-          & li:not(:last-child)::after {
-            content: "·";
-            font-weight: 900;
-            margin: 0 1em;
-          }
-        }
-      }
-
-      section:not(.header) {
-        margin-bottom: 10pt;
-        & h2 {
-          padding-bottom: 1pt;
-          border-bottom: 1px solid black;
-        }
-        & > ul {
-          padding-left: 8pt;
-          list-style: none;
-        }
-
-        & > ul ul {
-          padding-left: 10pt;
-          list-style: circle;
-        }
-      }
-      section.projects {
-        & ul {
-          padding-left: 18pt;
-          list-style: circle;
-        }
-      }
-
-      .item-header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
-        grid-auto-flow: column;
-        & .description {
-          font-style: italic;
-        }
-
-        & .location,
-        .date {
-          text-align: right;
-        }
-      }
-
-      section.awards {
-        & ul {
-          padding: 0;
-          display: grid;
-          grid-template-columns: 1fr auto;
-          & li:nth-child(even) {
-            text-align: right;
-          }
-        }
-      }
-
-      .list-title {
-        font-weight: 600;
-      }
-
-      p {
-        margin: 0;
-      }
-      ul {
-        margin: 0;
-      }
-      a {
-        text-decoration: none;
-      }
-    </style>
-
-    <style>
-      .page-topping {
-        text-align: center;
-        padding: 1em;
-        & a {
-          text-decoration: none;
-        }
-
-        & button {
-          padding: 0.8em 1.3em;
-          background: #1971c2;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-top: 1em;
-        }
-      }
-
-      main {
-        margin-bottom: 1em;
-      }
-    </style>
-
-    <section class="no-print page-topping">
-      <a href="../">Go back to the home page</a>
-      <p>Below is my resume, coded in HTML and CSS.</p>
-      <button id="download">Download PDF</button>
-    </section>
+      <div>
+        <p>{RESUME_DESCRIPTION}</p>
+        <p>Below is my resume, coded in HTML and CSS.</p>
+        <button id="download">Download PDF</button>
+      </div>
+    </article>
 
     <main>
       <section class="header">

@@ -1,0 +1,53 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+interface Props {
+  titlePrefix?: string;
+  frontmatter?: {
+    titlePrefix?: string;
+  };
+}
+let { titlePrefix } = Astro.props;
+
+if (!titlePrefix) {
+  titlePrefix = Astro.props.frontmatter?.titlePrefix;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {titlePrefix} title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("a").forEach((a) => {
+          if (a.hostname !== window.location.hostname) {
+            a.target = "_blank";
+            a.rel = "noopener";
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
+      }
+    </style>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
