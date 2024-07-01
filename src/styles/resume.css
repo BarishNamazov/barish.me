@@ -9,6 +9,10 @@ main {
   box-sizing: border-box;
   line-height: 14pt;
   width: 100%;
+
+  & a[target="_blank"]::after {
+    all: unset;
+  }
 }
 h1 {
   font-size: 12pt;

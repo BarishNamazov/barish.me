@@ -22,6 +22,7 @@ titlePrefix: About
   .head {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 </style>
 
