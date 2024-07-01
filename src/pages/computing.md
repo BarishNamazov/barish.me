@@ -21,7 +21,7 @@ I am very open to nontraditional ways to approach software and hardware while fo
 ## Computer Hardware
 
 My current main workstation is a desktop computer I built in June 2024 with i7 14700F CPU and RTX 4070 SUPER GPU.
-I use it for both development and gaming.
+I use it for both development and gaming. The GPU also allows me to run a local open-source LLM.
 
 My secondary workstation is a laptop, Asus Zenbook 14X (2.8K OLED Touch 120Hz Display, 16GB LPDDR5 RAM, i7 13700H, no dedicated GPU, 3.5 lbs). While I wish my laptop was upgradable (like [Framework](https://frame.work/), [Tuxedo](https://www.tuxedocomputers.com/), or [System76](https://system76.com/) laptops), it's harder to find those options within budget while maintaining my needs. I bought this laptop from [BestBuy](https://www.bestbuy.com/site/asus-zenbook-14x-14-5-2-8k-oled-touch-laptop-intel-evo-platform-i7-13700h-16gb-memory-512gb-ssd-inkwell-gray/6543526.p?skuId=6543526) for $750, which I think was a decent value for the display and performance on a new laptop. What I generally look in a laptop is, in that order, great display, cpu power, and battery life. However, lately, I have been finding 16GB RAM not enough for some use cases, so it's a pity that RAM is soldered on this machine.
 
@@ -163,6 +163,11 @@ From its description: [ripgrep](https://github.com/BurntSushi/ripgrep) recursive
 [Rclone](https://rclone.org/) is a great tool to sync files between cloud services.
 I use it to sync my files between my cloud storage and my local machine.
 I also use it to backup my databases to a cloud service.
+
+### Ollama
+
+[Ollama](https://www.ollama.com/) allows me to run a local LLM very easily.
+I use it for various purposes.
 
 ## Mobile Hardware
 
