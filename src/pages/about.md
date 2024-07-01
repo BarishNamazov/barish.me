@@ -23,6 +23,10 @@ titlePrefix: About
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
+    & h1 {
+      flex: 1 1;
+    }
   }
 </style>
 

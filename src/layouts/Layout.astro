@@ -6,21 +6,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 interface Props {
   titlePrefix?: string;
-  frontmatter?: {
-    titlePrefix?: string;
-  };
+  description?: string;
 }
-let { titlePrefix } = Astro.props;
-
-if (!titlePrefix) {
-  titlePrefix = Astro.props.frontmatter?.titlePrefix;
-}
+let { titlePrefix, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead {titlePrefix} title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      {titlePrefix}
+      title={SITE_TITLE}
+      description={description || SITE_DESCRIPTION}
+    />
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +32,7 @@ if (!titlePrefix) {
     </script>
   </head>
   <body>
-    <style>
+    <style is:global>
       body {
         height: 100vh;
         display: flex;
@@ -42,6 +40,12 @@ if (!titlePrefix) {
       }
       main {
         flex: 1;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: justify;
       }
     </style>
     <Header />

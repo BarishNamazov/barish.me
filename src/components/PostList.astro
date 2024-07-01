@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<style>
+  li.star::after {
+    content: " ⭐️";
+  }
+</style>
+
+<ul>
+  {
+    posts.map((post) => (
+      <li class={post.data.star ? "star" : ""}>
+        <a href={`/blog/${post.slug}`}>{post.data.title}</a> -{" "}
+        <FormattedDate date={post.data.date} />
+      </li>
+    ))
+  }
+</ul>

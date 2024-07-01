@@ -1,20 +1,9 @@
 ---
-layout: ../layouts/Layout.astro
-titlePrefix: Computing
+title: How I do my computing
+description: My hardware and software setup.
+date: 2024-07-01
+star: true
 ---
-
-<style>
-  h1 {
-    text-align: center;
-  }
-  p {
-    text-align: justify;
-  }
-</style>
-
-<h1>How I do my computing</h1>
-
-<p style="text-align: center">Last updated: July 2024</p>
 
 I am very open to nontraditional ways to approach software and hardware while focusing on [persistence](https://beyondexpiry.org/), privacy, security, and transparency. To this end, I am doing my best to be platform-independent and use open-source software. While some of my friends find my workflow rather troublesome, I don't see myself adapting to a specific "ecosystem." This page is a brief summary of my computing process, which is a large part of my day. Some details are intentionally left out. If you are interested in more or have suggestions, please reach out to me at hello@barish.me.
 
