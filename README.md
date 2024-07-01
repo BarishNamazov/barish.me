@@ -1,6 +1,6 @@
 # Personal website
 
-Made using [Astro](https://astro.build/) and it's blog template (`npm create astro@latest -- --template blog`).
+Made using [Astro](https://astro.build/) and its blog template (`npm create astro@latest -- --template blog`).
 
 Pull requests for typos/grammar mistakes are welcome.
 
