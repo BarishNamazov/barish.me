@@ -9,14 +9,48 @@ const { class: className } = Astro.props;
 ---
 
 <footer class={className}>
-  © {today.getFullYear()} Abutalib (Barish) Namazov. All rights reserved.
+  <span>
+    © {today.getFullYear()} Abutalib (Barish) Namazov. All rights reserved.
+  </span>
+  <span class="social">
+    <a href="https://github.com/BarishNamazov" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/github-mark.svg" alt="GitHub" />
+    </a>
+    <!-- https://www.linkedin.com/in/abutalib-namazov/ -->
+    <a href="https://www.linkedin.com/in/abutalib-namazov/" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/linkedin.svg" alt="LinkedIn" />
+    </a>
+  </span>
 </footer>
 
 <style>
   footer {
-    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
     background: linear-gradient(var(--gray-gradient)) no-repeat;
     color: rgb(var(--gray));
-    text-align: center;
+
+    & .social {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    & a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      &::after {
+        all: unset;
+      }
+    }
+
+    & img {
+      width: 1.2em;
+      border-radius: 0;
+    }
   }
 </style>
