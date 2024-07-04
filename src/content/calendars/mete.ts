@@ -16,7 +16,7 @@ type SimpleEvent = [string, number, string];
 // Each week is due every two days.
 const cs50x: SimpleEvent[] = range(0, 10)
   .concat([6.5])
-  .toSorted()
+  .toSorted((a, b) => a - b)
   .map((week, i) => {
     const date = bakuDate(2024, 6, 2 + 2 * i);
     return [
