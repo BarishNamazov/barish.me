@@ -1,5 +1,14 @@
-import { bakuDate, range } from "./util.ts";
 import { createEvents } from "ics";
+
+const range = (start: number, end: number) => {
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+};
+
+const bakuDate = (year: number, month: number, day: number) => {
+  const date = new Date(year, month, day);
+  date.setUTCHours(20);
+  return date;
+};
 
 type SimpleEvent = [string, number, string];
 
