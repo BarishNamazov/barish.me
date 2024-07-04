@@ -31,7 +31,7 @@ titlePrefix: About
 </style>
 
 <div class="head">
-  <img src="/barish.jpg" alt="Abutalib-Barish Namazov" />
+  <img src="/media/barish.jpg" alt="Abutalib-Barish Namazov" />
   <h1>Abutalib-Barish Namazov</h1>
 </div>
 

@@ -105,7 +105,7 @@ a[target="_blank"]::after {
   display: inline-block;
   width: 0.5em;
   height: 0.5em;
-  background: url("/external-link.svg") no-repeat center center;
+  background: url("/icons/external-link.svg") no-repeat center center;
   color: var(--accent);
   background-size: contain;
   margin-bottom: 0.2em;
