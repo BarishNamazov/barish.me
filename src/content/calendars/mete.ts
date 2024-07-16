@@ -47,7 +47,18 @@ range(1, 12).forEach((week, i) => {
   }
 });
 
-const all: SimpleEvent[] = [...cs50x, ...mit_6042];
+// 6.145 - Started on July 16, 2024
+const mit_6145: SimpleEvent[] = range(0, 5).map((_, i) => {
+  const week = Math.floor(i / 2), part = i % 2;
+  const date = bakuDate(2024, 6, 16 + 3 + Math.floor(i / 3) * 7);
+  return [
+    `[MIT 6.145] Assignment ${week}.${part}`,
+    date.getTime(),
+    `https://hz.mit.edu/catsoop/6.145/assignment${week}.${part}`,
+  ];
+});
+
+const all: SimpleEvent[] = [...cs50x, ...mit_6042, ...mit_6145];
 
 const ics = createEvents(
   all.map(([title, deadline, url]) => ({
