@@ -6,7 +6,7 @@ const range = (start: number, end: number) => {
 
 const bakuDate = (year: number, month: number, day: number) => {
   const date = new Date(year, month, day);
-  date.setUTCHours(20);
+  date.setUTCHours(19, 59, 59);
   return date;
 };
 
