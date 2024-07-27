@@ -51,7 +51,7 @@ const cs50x: SimpleEvent[] = range(0, 10)
   });
 cs50x.push([
   "[CS50x] Finish up",
-  bakuDate(2024, 7, 31).getTime(),
+  bakuDate(2024, Month.July, 31).getTime(),
   "https://cs50.harvard.edu/x/2024/",
 ]);
 // CS50x Finishes on July 31, 2024
