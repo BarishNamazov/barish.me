@@ -2,6 +2,7 @@
 title: How I do my computing
 description: My hardware and software setup.
 date: 2024-07-01
+updatedDate: 2024-08-24
 star: true
 ---
 
