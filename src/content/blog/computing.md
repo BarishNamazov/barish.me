@@ -75,8 +75,11 @@ I am only going to share use case agnostic extensions I use:
 - [Remote - SSH](https://github.com/Microsoft/vscode-remote-release?tab=readme-ov-file) for opening remote files and directories
 - [vscode-pdf](https://github.com/tomoki1207/vscode-pdfviewer) for viewing PDF files
 - [Word Counter](https://gitlab.com/LudwigNeste/vscode-word-counter) for having a nice word count
+- [Vim](https://github.com/VSCodeVim/Vim) for Vim motions
 
-When I am on terminal, I use [Vim](https://www.vim.org/) with minimal configuration for quickly editing files.
+### NeoVim
+
+As of 2024 August, I have switched good amount of my development into [Neovim](https://neovim.io/). I am planning to deprecate Code OSS (VSCode) soon, as I figure out more configurations for Neovim for specific use cases.
 
 ### Obsidian
 
