@@ -2,7 +2,7 @@
 title: How I do my computing
 description: My hardware and software setup.
 date: 2024-07-01
-updatedDate: 2024-08-24
+updatedDate: 2024-12-17
 star: true
 ---
 
@@ -30,63 +30,50 @@ I am not as linux savvy as some of my friends but it's great to have a lot of co
 [ArchWiki](https://wiki.archlinux.org/) is also one of the best wikis I have seen.
 Btw, I use arch.
 
-### GNOME
+### Hyprland
 
-I have not used other display managers much given that I started off with Ubuntu. I find GNOME with GTK 4 clean and very customizable. I have these extensions installed:
+I started using [Hyprland](https://hyprland.org/) in late 2024, making a full switch from GNOME.
+For me, it was a pretty smooth transition, but I did waste a couple days "perfecting"
+my decent-looking set up. I did not use any template but configured kitty, waybar, and wofi manually,
+though looking at strangers' dotfiles was very useful. You can find my dotfiles [here](https://github.com/BarishNamazov/dotfiles).
 
-- [Blur my Shell](https://github.com/aunetx/blur-my-shell) for nicer view
-- [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) for a nice history for copied text and media
-- [Dash to Dock](https://micheleg.github.io/dash-to-dock/) for more real screen estate
-- [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki) for [KDE Connect](https://userbase.kde.org/KDEConnect) integration with my mobile device
+### kitty / bash
 
-From the [built-in extensions](https://gitlab.gnome.org/GNOME/gnome-shell-extensions), I have Removable Drive Menu and System Monitor enabled. I like seeing how much usage is happening with my CPU, RAM, and network.
+I use [kitty](https://sw.kovidgoyal.net/kitty/) as my terminal emulator,
+and I switched back to bash from the fish shell.
 
-I used [Black Box](https://gitlab.gnome.org/raggesilver/blackbox) terminal for better GTK 4 integration for a while, but now that it has stopped development I am back to using GNOME Console app.
+### Neovim
 
-### Fish Shell
+Around late 2024, I completely moved away from Code OSS (VSCode) to [Neovim](https://neovim.io/).
+I'd say that I have gotten very used to it and feel pretty comfortable.
+The only feature I miss is remote development, but it's not that big of a pain so far.
 
-[Fish Shell](https://fishshell.com/) is great and easy to use even with its defaults. Unfortunately, themes don't work on my machine, which might be due to GTK forced styles.
+My configuration lives [here](https://github.com/BarishNamazov/dotfiles/tree/main/nvim).
 
 ### Mozilla Firefox
 
-I would not use any other browser as my daily driver for many reasons. I enjoy [Firefox](https://www.mozilla.org/en-US/firefox/new/) but still have a lot of criticism for it. These extensions make my life easier:
+I would not use any other browser as my daily driver for many reasons.
+I enjoy [Firefox](https://www.mozilla.org/en-US/firefox/new/) but still have a lot of criticism for it.
+These extensions make my life easier:
 
-- [Sidebery](https://github.com/mbnuqw/sidebery) for vertical tab management
 - [Bitwarden](https://bitwarden.com/) for managing passwords
 - [uBlock Origin](https://github.com/gorhill/uBlock#ublock-origin) for avoiding ads and trackers
 - [Vimium](https://github.com/philc/vimium) for faster navigation
 - [Tampermonkey](https://www.tampermonkey.net/) for custom scripting
-- [Stylus](https://add0n.com/stylus.html) for custom styling certain websites
 - [Video Speed Controller](https://github.com/codebicycle/videospeed) for easily changing video speed
 - [Enhancer for Youtube](https://www.mrfdev.com/enhancer-for-youtube) for better and less distracting Youtube experience
 - [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/), [Don't track me Google](https://github.com/Rob--W/dont-track-me-google), and [Facebook Container](https://github.com/mozilla/contain-facebook) for keeping it safer over the web
   While this list is larger than I would hope for, each of these extensions are essential for my specific use cases. The list does not include development extensions like [Vue.js Devtools](https://devtools.vuejs.org/) since I keep them disabled unless I need to debug.
 
+I used to use these extensions but don't anymore:
+
+- [Sidebery](https://github.com/mbnuqw/sidebery) for vertical tab management
+- [Stylus](https://add0n.com/stylus.html) for custom styling certain websites
+
 ### Betterbird (Thunderbird)
 
 I used [Thunderbird](https://www.thunderbird.net/en-US/) for a while after being fed up with web email clients (Gmail, Outlook, etc.) and their slowness.
 Then I switched to [Betterbird](https://www.betterbird.eu/) simply because it allowed me better defaults and settings.
-
-### Code - OSS (Visual Studio Code)
-
-[VSCode](https://wiki.archlinux.org/title/Visual_Studio_Code) is great for most development with its extensions ecosystem. I find it somewhat buggy when I have multiple projects open as it starts lagging extremely. While I haven't found a solution for this bug, I have some small remedies.
-I am only going to share use case agnostic extensions I use:
-
-- [Git Graph](https://github.com/mhutchie/vscode-git-graph) for nicely viewing commit history and branches
-- [Remote - SSH](https://github.com/Microsoft/vscode-remote-release?tab=readme-ov-file) for opening remote files and directories
-- [vscode-pdf](https://github.com/tomoki1207/vscode-pdfviewer) for viewing PDF files
-- [Word Counter](https://gitlab.com/LudwigNeste/vscode-word-counter) for having a nice word count
-- [Vim](https://github.com/VSCodeVim/Vim) for Vim motions
-
-### NeoVim
-
-As of 2024 August, I have switched good amount of my development into [Neovim](https://neovim.io/). I am planning to deprecate Code OSS (VSCode) soon, as I figure out more configurations for Neovim for specific use cases.
-
-### Obsidian
-
-I started using [Obsidian](https://obsidian.md/) on May 2024 to do journaling and taking notes.
-In fact, this page was first written in Obsidian.
-It saddens me that such great piece of engineering is not open-source.
 
 ### Syncthing
 
@@ -94,7 +81,7 @@ It saddens me that such great piece of engineering is not open-source.
 
 ### z
 
-I jump around using [z](https://github.com/rupa/z). I use the [fish port](https://github.com/jethrokuan/z).
+I jump around using [z](https://github.com/rupa/z).
 
 ### Discord
 
@@ -171,9 +158,15 @@ For security purposes, I will not share my current phone model. My phone history
 - 20?? to 2013: [Samsung Galaxy S III](https://www.gsmarena.com/samsung_i9300_galaxy_s_iii-4238.php)
 - 20?? to 20??: [Samsung Galaxy Gio](https://www.gsmarena.com/samsung_galaxy_gio_s5660-3741.php)
 
-All my previous phones were "[rooted](https://www.androidauthority.com/what-is-rooted-phone-3338226/)". I do not root my phone anymore since it blocks usage of some banking apps and makes the phone much more vulnerable. I still own my old Galaxy Note 3 somewhere but do not use it. If I remember correctly, it's running Android 12 with [Lineage OS](https://lineageos.org/).
+All my previous phones were "[rooted](https://www.androidauthority.com/what-is-rooted-phone-3338226/)".
+I do not root my phone anymore since it blocks usage of some banking apps and makes the phone much more vulnerable.
+I still own my old Galaxy Note 3 somewhere but do not use it.
+If I remember correctly, it's running Android 12 with [Lineage OS](https://lineageos.org/).
 
-MIT provided me with an Ipad Air in 2020. While I used to use it with Apple Pencil to take notes, I stopped completely using it around 2022. I have not used any other Apple devices other than this tablet. In May 2024, I got my own Android tablet to read books and consume media.
+MIT provided me with an Ipad Air in 2020.
+While I used to use it with Apple Pencil to take notes, I stopped completely using it around 2022.
+I have not used any other Apple devices other than this tablet.
+In May 2024, I got my own Android tablet to read books and consume media.
 
 ## Mobile Software
 
@@ -193,7 +186,11 @@ I sometimes notice videos from [Mind Pulp](https://www.youtube.com/@MindPulp) wh
 
 ## "Deprecated" Software
 
-Most of these software probably did not actually get deprecated, but I stopped using them for good reasons. They were useful enough that it's worth mentioning them. It was not easy remembering this list and it probably still is missing some software.
+Most of these software probably did not actually get deprecated, but I stopped using them for good reasons.
+They were useful enough that it's worth mentioning them.
+It was not easy remembering this list and it probably still is missing some software.
+
+Sometimes I will move a software from the list above to here. I might not explain why, but feel free to contact and ask.
 
 ### Dropbox
 
@@ -206,3 +203,45 @@ Sublime Text is a nice editor and it's faster than VSCode when working with larg
 ### Ubuntu
 
 I have used Ubuntu for a long time, but it has never been properly stable. Aptitude, snaps, bad GPU integration, etc has caused me to move on.
+
+### GNOME
+
+> Note: Below is older writeup, moved to here on 2024-12-15.
+
+I have not used other display managers much given that I started off with Ubuntu. I find GNOME with GTK 4 clean and very customizable. I have these extensions installed:
+
+- [Blur my Shell](https://github.com/aunetx/blur-my-shell) for nicer view
+- [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) for a nice history for copied text and media
+- [Dash to Dock](https://micheleg.github.io/dash-to-dock/) for more real screen estate
+- [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki) for [KDE Connect](https://userbase.kde.org/KDEConnect) integration with my mobile device
+
+From the [built-in extensions](https://gitlab.gnome.org/GNOME/gnome-shell-extensions), I have Removable Drive Menu and System Monitor enabled. I like seeing how much usage is happening with my CPU, RAM, and network.
+
+I used [Black Box](https://gitlab.gnome.org/raggesilver/blackbox) terminal for better GTK 4 integration for a while, but now that it has stopped development I am back to using GNOME Console app.
+
+### Fish Shell
+
+> Note: Below is older writeup, moved to here on 2024-12-15.
+
+[Fish Shell](https://fishshell.com/) is great and easy to use even with its defaults. Unfortunately, themes don't work on my machine, which might be due to GTK forced styles.
+
+### Code - OSS (Visual Studio Code)
+
+> Note: Below is older writeup, moved to here on 2024-12-15.
+
+[VSCode](https://wiki.archlinux.org/title/Visual_Studio_Code) is great for most development with its extensions ecosystem. I find it somewhat buggy when I have multiple projects open as it starts lagging extremely. While I haven't found a solution for this bug, I have some small remedies.
+I am only going to share use case agnostic extensions I use:
+
+- [Git Graph](https://github.com/mhutchie/vscode-git-graph) for nicely viewing commit history and branches
+- [Remote - SSH](https://github.com/Microsoft/vscode-remote-release?tab=readme-ov-file) for opening remote files and directories
+- [vscode-pdf](https://github.com/tomoki1207/vscode-pdfviewer) for viewing PDF files
+- [Word Counter](https://gitlab.com/LudwigNeste/vscode-word-counter) for having a nice word count
+- [Vim](https://github.com/VSCodeVim/Vim) for Vim motions
+
+### Obsidian
+
+> Note: Below is older writeup, moved to here on 2024-12-15.
+
+I started using [Obsidian](https://obsidian.md/) on May 2024 to do journaling and taking notes.
+In fact, the first version of this page was written in Obsidian.
+It saddens me that such great piece of engineering is not open-source.
