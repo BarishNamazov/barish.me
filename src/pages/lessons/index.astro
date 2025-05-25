@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostList from "../../components/PostList.astro";
+
+const posts = (await getCollection("lessons")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout titlePrefix="Lessons">
+  <h1>Lessons</h1>
+  <p>
+    Some notes from my teachings.
+  </p>
+  <section>
+    <PostList posts={posts} sublink="lessons" />
+  </section>
+</Layout>

@@ -4,9 +4,10 @@ import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
   posts: CollectionEntry<"blog">[];
+  sublink: string;
 }
 
-const { posts } = Astro.props;
+const { posts, sublink = "blog" } = Astro.props;
 ---
 
 <style>
@@ -19,7 +20,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li class={post.data.star ? "star" : ""}>
-        <a href={`/blog/${post.slug}`}>{post.data.title}</a> -{" "}
+        <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a> -{" "}
         <FormattedDate date={post.data.date} />
       </li>
     ))
