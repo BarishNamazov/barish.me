@@ -15,6 +15,6 @@ const posts = (await getCollection("blog")).sort(
     friends.
   </p>
   <section>
-    <PostList posts={posts} />
+    <PostList posts={posts}  sublink="blog" />
   </section>
 </Layout>

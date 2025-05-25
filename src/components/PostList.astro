@@ -3,11 +3,11 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
-  posts: CollectionEntry<"blog">[];
+  posts: CollectionEntry<"blog">[] | CollectionEntry<"lessons">[];
   sublink: string;
 }
 
-const { posts, sublink = "blog" } = Astro.props;
+const { posts, sublink } = Astro.props;
 ---
 
 <style>
