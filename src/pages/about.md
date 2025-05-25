@@ -43,8 +43,8 @@ problems of software modularity and web development. I enjoy teaching
 others, as well as creating educational content.
 
 Other than academics and related work, I enjoy playing video games and
-watching TV series. The latest show I watched was [The Wire](https://m.imdb.com/title/tt0306414/),
-and it was absolutely fantastic.
+watching TV series. The latest show I watched was The Sopranos (before that, The Wire),
+and it was absolutely fantastic. Lately, I spend a good amount of time in the gym lifting.
 
 Currently, I am working on a few projects that are not ready to be announced.
 The things I have done in the near past include:

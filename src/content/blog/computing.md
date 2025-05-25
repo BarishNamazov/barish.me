@@ -2,7 +2,7 @@
 title: How I do my computing
 description: My hardware and software setup.
 date: 2024-07-01
-updatedDate: 2024-12-17
+updatedDate: 2025-05-24
 star: true
 ---
 
@@ -49,6 +49,10 @@ I'd say that I have gotten very used to it and feel pretty comfortable.
 The only feature I miss is remote development, but it's not that big of a pain so far.
 
 My configuration lives [here](https://github.com/BarishNamazov/dotfiles/tree/main/nvim).
+
+### lazygit
+
+I am [lazy to git](https://github.com/jesseduffield/lazygit).
 
 ### Mozilla Firefox
 
@@ -176,8 +180,13 @@ For security purposes, I am not going to share what mobile apps I own. However, 
 
 In addition to my desktop computer, I own a PlayStation 5, obtained in Summer 2023.
 Before my computer, I had a PS Plus subscription, but I stopped paying for it since I don't play on my console anymore.
-In earlier years, I played games on my laptop(s). Additionally, I was an avid PlayStation 2 player from 2007 to 2012. Avid here refers to more than 1,000 physical game CDs over those years. A few games I recently play:
+In earlier years, I played games on my laptop(s). Additionally, I was an avid PlayStation 2 player from 2007 to 2012. Avid here refers to more than 1,000 physical game CDs over those years.
 
+A few games I recently played:
+
+- The Last of Us
+- Uncharted 4
+- Detroit: Become Human
 - [Celeste](<https://en.wikipedia.org/wiki/Celeste_(video_game)>)
 - [Dave the Diver](https://en.wikipedia.org/wiki/Dave_the_Diver)
 - [Super Smash Bros.](https://en.wikipedia.org/wiki/Super_Smash_Bros.) with friends
