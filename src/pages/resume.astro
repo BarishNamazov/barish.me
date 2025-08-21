@@ -1,14 +1,23 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import { SITE_TITLE } from "../consts";
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
 
-import "../styles/resume.css";
+import '../styles/resume.css';
 
 export const RESUME_DESCRIPTION = `
-  I am a software engineer with experience in web development, software architecture, and performance engineering.
-  I have built production-grade systems from ground up, and I enjoy using the latest technologies.
+I am a computer engineer with experience in
+web development,
+software architecture,
+programming languages and compilers,
+finance technology (tick-level and technical market data & derivatives),
+and performance engineering (C++ and Linux-tuning).
+
+I have worked with and built custom deployment systems
+over the globe both on-prem and cloud.
+
+I enjoy working with the latest technologies.
 `.trim();
 ---
 
@@ -22,8 +31,8 @@ export const RESUME_DESCRIPTION = `
     />
 
     <script>
-      document.getElementById("download")?.addEventListener("click", () => {
-        window.open("/media/resume.pdf", "_blank");
+      document.getElementById('download')?.addEventListener('click', () => {
+        window.open('/media/resume.pdf', '_blank');
       });
     </script>
   </head>
@@ -31,10 +40,20 @@ export const RESUME_DESCRIPTION = `
     <article class="no-print page-topping">
       <Header />
 
+      <h1
+        style="text-align: center; font-size: 2.5rem; margin-top: 2rem; margin-bottom: 0;"
+      >
+        Abutalib-Barish Namazov
+      </h1>
+
       <div>
         <p>{RESUME_DESCRIPTION}</p>
-        <p>Below is my resume, coded in HTML and CSS.</p>
         <button id="download">Download PDF</button>
+        <p
+          style="margin-top: 0.5rem; font-size: 0.9rem; color: #666; text-align: center;"
+        >
+          or try printing this page!
+        </p>
       </div>
     </article>
 
@@ -54,7 +73,8 @@ export const RESUME_DESCRIPTION = `
             LinkedIn: <a
               href="https://www.linkedin.com/in/abutalib-namazov/"
               target="_blank"
-              rel="noopener noreferrer">abutalib-namazov</a>
+              rel="noopener noreferrer">abutalib-namazov</a
+            >
           </li>
           <li>
             Github: <a
@@ -82,12 +102,6 @@ export const RESUME_DESCRIPTION = `
                 <time datetime="2024-05">May 2024</time>
               </span>
             </div>
-            <p>
-              <span class="list-title">Relevant coursework</span>: Software
-              Construction, Advanced Algorithms, Discrete Math, Machine
-              Learning, Probability & Random Variables, Linear Algebra and
-              Optimization, Web Design, Compiler Design, Computer Systems
-            </p>
             <p>
               <span class="list-title">Leadership</span>: Founding President of <a
                 href="https://opencode.mit.edu/"
@@ -199,7 +213,10 @@ export const RESUME_DESCRIPTION = `
                 licenses with custom modifications, improving debugging and
                 enabling abstraction of licenses into readable objects.
               </li>
-              <li>Enhanced license validation and C++ diagnostic tool for user-friendly output and key-holder details.</li>
+              <li>
+                Enhanced license validation and C++ diagnostic tool for
+                user-friendly output and key-holder details.
+              </li>
             </ul>
           </li>
           <li>
@@ -246,7 +263,7 @@ export const RESUME_DESCRIPTION = `
         <h2>Projects and Voluntary Work</h2>
         <ul>
           <li>
-            Taught free and public competitive-programming classes to over 1000
+            Taught free and public competitive-programming classes to over 8000
             students in Azerbaijan in winters of <a
               href="https://tedbilik.github.io/kamp/"
               target="_blank"
@@ -277,13 +294,14 @@ export const RESUME_DESCRIPTION = `
       <section class="skills">
         <h2>Programming skills</h2>
         <p>
-          <span class="list-title">Languages</span>: C, C++, Rust, C#, Python,
-          JavaScript, TypeScript, HTML, CSS, Scheme
+          <span class="list-title">Languages</span>: C++, Python, Rust,
+          JavaScript, TypeScript, HTML, CSS, Scheme, Lua
         </p>
         <p>
-          <span class="list-title">Technologies</span>: Git, UNIX/Bash, Vue,
-          SvelteKit, Express, FastAPI, NumPy, Pandas, Ray, Spark, WebSockets,
-          NoSQL, SQL, Serverless/Edge
+          <span class="list-title">Technologies</span>: UNIX/Bash/RHEL,
+          CMake/Bazel, Frontend/Backend, PyBind/NumPy/Pandas/Xarray,
+          TCP/UDP/Multicast, WebSockets, NoSQL/SQL, Serverless/Edge/Lambda,
+          DevOps/Deployment, CI/CD
         </p>
         <p>
           <span class="list-title">Competitive Programming</span>: Strong

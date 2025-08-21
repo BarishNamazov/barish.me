@@ -1,15 +1,14 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import Layout from "./Layout.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import { BlogSchema } from "../content/config.ts";
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { BlogSchema } from '../content/config.ts';
 
 type Props =
-| CollectionEntry<"blog">
-| CollectionEntry<"lessons">
-| { frontmatter: CollectionEntry<"blog">["data"]; }
-| { frontmatter: CollectionEntry<"lessons">["data"]; }
-;
+  | CollectionEntry<'blog'>
+  | CollectionEntry<'lessons'>
+  | { frontmatter: CollectionEntry<'blog'>['data'] }
+  | { frontmatter: CollectionEntry<'lessons'>['data'] };
 
 const props = Astro.props;
 
@@ -21,7 +20,7 @@ type Metadata = {
 };
 
 let post: Metadata;
-if ("frontmatter" in props) {
+if ('frontmatter' in props) {
   post = BlogSchema.safeParse(props.frontmatter).data!;
 } else {
   post = props.data;

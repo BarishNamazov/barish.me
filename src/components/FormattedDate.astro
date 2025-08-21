@@ -1,46 +1,58 @@
 ---
 interface Props {
-	date: Date | string;
+  date: Date | string;
 }
 
 const { date } = Astro.props;
 
 function formatDate(date: Date | string) {
-	if (typeof date === 'string') {
-		// Handle YYYY-MM format
-		const [year, month] = date.split('-');
-		const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
-		                   'July', 'August', 'September', 'October', 'November', 'December'];
-		return `${monthNames[parseInt(month) - 1]} ${year}`;
-	}
-	
-	// Handle full Date objects - check if it's just year-month (day = 1) or has a specific day
-	const day = date.getDate();
-	if (day === 1) {
-		// Likely a converted YYYY-MM date, show only month and year
-		return date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'long',
-		});
-	} else {
-		// Has a specific day, show full date
-		return date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-		});
-	}
+  if (typeof date === 'string') {
+    // Handle YYYY-MM format
+    const [year, month] = date.split('-');
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    return `${monthNames[parseInt(month) - 1]} ${year}`;
+  }
+
+  // Handle full Date objects - check if it's just year-month (day = 1) or has a specific day
+  const day = date.getDate();
+  if (day === 1) {
+    // Likely a converted YYYY-MM date, show only month and year
+    return date.toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'long',
+    });
+  } else {
+    // Has a specific day, show full date
+    return date.toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  }
 }
 
 function getDatetime(date: Date | string) {
-	if (typeof date === 'string') {
-		// Convert YYYY-MM to ISO date (first day of month)
-		return `${date}-01`;
-	}
-	return date.toISOString();
+  if (typeof date === 'string') {
+    // Convert YYYY-MM to ISO date (first day of month)
+    return `${date}-01`;
+  }
+  return date.toISOString();
 }
 ---
 
 <time datetime={getDatetime(date)}>
-	{formatDate(date)}
+  {formatDate(date)}
 </time>

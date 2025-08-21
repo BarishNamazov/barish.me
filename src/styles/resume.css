@@ -1,6 +1,6 @@
 /* Main resume styling */
 main {
-  font-family: "EB Garamond", serif;
+  font-family: 'EB Garamond', serif;
   font-size: 10pt;
   background: white;
   border: 1px solid black;
@@ -10,17 +10,20 @@ main {
   line-height: 14pt;
   width: 100%;
 
-  & a[target="_blank"]::after {
+  & a[target='_blank']::after {
     all: unset;
   }
 }
+
 h1 {
   font-size: 12pt;
 }
+
 h2 {
   font-size: 11pt;
   margin-bottom: 4pt;
 }
+
 h3 {
   font-size: 10pt;
   margin-bottom: 0;
@@ -28,6 +31,7 @@ h3 {
 
 section.header {
   text-align: center;
+
   & ul {
     list-style: none;
     padding: 0;
@@ -36,7 +40,7 @@ section.header {
     justify-content: center;
 
     & li:not(:last-child)::after {
-      content: "·";
+      content: '·';
       font-weight: 900;
       margin: 0 1em;
     }
@@ -45,10 +49,12 @@ section.header {
 
 section:not(.header) {
   margin-bottom: 10pt;
+
   & h2 {
     padding-bottom: 1pt;
     border-bottom: 1px solid black;
   }
+
   & > ul {
     padding-left: 8pt;
     list-style: none;
@@ -59,6 +65,13 @@ section:not(.header) {
     list-style: circle;
   }
 }
+
+section.experience {
+  & > ul > li {
+    margin-bottom: 8pt;
+  }
+}
+
 section.projects {
   & ul {
     padding-left: 18pt;
@@ -71,6 +84,7 @@ section.projects {
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
   grid-auto-flow: column;
+
   & .description {
     font-style: italic;
   }
@@ -86,6 +100,7 @@ section.awards {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr auto;
+
     & li:nth-child(even) {
       text-align: right;
     }
@@ -99,9 +114,11 @@ section.awards {
 p {
   margin: 0;
 }
+
 ul {
   margin: 0;
 }
+
 a {
   text-decoration: none;
 }
@@ -112,9 +129,11 @@ a {
   margin: auto;
   text-align: justify;
   padding: 1em;
+
   & p {
     width: 100%;
   }
+
   & a {
     text-decoration: none;
   }
@@ -167,17 +186,20 @@ main {
       padding: 0.1in 0.2in;
       line-height: 16pt;
     }
+
     section.header {
       & ul {
         & li:not(:last-child)::after {
-          content: "";
+          content: '';
           margin: 0 0.5em;
         }
       }
     }
+
     section.awards {
       & ul {
         display: unset;
+
         & li:nth-child(even) {
           text-align: left;
         }

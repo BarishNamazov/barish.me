@@ -1,13 +1,19 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import PostList from "../../components/PostList.astro";
-import { getContentTypeConfig } from "../../content-types";
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostList from '../../components/PostList.astro';
+import { getContentTypeConfig } from '../../content-types';
 
-const config = getContentTypeConfig("lessons");
-const posts = (await getCollection("lessons")).sort((a, b) => {
-  const aDate = typeof a.data.date === 'string' ? new Date(a.data.date + '-01') : a.data.date;
-  const bDate = typeof b.data.date === 'string' ? new Date(b.data.date + '-01') : b.data.date;
+const config = getContentTypeConfig('lessons');
+const posts = (await getCollection('lessons')).sort((a, b) => {
+  const aDate =
+    typeof a.data.date === 'string'
+      ? new Date(a.data.date + '-01')
+      : a.data.date;
+  const bDate =
+    typeof b.data.date === 'string'
+      ? new Date(b.data.date + '-01')
+      : b.data.date;
   return bDate.valueOf() - aDate.valueOf();
 });
 ---

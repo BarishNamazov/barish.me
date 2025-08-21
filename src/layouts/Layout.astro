@@ -1,8 +1,8 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 interface Props {
   titlePrefix?: string;
@@ -21,11 +21,11 @@ let { titlePrefix, description } = Astro.props;
     />
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("a").forEach((a) => {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a').forEach(a => {
           if (a.hostname !== window.location.hostname) {
-            a.target = "_blank";
-            a.rel = "noopener";
+            a.target = '_blank';
+            a.rel = 'noopener';
           }
         });
       });
