@@ -1,8 +1,8 @@
 ---
 title: Finally, a Personal Website!
 description: This took way too long to happen, but it's finally here!
-date: 2023-10-10
-updatedDate: 2024-07-01
+date: 2023-10
+updatedDate: 2024-07
 ---
 
 I created [my first blog](https://barishdan.blogspot.com/) when I was just 12 years old, inspired by my father who is a journalist, columnist, and human rights activist.

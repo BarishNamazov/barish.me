@@ -16,8 +16,8 @@ const props = Astro.props;
 type Metadata = {
   title: string;
   description: string;
-  date: Date;
-  updatedDate?: Date;
+  date: Date | string;
+  updatedDate?: Date | string;
 };
 
 let post: Metadata;

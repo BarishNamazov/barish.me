@@ -1,7 +1,7 @@
 ---
 title: I ran "rm -rf ~" in production
 description: How I accidentally deleted the home directory in production.
-date: 2024-06-21
+date: 2024-06
 ---
 
 Earlier today I was telling my dad how I am not paying for cloud database services

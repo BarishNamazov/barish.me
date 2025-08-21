@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import ContentLayout from "../layouts/ContentLayout.astro";
+import { CONTENT_TYPES, type ContentTypeKey } from "../content-types";
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  for (const contentType of CONTENT_TYPES) {
+    const posts = await getCollection(contentType.key);
+    const typePaths = posts.map((post) => ({
+      params: { slug: post.slug },
+      props: { post, contentType: contentType.key },
+    }));
+    paths.push(...typePaths);
+  }
+  
+  return paths;
+}
+
+type Props = {
+  post: CollectionEntry<ContentTypeKey>;
+  contentType: ContentTypeKey;
+};
+
+const { post } = Astro.props;
+---
+
+<ContentLayout post={post} />

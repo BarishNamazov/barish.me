@@ -1,0 +1,15 @@
+---
+import { type CollectionEntry } from "astro:content";
+import BlogLayout from "./BlogLayout.astro";
+
+export interface Props {
+  post: CollectionEntry<"blog"> | CollectionEntry<"lessons">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogLayout {...post}>
+  <Content />
+</BlogLayout>

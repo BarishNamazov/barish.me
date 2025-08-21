@@ -2,16 +2,20 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
+import { getContentTypeConfig } from "../../content-types";
 
-const posts = (await getCollection("lessons")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const config = getContentTypeConfig("lessons");
+const posts = (await getCollection("lessons")).sort((a, b) => {
+  const aDate = typeof a.data.date === 'string' ? new Date(a.data.date + '-01') : a.data.date;
+  const bDate = typeof b.data.date === 'string' ? new Date(b.data.date + '-01') : b.data.date;
+  return bDate.valueOf() - aDate.valueOf();
+});
 ---
 
-<Layout titlePrefix="Lessons">
-  <h1>Lessons</h1>
+<Layout titlePrefix={config.titlePrefix}>
+  <h1>{config.title}</h1>
   <p>
-    Some notes from my teachings.
+    {config.description}
   </p>
   <section>
     <PostList posts={posts} sublink="lessons" />

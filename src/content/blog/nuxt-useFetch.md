@@ -1,7 +1,7 @@
 ---
 title: Custom useFetch wrapper for Nuxt
 description: useFetch in Nuxt can be hard to customize since wrapping it manually loses type completion. Here's how to do it correctly.
-date: 2024-03-27
+date: 2024-03
 ---
 
 I am working on an automated web scraping project, originally for my class project but keeping it open-source.
