@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
-  posts: CollectionEntry<'blog'>[] | CollectionEntry<'lessons'>[];
+  posts: CollectionEntry<"blog">[] | CollectionEntry<"lessons">[];
   sublink: string;
 }
 
@@ -12,15 +12,15 @@ const { posts, sublink } = Astro.props;
 
 <style>
   li.star::after {
-    content: ' ⭐️';
+    content: " ⭐️";
   }
 </style>
 
 <ul>
   {
     posts.map(post => (
-      <li class={post.data.star ? 'star' : ''}>
-        <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a> -{' '}
+      <li class={post.data.star ? "star" : ""}>
+        <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a> -{" "}
         <FormattedDate date={post.data.date} />
       </li>
     ))

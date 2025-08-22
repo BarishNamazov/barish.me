@@ -1,9 +1,9 @@
-import { createEvents } from 'ics';
+import { createEvents } from "ics";
 
 const range = (start: number, end: number, exclude: number[] = []) => {
   const excludeSet = new Set(exclude);
   return Array.from({ length: end - start + 1 }, (_, i) => start + i).filter(
-    val => !excludeSet.has(val)
+    val => !excludeSet.has(val),
   );
 };
 
@@ -48,13 +48,13 @@ const cs50x: SimpleEvent[] = range(0, 10)
     return [
       `[CS50x] Week ${week}`,
       date.getTime(),
-      `https://cs50.harvard.edu/x/2024/weeks/${week === 6.5 ? 'ai' : week}/`,
+      `https://cs50.harvard.edu/x/2024/weeks/${week === 6.5 ? "ai" : week}/`,
     ];
   });
 cs50x.push([
-  '[CS50x] Finish up',
+  "[CS50x] Finish up",
   bakuDate(2024, Month.July, 31).getTime(),
-  'https://cs50.harvard.edu/x/2024/',
+  "https://cs50.harvard.edu/x/2024/",
 ]);
 // CS50x Finishes on July 31, 2024
 
@@ -66,7 +66,7 @@ range(1, 12).forEach((week, i) => {
   mit_6042.push([
     `[MIT 6.042] Problemset ${week}`,
     date.getTime(),
-    'https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/course/',
+    "https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/course/",
   ]);
   if (examWeeks.includes(week)) {
     // Exam weeks
@@ -74,7 +74,7 @@ range(1, 12).forEach((week, i) => {
     mit_6042.push([
       `[MIT 6.042] Exam ${examWeeks.indexOf(week) + 1}`,
       date.getTime(),
-      'https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/course/',
+      "https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/course/",
     ]);
   }
 });
@@ -91,9 +91,9 @@ const mit_6145: SimpleEvent[] = range(0, 5).map((_, i) => {
   ];
 });
 mit_6145.push([
-  '[MIT 6.145] Finish up',
+  "[MIT 6.145] Finish up",
   bakuDate(2024, Month.July, 31).getTime(),
-  'https://hz.mit.edu/catsoop/6.145/',
+  "https://hz.mit.edu/catsoop/6.145/",
 ]);
 // 6.145 Finishes on July 31, 2024
 
@@ -116,18 +116,18 @@ const mit_6101: SimpleEvent[] = range(0, 13, [6, 7]).map((week, i) => {
   return [
     `[MIT 6.101] Week ${week} & Lab`,
     date.getTime(),
-    'https://py.mit.edu/spring24',
+    "https://py.mit.edu/spring24",
   ];
 });
 mit_6101.push([
-  '[MIT 6.101] Super 6.101 Adventure',
+  "[MIT 6.101] Super 6.101 Adventure",
   pushTime(last(mit_6101)[1], 7),
-  'https://py.mit.edu/spring24',
+  "https://py.mit.edu/spring24",
 ]);
 mit_6101.push([
-  '[MIT 6.101] Super 6.101 Adventure 2 64 DS Ultra 3D (and Knuckles)',
+  "[MIT 6.101] Super 6.101 Adventure 2 64 DS Ultra 3D (and Knuckles)",
   pushTime(last(mit_6101)[1], 7),
-  'https://py.mit.edu/spring24',
+  "https://py.mit.edu/spring24",
 ]);
 // 6.101 Finishes on TBD
 
@@ -145,9 +145,9 @@ const ics = createEvents(
     start: deadline,
     end: deadline,
     url,
-    organizer: { name: 'Barish Namazov', email: 'hello@barish.me' },
-    attendees: [{ name: 'Mete Namazov', email: 'mete.namazov22@gmail.com' }],
-  }))
+    organizer: { name: "Barish Namazov", email: "hello@barish.me" },
+    attendees: [{ name: "Mete Namazov", email: "mete.namazov22@gmail.com" }],
+  })),
 );
 
 export default ics;

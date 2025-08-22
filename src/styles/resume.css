@@ -1,6 +1,6 @@
 /* Main resume styling */
 main {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 10pt;
   background: white;
   border: 1px solid black;
@@ -10,7 +10,7 @@ main {
   line-height: 14pt;
   width: 100%;
 
-  & a[target='_blank']::after {
+  & a[target="_blank"]::after {
     all: unset;
   }
 }
@@ -40,7 +40,7 @@ section.header {
     justify-content: center;
 
     & li:not(:last-child)::after {
-      content: '·';
+      content: "·";
       font-weight: 900;
       margin: 0 1em;
     }
@@ -190,7 +190,7 @@ main {
     section.header {
       & ul {
         & li:not(:last-child)::after {
-          content: '';
+          content: "";
           margin: 0 0.5em;
         }
       }

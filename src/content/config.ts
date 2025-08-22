@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 export const BlogSchema = z.object({
   title: z.string(),
@@ -7,7 +7,7 @@ export const BlogSchema = z.object({
     z.coerce.date(),
     z
       .string()
-      .regex(/^\d{4}-\d{2}$/, 'Date must be in YYYY-MM format or a valid date'),
+      .regex(/^\d{4}-\d{2}$/, "Date must be in YYYY-MM format or a valid date"),
   ]),
   updatedDate: z
     .union([
@@ -16,7 +16,7 @@ export const BlogSchema = z.object({
         .string()
         .regex(
           /^\d{4}-\d{2}$/,
-          'Date must be in YYYY-MM format or a valid date'
+          "Date must be in YYYY-MM format or a valid date",
         ),
     ])
     .optional(),
@@ -24,12 +24,12 @@ export const BlogSchema = z.object({
 });
 
 const blog = defineCollection({
-  type: 'content',
+  type: "content",
   schema: BlogSchema,
 });
 
 const lessons = defineCollection({
-  type: 'content',
+  type: "content",
   schema: BlogSchema,
 });
 
