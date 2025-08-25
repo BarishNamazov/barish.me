@@ -3,7 +3,7 @@ export const CONTENT_TYPES = [
     key: "blog" as const,
     title: "Blog posts",
     description:
-      "I occasionally write! A starred blog post means it was appreciated more by my friends.",
+      "I occasionally write. A starred blog post means it was appreciated more by my friends.",
     titlePrefix: "Blog posts",
   },
   {
