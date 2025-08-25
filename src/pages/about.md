@@ -102,7 +102,7 @@ Currently, I am working on a few projects that are not ready to be announced.
 The things I have done in the near past include:
 
 <div class="activities">
-  <details class="category" open>
+  <details class="category">
     <summary>Work & Academic</summary>
     <div class="content">
       <ul>
@@ -118,7 +118,7 @@ The things I have done in the near past include:
     </div>
   </details>
 
-  <details class="category" open>
+  <details class="category">
     <summary>Teaching</summary>
     <div class="content">
       <ul>
@@ -132,7 +132,7 @@ The things I have done in the near past include:
     </div>
   </details>
 
-  <details class="category" open>
+  <details class="category">
     <summary>Community & Misc</summary>
     <div class="content">
       <ul>
