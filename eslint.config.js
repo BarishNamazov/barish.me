@@ -35,7 +35,6 @@ export default [
 
       // Semicolons and quotes
       semi: ["error", "always"],
-      quotes: ["error", "single"],
 
       // General code quality
       "no-unused-vars": "off",

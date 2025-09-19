@@ -9,6 +9,7 @@
   "bracketSameLine": false,
   "arrowParens": "avoid",
   "printWidth": 80,
+  "proseWrap": "always",
   "endOfLine": "lf",
   "plugins": ["prettier-plugin-astro"],
   "overrides": [
@@ -16,6 +17,13 @@
       "files": "*.astro",
       "options": {
         "parser": "astro"
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "parser": "markdown",
+        "proseWrap": "always"
       }
     }
   ]

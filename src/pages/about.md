@@ -87,16 +87,16 @@ titlePrefix: About
   <h1>Abutalib-Barish Namazov</h1>
 </div>
 
-My name is Abutalib but I usually go by Barish.
-I graduated from MIT in May 2024 with an undergraduate degree in
-Computer Science and Engineering. Even though I try to educate myself in all
-areas of computers, these days I am mostly interested in software modularity.
-I enjoy teaching others, as well as creating educational content.
-Feel free to reach out to me via email at hello@barish.me.
+My name is Abutalib but I usually go by Barish. I graduated from MIT in May 2024
+with an undergraduate degree in Computer Science and Engineering. Even though I
+try to educate myself in all areas of computers, these days I am mostly
+interested in software modularity. I enjoy teaching others, as well as creating
+educational content. Feel free to reach out to me via email at hello@barish.me.
 
-Other than academics and related work, I enjoy playing video games and
-watching TV series. The latest show I watched was The Sopranos (before that, The Wire),
-and it was absolutely fantastic. Lately, I spend a good amount of time at the gym lifting.
+Other than academics and related work, I enjoy playing video games and watching
+TV series. The latest show I watched was The Sopranos (before that, The Wire),
+and it was absolutely fantastic. Lately, I spend a good amount of time at the
+gym lifting.
 
 The things I have done in the near past include:
 
@@ -144,5 +144,5 @@ The things I have done in the near past include:
   </details>
 </div>
 
-I’m grateful to have worked with so many people and organizations,
-and though I can’t list everyone I’ve learned from, I’m thankful to all of them.
+I’m grateful to have worked with so many people and organizations, and though I
+can’t list everyone I’ve learned from, I’m thankful to all of them.

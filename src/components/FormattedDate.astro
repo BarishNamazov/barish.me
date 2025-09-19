@@ -1,28 +1,45 @@
 ---
 interface Props {
   date: Date | string;
+  format?: "short" | "long";
 }
 
-const { date } = Astro.props;
+const { date, format = "short" } = Astro.props;
 
-function formatDate(date: Date | string) {
+function formatDate(date: Date | string, format: "short" | "long") {
   if (typeof date === "string") {
     // Handle YYYY-MM format
     const [year, month] = date.split("-");
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
+    const monthNames =
+      format === "short"
+        ? [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ]
+        : [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
     return `${monthNames[parseInt(month) - 1]} ${year}`;
   }
 
@@ -32,13 +49,13 @@ function formatDate(date: Date | string) {
     // Likely a converted YYYY-MM date, show only month and year
     return date.toLocaleDateString("en-us", {
       year: "numeric",
-      month: "long",
+      month: format === "short" ? "short" : "long",
     });
   } else {
     // Has a specific day, show full date
     return date.toLocaleDateString("en-us", {
       year: "numeric",
-      month: "long",
+      month: format === "short" ? "short" : "long",
       day: "numeric",
     });
   }
@@ -54,5 +71,5 @@ function getDatetime(date: Date | string) {
 ---
 
 <time datetime={getDatetime(date)}>
-  {formatDate(date)}
+  {formatDate(date, format)}
 </time>

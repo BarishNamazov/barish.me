@@ -44,6 +44,7 @@ const { class: className } = Astro.props;
     padding: 1em;
     background: linear-gradient(var(--gray-gradient)) no-repeat;
     color: rgb(var(--gray));
+    font-family: "Lora", serif;
 
     & .social {
       display: flex;
@@ -64,6 +65,17 @@ const { class: className } = Astro.props;
     & img {
       width: 1.2em;
       border-radius: 0;
+    }
+  }
+
+  @media print {
+    footer {
+      background: none !important;
+      justify-content: center;
+    }
+
+    .social {
+      display: none !important;
     }
   }
 </style>

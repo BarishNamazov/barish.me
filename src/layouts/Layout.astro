@@ -47,6 +47,22 @@ let { titlePrefix, description } = Astro.props;
       p {
         text-align: justify;
       }
+
+      @media print {
+        body {
+          height: auto;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+        main {
+          flex: 1;
+          margin-bottom: 2em;
+        }
+        footer {
+          margin-top: auto;
+        }
+      }
     </style>
     <Header />
     <main>

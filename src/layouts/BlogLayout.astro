@@ -32,15 +32,48 @@ if ("frontmatter" in props) {
     text-align: center;
     margin: 0;
   }
+
+  .print-header {
+    display: none;
+  }
+
+  @media print {
+    .print-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8em;
+      font-weight: normal;
+      margin-bottom: 1em;
+      color: #666;
+    }
+
+    .print-url {
+      color: var(--accent);
+    }
+  }
 </style>
 
 <Layout titlePrefix={post.title} description={post.description}>
+  <div class="print-header">
+    <span>Abutalib (Barish) Namazov</span>
+    <span class="print-url" id="current-url"></span>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlElement = document.getElementById("current-url");
+      if (urlElement) {
+        urlElement.textContent = window.location.href;
+      }
+    });
+  </script>
   <h1>{post.title}</h1>
-  <p>Published: <FormattedDate date={post.date} /></p>
+  <p>Published: <FormattedDate date={post.date} format="long" /></p>
   {
     post.updatedDate && (
       <p>
-        Last updated: <FormattedDate date={post.updatedDate} />
+        Last updated: <FormattedDate date={post.updatedDate} format="long" />
       </p>
     )
   }

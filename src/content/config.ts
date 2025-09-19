@@ -20,7 +20,6 @@ export const BlogSchema = z.object({
         ),
     ])
     .optional(),
-  star: z.boolean().optional(),
 });
 
 const blog = defineCollection({
