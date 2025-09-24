@@ -1,98 +1,134 @@
+@import "fonts.css";
+
 :root {
-  --background: #f8f8f8;
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow:
-    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-    0 16px 32px rgba(var(--gray), 33%);
+  --background: #fdf1e1;
+  --background-light: #fef4e8;
+  --accent: #b85741;
+  --accent-light: #f0b9a5;
+  --accent-lighter: #fbeeea;
+  --accent-dark: #7a2e1f;
+  --text-color: rgb(15, 18, 25);
+  --text-color-muted: #666;
+  --black: #000;
+  --white: #fff;
+
+  --header-background: none;
+  --footer-background: linear-gradient(
+    180deg,
+    rgba(251, 238, 234, 0.9),
+    rgba(240, 185, 165, 0.9)
+  );
+  --header-text: var(--text-color);
+
+  --font-serif: "Lora", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-size-base: 1.25em;
+  --line-height-base: 1.7;
+  --line-height-heading: 1.2;
+  --font-weight-normal: 400;
+
+  --font-size-h1: 2.4em;
+  --font-size-h2: 1.8em;
+  --font-size-h3: 1.8em;
+  --font-size-h4: 1.4em;
+  --font-size-h5: 1.2em;
+  --font-size-code: 0.85em;
+
+  --main-width: 720px;
+  --padding-small: 0.5em;
+  --padding-medium: 1em;
+  --padding-large: 1.5em;
+  --padding-xl: 3em;
+  --margin-small: 0.5rem;
+  --margin-medium: 1em;
+  --margin-large: 2em;
+
+  --gap-small: 0.5rem;
+  --gap-medium: 1em;
+  --border-width-accent: 0.6em;
+
+  --border-radius-small: 2px;
+  --border-radius-medium: 8px;
+
+  --border-blockquote: 4px solid var(--accent);
+
+  --icon-size-small: 0.5em;
+  --icon-size-medium: 1.2rem;
 }
 
-@font-face {
-  font-family: "Lora";
-  src: url("/fonts/Lora.woff2") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lora";
-  src: url("/fonts/Lora-Italic.woff2") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond.woff2") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond-Italic.woff2") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
+html {
+  background: var(--background);
 }
 
-header {
-  background-color: var(--background);
-  padding: 1em;
+header#site-header {
+  background: var(--header-background);
+  padding: var(--padding-medium);
+  border: solid var(--accent);
+  border-width: var(--border-width-accent) 0 0 0;
+  height: 5em;
 }
+
 body {
-  font-family: "Lora", serif;
+  font-family: var(--font-serif);
   margin: 0;
   padding: 0;
   text-align: left;
-  background: var(--background);
-  word-wrap: break-word;
   overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
-  font-size: 1.25em;
-  line-height: 1.7;
+  color: var(--text-color);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 main {
-  width: 600px;
+  width: var(--main-width);
   max-width: calc(100% - 2em);
   margin: auto;
-  padding: 3em 1em;
+  padding: var(--padding-xl) var(--padding-medium);
 }
+
+footer#site-footer {
+  background: var(--footer-background);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
-  line-height: 1.2;
-  font-family: "Lora", serif;
+  margin: 0 0 var(--margin-small) 0;
+  color: var(--header-text);
+  line-height: var(--line-height-heading);
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-medium);
 }
 h1 {
-  font-size: 2.4em;
+  font-size: var(--font-size-h1);
+  color: var(--black);
+  font-weight: var(--font-weight-bolder);
 }
 h2 {
-  font-size: 1.8em;
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
 }
 h3 {
-  font-size: 1.8em;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
 }
 h4 {
-  font-size: 1.4em;
+  font-size: var(--font-size-h4);
 }
 h5 {
-  font-size: 1.2em;
+  font-size: var(--font-size-h5);
 }
 strong,
 b {
-  font-weight: 700;
-  font-family: "Lora", serif;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-serif);
 }
 a {
   text-decoration: none;
@@ -104,8 +140,8 @@ a:hover {
 a[target="_blank"]::after {
   content: "";
   display: inline-block;
-  width: 0.5em;
-  height: 0.5em;
+  width: var(--icon-size-small);
+  height: var(--icon-size-small);
   background: url("/icons/external-link.svg") no-repeat center center;
   color: var(--accent);
   background-size: contain;
@@ -113,10 +149,10 @@ a[target="_blank"]::after {
 }
 
 p {
-  margin-bottom: 1em;
+  margin-bottom: var(--margin-medium);
 }
 .prose p {
-  margin-bottom: 2em;
+  margin-bottom: var(--margin-large);
 }
 textarea {
   width: 100%;
@@ -131,41 +167,35 @@ table {
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--border-radius-medium);
 }
 code {
   padding: 2px 5px;
-  background-color: rgb(var(--gray-light));
-  border-radius: 2px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.85em;
+  background-color: var(--accent-light);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
 }
 pre {
-  padding: 1.5em;
-  border-radius: 8px;
+  padding: var(--padding-large);
+  border-radius: var(--border-radius-medium);
 }
 pre > code {
   all: unset;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.85em;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
 }
 blockquote {
-  border-left: 4px solid var(--accent);
+  border-left: var(--border-blockquote);
   padding: 0 0 0 20px;
   margin: 0px;
   font-size: 1em;
 }
-hr {
-  border: none;
-  border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    padding: 1em;
-  }
+
+button {
+  font-family: var(--font-serif);
+  font-size: 0.8em;
+  cursor: pointer;
 }
 
 @media print {
@@ -173,13 +203,17 @@ hr {
     display: none !important;
   }
 
+  html {
+    background: var(--white) !important;
+  }
+
   body {
-    background: white !important;
-    color: black !important;
+    background: var(--white) !important;
+    color: var(--black) !important;
   }
 
   main {
-    padding-top: 0.5em !important;
+    padding-top: var(--padding-small) !important;
   }
 
   header {

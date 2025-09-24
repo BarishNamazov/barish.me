@@ -1,0 +1,82 @@
+export default {
+  name: "tercotta-light",
+  type: "light",
+  colors: {
+    "editor.background": "#fae7cf",
+    "editor.foreground": "#3a2a27",
+    "editorLineNumber.foreground": "#caa997",
+    "editorLineNumber.activeForeground": "#a97f6d",
+    "editorCursor.foreground": "#b85741",
+    "editor.selectionBackground": "#f0b9a588",
+    "editor.inactiveSelectionBackground": "#f7d4c680",
+    "editor.lineHighlightBackground": "#f8e3d480",
+    "editor.wordHighlightBackground": "#f0b9a544",
+    "editor.wordHighlightStrongBackground": "#f0b9a566",
+    "editorBracketMatch.background": "#f7d4c680",
+    "editorBracketMatch.border": "#f0b9a5",
+    "editorGutter.background": "#fcf6ef",
+    "editorGutter.addedBackground": "#6b8f3a",
+    "editorGutter.modifiedBackground": "#b88a2d",
+    "editorGutter.deletedBackground": "#b85741",
+    "editorError.foreground": "#b85741",
+    "editorWarning.foreground": "#b88a2d",
+    "editorInfo.foreground": "#665f88",
+    "sideBar.background": "#fcf6ef",
+    "sideBar.foreground": "#5a4944",
+    "badge.background": "#b85741",
+    "badge.foreground": "#fff"
+  },
+  tokenColors: [
+    {
+      name: "Comments",
+      scope: ["comment", "punctuation.definition.comment"],
+      settings: { fontStyle: "italic", foreground: "#b99588" }
+    },
+    {
+      name: "Keywords & Control",
+      scope: ["keyword", "storage.type", "storage.modifier", "keyword.control", "modifier"],
+      settings: { foreground: "#7a2e1f", fontStyle: "bold" }
+    },
+    {
+      name: "Types & Classes",
+      scope: ["support.type", "entity.name.type", "entity.name.class", "storage.type.class"],
+      settings: { foreground: "#665f88" }
+    },
+    {
+      name: "Functions & Methods",
+      scope: ["entity.name.function", "support.function", "meta.function-call"],
+      settings: { foreground: "#b85741" }
+    },
+    {
+      name: "Variables & Properties",
+      scope: ["variable", "meta.object-literal.key", "support.variable.property"],
+      settings: { foreground: "#4d3b37" }
+    },
+    {
+      name: "Strings",
+      scope: ["string", "constant.other.symbol", "meta.interpolation"],
+      settings: { foreground: "#7e4b2f" }
+    },
+    {
+      name: "Numbers & Constants",
+      scope: ["constant.numeric", "constant.language", "constant.character"],
+      settings: { foreground: "#8c4f3f" }
+    },
+    {
+      name: "Attributes",
+      scope: ["entity.other.attribute-name"],
+      settings: { foreground: "#8a83b0" }
+    },
+    {
+      name: "Interpolations / Template Expr",
+      scope: ["punctuation.definition.template-expression", "meta.template.expression"],
+      settings: { foreground: "#7a2e1f" }
+    },
+    {
+      name: "Punctuation & Delimiters",
+      scope: ["punctuation", "meta.brace", "meta.bracket", "meta.delimiter"],
+      settings: { foreground: "#705b54" }
+    }
+  ],
+  semanticHighlighting: true
+};

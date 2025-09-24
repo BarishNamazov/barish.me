@@ -355,3 +355,4 @@ case agnostic extensions I use:
 I started using [Obsidian](https://obsidian.md/) on May 2024 to do journaling
 and taking notes. In fact, the first version of this page was written in
 Obsidian. It saddens me that such great piece of engineering is not open-source.
+

@@ -35,18 +35,15 @@ titlePrefix: About
 
   .category {
     margin-bottom: 2rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--accent-light);
     border-radius: 8px;
     overflow: hidden;
 
     & summary {
-      background: #f8f9fa;
       padding: 1rem;
       cursor: pointer;
       list-style: none;
-      color: var(--accent-color);
       font-weight: 600;
-      border-bottom: 2px solid var(--accent-color);
       user-select: none;
 
       &::-webkit-details-marker {
@@ -67,7 +64,7 @@ titlePrefix: About
 
     & .content {
       padding: 1rem;
-      background: white;
+      background: var(--background-light);
 
       & ul {
         margin: 0;

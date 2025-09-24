@@ -33,11 +33,6 @@ let { titlePrefix, description } = Astro.props;
   </head>
   <body>
     <style is:global>
-      body {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
       main {
         flex: 1;
       }
@@ -57,7 +52,7 @@ let { titlePrefix, description } = Astro.props;
         }
         main {
           flex: 1;
-          margin-bottom: 2em;
+          margin-bottom: var(--margin-large);
         }
         footer {
           margin-top: auto;

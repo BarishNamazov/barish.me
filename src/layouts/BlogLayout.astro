@@ -33,6 +33,11 @@ if ("frontmatter" in props) {
     margin: 0;
   }
 
+  #post-title {
+    padding-top: var(--margin-medium);
+    border-top: 1rem solid var(--accent-dark);
+  }
+
   .print-header {
     display: none;
   }
@@ -44,8 +49,8 @@ if ("frontmatter" in props) {
       align-items: center;
       font-size: 0.8em;
       font-weight: normal;
-      margin-bottom: 1em;
-      color: #666;
+      margin-bottom: var(--margin-medium);
+      color: var(--text-color-muted);
     }
 
     .print-url {
@@ -68,7 +73,7 @@ if ("frontmatter" in props) {
       }
     });
   </script>
-  <h1>{post.title}</h1>
+  <h1 id="post-title">{post.title}</h1>
   <p>Published: <FormattedDate date={post.date} format="long" /></p>
   {
     post.updatedDate && (
@@ -78,5 +83,7 @@ if ("frontmatter" in props) {
     )
   }
 
-  <slot />
+  <div class="post">
+    <slot />
+  </div>
 </Layout>

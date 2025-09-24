@@ -8,9 +8,13 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<footer class={className}>
+<footer class={className} id="site-footer">
   <span>
-    © {today.getFullYear()} Abutalib (Barish) Namazov. All rights reserved.
+    © {today.getFullYear()} Abutalib (Barish) Namazov. <a
+      href="https://github.com/BarishNamazov/barish.me"
+      target="_blank"
+      rel="noopener noreferrer">This site is open-source.</a
+    >
   </span>
   <span class="social">
     <a href="/rss.xml">
@@ -30,9 +34,6 @@ const { class: className } = Astro.props;
     >
       <img src="/icons/linkedin.svg" alt="LinkedIn" />
     </a>
-    <a href="https://mastodon.social/@barish" target="_blank" rel="me">
-      <img src="/icons/mastodon.svg" alt="Mastodon" />
-    </a>
   </span>
 </footer>
 
@@ -41,30 +42,28 @@ const { class: className } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    color: rgb(var(--gray));
-    font-family: "Lora", serif;
+    padding: var(--padding-medium);
 
     & .social {
       display: flex;
       align-items: center;
-      gap: 1em;
-    }
+      gap: var(--gap-medium);
 
-    & a {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
+      & a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
 
-      &::after {
-        all: unset;
+        &::after {
+          all: unset;
+        }
       }
-    }
 
-    & img {
-      width: 1.2em;
-      border-radius: 0;
+      & img {
+        max-width: none;
+        width: var(--icon-size-medium);
+        border-radius: 0;
+      }
     }
   }
 
