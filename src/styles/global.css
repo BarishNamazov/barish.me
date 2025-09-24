@@ -1,14 +1,5 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
-@import "open-color";
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
-
 :root {
+  --background: #f8f8f8;
   --accent: #2337ff;
   --accent-dark: #000d8a;
   --black: 15, 18, 25;
@@ -22,34 +13,52 @@
 }
 
 @font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora-Italic.woff2") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
   font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond.ttf") format("truetype");
+  src: url("/fonts/EBGaramond.woff2") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond-Italic.ttf") format("truetype");
+  src: url("/fonts/EBGaramond-Italic.woff2") format("truetype");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
+header {
+  background-color: var(--background);
+  padding: 1em;
+}
 body {
   font-family: "Lora", serif;
   margin: 0;
   padding: 0;
   text-align: left;
-  background: var(--oc-gray-0);
+  background: var(--background);
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 20px;
+  font-size: 1.25em;
   line-height: 1.7;
 }
 main {
-  width: 720px;
+  width: 600px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
@@ -86,6 +95,7 @@ b {
   font-family: "Lora", serif;
 }
 a {
+  text-decoration: none;
   color: var(--accent);
 }
 a:hover {
@@ -156,24 +166,6 @@ hr {
   main {
     padding: 1em;
   }
-}
-
-.sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
-  clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-  white-space: nowrap;
 }
 
 @media print {

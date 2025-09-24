@@ -1,3 +1,7 @@
+:root {
+  --bold-weight: 700;
+}
+
 /* Main resume styling */
 main {
   font-family: "EB Garamond", serif;
@@ -15,8 +19,18 @@ main {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--bold-weight);
+}
+
 h1 {
   font-size: 12pt;
+  margin-top: 10pt;
 }
 
 h2 {
@@ -41,7 +55,7 @@ section.header {
 
     & li:not(:last-child)::after {
       content: "·";
-      font-weight: 900;
+      font-weight: var(--bold-weight);
       margin: 0 1em;
     }
   }
@@ -108,7 +122,7 @@ section.awards {
 }
 
 .list-title {
-  font-weight: 600;
+  font-weight: var(--bold-weight);
 }
 
 p {
@@ -169,7 +183,6 @@ main {
 
   html {
     margin: 0px;
-    font-variant-ligatures: none;
   }
 
   main {
