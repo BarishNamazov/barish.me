@@ -24,7 +24,7 @@ function getYear(date: Date | string) {
   return String(date.getFullYear());
 }
 
-function getMonthName(date: Date | string) {
+function formatDate(date: Date | string) {
   const monthNames = [
     "January",
     "February",
@@ -45,7 +45,7 @@ function getMonthName(date: Date | string) {
     return monthNames[parseInt(month, 10) - 1];
   }
 
-  return monthNames[date.getMonth()];
+  return `${monthNames[date.getMonth()]} ${date.getDate()}`;
 }
 ---
 
@@ -145,7 +145,7 @@ function getMonthName(date: Date | string) {
                   <h3 class="post-title">
                     <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a>
                   </h3>
-                  <span class="post-month">{getMonthName(post.data.date)}</span>
+                  <span class="post-month">{formatDate(post.data.date)}</span>
                 </header>
                 {post.data.description && (
                   <p class="post-description">{post.data.description}</p>

@@ -4,14 +4,14 @@ export const BlogSchema = z.object({
   title: z.string(),
   description: z.string(),
   date: z.union([
-    z.coerce.date(),
+    z.date(),
     z
       .string()
       .regex(/^\d{4}-\d{2}$/, "Date must be in YYYY-MM format or a valid date"),
   ]),
   updatedDate: z
     .union([
-      z.coerce.date(),
+      z.date(),
       z
         .string()
         .regex(

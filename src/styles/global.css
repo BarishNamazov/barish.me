@@ -198,6 +198,10 @@ button {
   cursor: pointer;
 }
 
+input {
+  font-family: var(--font-serif);
+}
+
 @media print {
   .no-print {
     display: none !important;
