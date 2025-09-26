@@ -91,9 +91,7 @@ interested in software modularity. I enjoy teaching others, as well as creating
 educational content. Feel free to reach out to me via email at hello@barish.me.
 
 Other than academics and related work, I enjoy playing video games and watching
-TV series. The latest show I watched was The Sopranos (before that, The Wire),
-and it was absolutely fantastic. Lately, I spend a good amount of time at the
-gym lifting.
+TV series. Lately, I also spend a good amount of time at the gym lifting.
 
 The things I have done in the near past include:
 

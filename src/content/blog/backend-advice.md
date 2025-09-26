@@ -5,180 +5,168 @@ description:
   "A simple guide to answer questions one might have when developing backends."
 ---
 
-I don't consider myself as a web or backend developer, but I have had to write
-some backend code for many reasons before. If you want to develop a simple app
-and put it out online, you will need some kind of database and server setup. In
-this blog, I share some easy and some deeper tips on writing an elegant backend
-code.
+I've written plenty of backend code over the years and developed a few good
+habits that are worth sharing. When you want to develop a simple app and deploy
+it online, you'll inevitably need some kind of database and server setup. In
+this post, I'll share some straightforward and deeper tips for writing elegant
+backend code.
 
-For context, I usually develop my backend as a REST API, but the tips here are
-applicable to other types of backend models as well.
+I am aiming this post at new learners, so some deeper concepts might be left out
+intentionally, and some advice might seem too simple.
+
+For context, I usually develop REST APIs, but these tips apply to other backend
+architectures as well.
 
 ### Table of Contents
 
-### A word on the performance
+### A Word on Performance
 
 > Premature optimization is the root of all evil. - Donald Knuth
 
-Before we talk about backend-specific tips, I want to mention something about
-performance. When I started developing web apps, I was obsessed with
-performance. I would focus on choosing the fastest programming language, the
-fastest framework, the fastest database, and I would make sure my code is
-optimized. I would spend hours or days researching and experimenting with
-different options.
+Before diving into backend-specific tips, let's talk about performance. When I
+first started building web apps, I was obsessed with speed. I'd spend hours
+researching the fastest programming language, framework, and database, making
+sure every line of code was optimized.
 
-Then most of my backend code would be dealing with CRUD operations (create,
-read, update, delete). It would not matter at all how fast my code or framework
-was, because the bottleneck was the database in most cases. It is far more
-important to optimize your architecture, data modeling, and database queries
-than to worry about the programming language. More on that later.
+Here's the reality: most backend code handles CRUD operations (create, read,
+update, delete). In these cases, your choice of programming language rarely
+matters because the database is usually the bottleneck. It's far more valuable
+to optimize your architecture, data modeling, and database queries than to worry
+about whether your language is microseconds faster.
 
-I'm not saying that you should not care about performance. But you should also
-not underestimate the power of modern hardware. Even with a slow language like
-Python, you can handle hundreds of thousands of requests per second. You will
-thank yourself later if you choose a language that has a better ecosystem for
-your use case and write cleaner code. In addition, much of the performance in
-the web comes, only when needed, comes from load balancing (possibly over
-multiple servers).
+Don't get me wrong -- performance matters. But don't underestimate modern
+hardware. Even with a "slow" language like Python, you can handle hundreds of
+thousands of requests per second. You'll thank yourself later for choosing a
+language with a strong ecosystem for your use case and focusing on clean,
+maintainable code. Plus, web performance at scale typically comes from load
+balancing across multiple servers, not from micro-optimizations.
 
-Sometimes, indeed, you need to write performant code. For example, I developed
-"Orfoqrafiya Bot," that takes in a word and returns the correct spelling of that
-word in Azerbaijani. Right now, I use Python with a package called `rapidfuzz`
-(implemented in C++) to do the initial search in the word list, but if that
-doesn't return a result, I do a custom search that incorporates some
-Azerbaijani-specific rules. `rapidfuzz` is amazingly fast and handles most of
-the cases, but the custom search sometimes takes a few hundred milliseconds,
-which makes all the other requests wait for it on a single-core server. Thus,
-I'm planning to rewrite the app and the custom search in Rust, which is a fast
-language and has a good ecosystem for web development (fortunately, rapidfuzz
-has a port for it!).
+That said, sometimes performance is critical. For example, I built "Orfoqrafiya
+Bot," which corrects Azerbaijani spelling. I use Python with `rapidfuzz` (a C++
+library) for initial word searches, but when that fails, I run a custom search
+with Azerbaijani-specific rules. While `rapidfuzz` is lightning-fast, the custom
+search can take hundreds of milliseconds, blocking other requests on a
+single-core server. That's why I'm rewriting the app in Rust -- a language
+that's both fast and has excellent web development tools.
 
-### Programming language choice
+### Choosing a Programming Language
 
 > "There are only two kinds of languages: the ones people complain about and the
 > ones nobody uses." - Bjarne Stroustrup
 
-Honestly, this might be the easiest decision to make out of all things. As
-discussed above, don't rush for the fastest language, unless your use case
-requires it. It's generally a safe choice to go with most of the popular
-languages, as they have a good ecosystem and community support. I personally
-prefer one of Node.js, Python, or Rust for backend development.
+This might be the easiest decision you'll make. As we discussed, don't chase the
+fastest language unless your specific use case demands it. Stick with popular
+languages—they have mature ecosystems and strong community support. I personally
+prefer Node.js, Python, or Rust for backend development.
 
-### Framework choice
+### Choosing a Framework
 
 > "Choosing a framework is like getting married. You have to live with it, and
 > it might get messy if you make the wrong choice." - Unknown
 
-> "Don't listen to the quote above. Instead plan on an easier divorce
-> options." - Me
+> "Don't listen to the quote above. Instead, plan for easier divorce options." -
+> Me
 
-I'm quite serious about my quote. I would personally try to go with an
-unopinionated framework, which gives you more freedom. Instead, I will discuss
-further below how to not depend on a framework too much.
+I'm serious about that second quote. I prefer unopinionated frameworks that give
+you freedom rather than forcing specific patterns. We'll discuss how to avoid
+framework lock-in later.
 
-That being said, I am currently developing my own backend framework in Node.js,
-a bit inspired by FastAPI, since I am pretty annoyed by the way Express.js code
-looks and feels like. It's part of my research project, and I will share more
-about it in the future.
+Currently, I'm building my own Node.js backend framework, inspired by FastAPI,
+because I find Express.js code clunky and hard to read. It's part of my research
+project—I'll share more about it soon.
 
-I have used FastAPI (Python), Express.js (Node.js), and Actix (Rust) before and
-they are all pretty usable.
+I've used FastAPI (Python), Express.js (Node.js), and Actix (Rust), and they're
+all solid choices.
 
-### Separation of concerns
+### Separation of Concerns
 
 > "A good architecture is like a good divorce: the parties are happier
 > separated" - Also me
 
-If you have ever noticed that backend code feels different than the "good
-software" you usually write, then something about the architecture is probably
-wrong. For me, it felt like I was just writing a bunch of handlers and database
-queries. I was not sure where to put my business logic, and I was not sure how
-to test it.
+If backend code feels different from the "good software" you usually write,
+something's wrong with your architecture. Early in my career, I felt like I was
+just writing handlers and database queries with no clear place for business
+logic or testing strategy.
 
-The solution is to separate your code into different layers. It is hard to draw
-the line between the layers, but here is two lines that I draw:
+The solution is layering your code. Here are two key boundaries I maintain:
 
-1. The web layer: your software should be able to work, as is, without a web
-   server. For example, if you have an API endpoint that returns a list of
-   users, you should be able to call a function directly from your code and get
-   the list of users.
+1. **The web layer**: Your software should work without a web server. If you
+   have an API endpoint that returns a list of users, you should be able to call
+   that function directly from your code and get the same result.
 
-2. The database layer: your software should be able to work, as is, without a
-   database. Your database should be abstracted, and if you were to replace it
-   with an in-memory structure, the code ideally should not change.
+2. **The database layer**: Your software should work without a database.
+   Abstract your database so that if you replaced it with an in-memory
+   structure, your core logic wouldn't change.
 
-The web layer is a must to separate. It will make your code testable and
-reusable. The database layer is not a must, but it will make your code more
-flexible and easier to maintain. If you want to either change your database or
-use a different database for testing, you will not have to change your code.
+The web layer separation is essential—it makes your code testable and reusable.
+The database layer separation isn't mandatory, but it makes your code flexible
+and maintainable. Want to switch databases or use a different one for testing?
+No problem.
 
 My current research focuses on
-[_concept design_](https://essenceofsoftware.com/tutorials/), which is a way of
-modeling software to maximum modularity and reusability. I am planning to write
-a blog post about it in the future, but your software still can be great without
-following concept design rules. The basic idea is, however, that the different
-components in your app, like `User` and `Post`, should be independent of each
-other.
+[concept design](https://essenceofsoftware.com/tutorials/), a software modeling
+approach that maximizes modularity and reusability. I'll write about it soon,
+but you can build great software without following concept design rules. The key
+idea is that different components in your app (like `User` and `Post`) should be
+independent of each other.
 
-This is by far the most important tip in this blog post!
+**This is the most important tip in this entire post!**
 
-### Database/ORM choice
+### Choosing a Database and ORM
 
 > "If you have a hammer, everything looks like a nail." - Abraham Maslow
 
-Database is a tool for persistent storage, and it should be treated as such. It
-shouldn't get in the way of your logic or architecture. I have used the most
-untraditional things as my database before:
+A database is a tool for persistent storage—treat it as such. Don't let it
+dictate your logic or architecture. I've used some unconventional "databases":
 
-- A local JSON file
-- A JSON file on Github
-- Commit messages of Git
-- Google Sheets / Airtable
+- Local JSON files
+- JSON files stored on GitHub
+- Git commit messages
+- Google Sheets and Airtable
 
-And they worked great. Of course, I wasn't building a large-scale app, but I was
-able to get the job done. That's what you should be focusing on. In fact, if you
-separate your database layer, you can easily switch between different databases.
-I usually do that and use a local JSON file for testing and development, and a
-real database for production.
+They worked perfectly for their purposes. I wasn't building large-scale
+applications, but I got the job done efficiently. That's what matters. When you
+separate your database layer properly, switching between different storage
+solutions becomes trivial. I often use JSON files for testing and development,
+then switch to a proper database for production.
 
-If you are looking for specific recommendations, then I'd suggest checking out
-PostgreSQL as a SQL and MongoDB as a NoSQL database. Both are pretty solid and
-have good support for most programming languages.
+For specific recommendations: PostgreSQL for SQL and MongoDB for NoSQL are both
+solid choices with excellent language support.
 
-Now, the question of interacting with the database is a bit more complicated.
-Personally, I dislike ORMs (Object-Relational Mappers) because they are usually
-too opinionated and get in the way of your code. Instead, I prefer query
-builders, which allow me to either write the query directly or use methods to
-build the query. For PostgreSQL, [Kysely](https://www.kysely.dev/) is pretty
-nice, and for MongoDB the official driver is good enough.
+Now, how should you interact with your database? I'm not a fan of ORMs
+(Object-Relational Mappers) because they're often too opinionated and get in
+your way. I prefer query builders that let me write raw queries when needed or
+use methods to build queries programmatically. For PostgreSQL,
+[Kysely](https://www.kysely.dev/) is excellent. For MongoDB, the official driver
+works well.
 
-Should you use SQL or NoSQL? Chances are, it doesn't matter for you. For most of
-my use cases, NoSQL works just fine since I don't need to deal with migrations
-or other SQL stuff. In addition, MongoDB Atlas works nicely for testing and
-development, and it's free for small projects. However, if you are building a
-larger app and need to `JOIN` tables, then SQL is probably the way to go.
+SQL or NoSQL? For most toy projects, it doesn't matter. NoSQL works fine for my
+use cases since I rarely need complex joins or migrations. MongoDB Atlas is
+great for testing and development, and it's free for small projects. However, if
+you're building a larger application that requires table joins, SQL is probably
+your best bet.
 
-### Data modeling
+### Data Modeling
 
 > "All models are wrong, but some are useful." - George Box
 
 > "All models are right, but some are useful." - Me
 
-It's hard to give specific advice on data modeling, since it depends on your use
-case. Again, chances are, you don't need to worry about it too much. However,
-let me give you a specific example so it's food for thought.
+Data modeling advice is hard to generalize since it depends entirely on your use
+case. Most of the time, you don't need to overthink it. But let me walk through
+a specific example to illustrate the principles.
 
-Let's say you are building a cash register app, and you can add items into the
-register (either income or expense). Each item can also have (possibly multiple)
-tags, like "food" or "transportation." The app should support finding total
-income and expense for given date ranges by the user, both overall and for each
-tag. It also should be possible to edit a cost of an already added item, but
-this action will be very rare (and mostly only about a recent item). Let's say
-there'll be around 10s of thousands of items added to the register per month.
+Imagine you're building a cash register app where users can add income and
+expense items. Each item can have multiple tags like "food" or "transportation."
+The app needs to:
 
-First, let's just try to calculate the overall income and expense for a given
-date range, ignoring the tags. How would you model this data? One simple way (in
-MongoDB-style, but can generalize):
+- Calculate total income and expenses for date ranges
+- Break down totals by tag
+- Allow editing of items (rarely, and usually recent ones)
+- Handle tens of thousands of items per month
+
+Let's start with a simple model (MongoDB-style, but the concept applies
+everywhere):
 
 ```ts
 type Item = {
@@ -192,12 +180,11 @@ type Item = {
 const cashRegisterDb = new Collection<Item[]>();
 ```
 
-Now, with this data model, you could do a search to find your answer
-(pseudo-code):
+To calculate income and expenses for a date range:
 
 ```ts
 const getIncomeAndExpense = (from: Date, to: Date) => {
-  const items = cashRegisterDb.find({ date: { $gte: from, $lte: to } }); // find items in the given date range
+  const items = cashRegisterDb.find({ date: { $gte: from, $lte: to } });
   const result = { income: 0, expense: 0 };
   for (const item of items) {
     result[item.type] += item.amount;
@@ -206,96 +193,85 @@ const getIncomeAndExpense = (from: Date, to: Date) => {
 };
 ```
 
-If there were 100k items in the given date range, this could take a bit of time.
-Not that much, but it would be noticable if, around 10 people were using the app
-at the same time. Honestly though, in practice, this might be already good
-enough since people won't be wondering reports over a long time range. Thus, we
-ideally want to make this faster.
+This works, but with 100k items in a date range, it could be slow when multiple
+users run reports simultaneously. While this might be acceptable in practice
+(people rarely generate reports over huge date ranges), we can optimize it.
 
-One simple but powerful trick would be to maintain a
-[running sum](https://usaco.guide/silver/prefix-sums) (aka, prefix sum) of
-income and expense for each item. Then, you could find the total income and
-expense for a given date range by subtracting the running sums of the last and
-first items in the range. This would now make queries much faster, but when you
-edit an item, you would have to update the running sums of all the items after
-it. We said that editing items would be rare or would be on a recent item, so
-this is not a big deal.
+One powerful technique is maintaining a
+[running sum](https://usaco.guide/silver/prefix-sums) (prefix sum) of income and
+expenses for each item. Then you can calculate totals for any date range by
+subtracting the running sums of the first and last items in the range. This
+makes queries much faster, but editing an item requires updating all subsequent
+running sums. Since edits are rare and usually recent, this trade-off works
+well.
 
-Now, let's add the tags to the mix. We want to find the total income and expense
-for each tag in a given date range. Will the same trick work? Yes, but we will
-have to maintain a running sum for each tag for each item. That sounds like a
-lot of wasted space since most items won't have most tags. We could use a sparse
-array, but that would make the code more complicated.
+What about tags? We could maintain running sums for each tag per item, but that
+wastes space since most items won't have most tags. We could use sparse arrays,
+but that complicates the code.
 
-There are many ways to solve this problem, but I think the best, and the most
-elegant way, is to separate the calculation of the running sum from the data
-model and do it per-day instead of per-item. There are only 365 dates in a year,
-so per-year, no matter, how many items are there, we can store the running sums
-for income, expense, and for each tag per day (compared to 10K per month!).
+Here's a more elegant solution: separate the running sum calculation from the
+data model and calculate per-day instead of per-item. There are only 365 days
+per year, so regardless of how many items you have, you can store running sums
+for income, expenses, and each tag per day.
 
-In fact, we could simplify things and instead of storying running sums, we could
-just store the total income and expense for each day and for each tag. Yes, this
-would require every query to iterate through every day in the given date range,
-but it would be fast enough for most use cases. In addition, it would make
-editing items much easier, since we would only have to update the values for the
-given day.
+Even simpler: instead of running sums, store daily totals for income, expenses,
+and each tag. Queries iterate through days in the date range (fast enough for
+most cases), and editing items only requires updating values for that specific
+day.
 
-The whole point of this big section is to show you that the data model will
-matter, and you need to be careful about it so you don't get yourself in trouble
-later. Almost all data modeling problems can be optimized to the use case
-infinitely, but if something seems like it's going to work, I would suggest
-going with it.
+The key lesson: data modeling matters, and you need to think carefully to avoid
+problems later. Most data modeling challenges can be optimized infinitely, but
+if something looks like it'll work, go with it.
 
-### Do you even need to code a backend?
+### Do You Even Need to Code a Backend?
 
 > "The best code is no code at all." - A lot of people, including me
 
-When I coded my like, third backend, I was like, "Why am I doing this? I'm just
-writing a bunch of CRUD operations." Then I started to look around and found
-these tools that allow you to create a backend without writing a single line of
-code. They handle the database, the authentication, access rules, and the API
-for you. Open-source examples include Pocketbase, Supabase, AppWrite. I have
-used Pocketbase even thought it hasn't hit 1.0 yet, and it's great. Super easy
-to use and deploy since it's just a single file.
+Around my third backend project, I thought, "Why am I doing this? I'm just
+writing CRUD operations." That's when I discovered tools that create backends
+without code. They handle databases, authentication, access control, and APIs
+automatically. Open-source examples include Pocketbase, Supabase, and AppWrite.
+I've used Pocketbase (even before version 1.0), and it's fantastic—super easy to
+use and deploy since it's just a single executable file.
 
-How far can you go with these tools? Quite far, actually. But sometimes you will
-need to write some custom code because it's either too complicated to do so in
-the tool or it's not supported. Or perhaps it's a critical part of your app and
-you want to have more control over it. Good news is, you can still use these
-tools and write your own backend code.
+How far can these tools take you? Quite far. Sometimes you'll need custom code
+for complex logic or features they don't support, or you'll want more control
+over critical parts of your app. The good news is you can combine these tools
+with custom backend code.
 
-For example, I made a website that did a survey and then emailed some message to
-my email saying that someone filled out the survey. At the time, Pocketbase
-didn't support emailing on a specific event, so I wrote a simple backend that
-did that, but still used Pocketbase for the database.
-
-The code looked something like (pseudo-code):
+For example, I built a survey website that needed to email me when someone
+submitted responses. At the time, Pocketbase didn't support event-triggered
+emails, so I wrote a simple backend for that while still using Pocketbase for
+data storage:
 
 ```ts
 import { Pocketbase } from "pocketbase";
 import { sendEmail } from "./email";
+
 const pb = new Pocketbase("my-pb-url");
 const app = express();
 
 app.post("/survey", async (req, res) => {
   const survey = req.body;
   await pb.insert("surveys", survey);
-  await sendEmail("someone filled out the survey");
+  await sendEmail("Someone filled out the survey");
   res.send("ok");
 });
 ```
 
-No need to set up a database or deal with how data is stored, and I can nicely
-view the data in the Pocketbase dashboard.
+No database setup, no data storage complexity, and I could view all responses in
+Pocketbase's dashboard.
 
 ### Conclusion
 
-If you noticed, most of the classic "software engineering" tips apply to backend
-development as well. Making sure that your architecture is clean and modular,
-your code is testable, and your data model is well thought out will make your
-backend code much better.
+Most classic software engineering principles apply to backend development.
+Clean, modular architecture, testable code, and thoughtful data modeling will
+make your backend code significantly better.
 
-Note that I didn't discuss about microservices or serverless functions, which
-are also popular ways of developing backend code. They are worth discussion, but
-the tips above apply to them as well. I am planning to talk about microservices
-in my post about concept design, so stay tuned for that.
+I didn't cover microservices or serverless functions -- both popular backend
+approaches worth discussing. These tips apply to them as well.
+
+The bottom line: focus on solving your actual problem rather than
+over-engineering solutions. Choose tools and patterns that let you build and
+maintain your application effectively, and remember that you can always refactor
+and optimize later when you have real performance data and user feedback.
