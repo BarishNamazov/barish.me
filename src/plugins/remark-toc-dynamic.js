@@ -1,7 +1,7 @@
 import remarkToc from "remark-toc";
 
 export default function remarkTocDynamic(options = {}) {
-  return function (tree, file) {
+  return function(tree, file) {
     const { data } = file;
     const tocHeading = data?.astro?.frontmatter?.tocHeading;
 

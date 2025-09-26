@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
   posts: CollectionEntry<"blog">[] | CollectionEntry<"lessons">[];
@@ -8,45 +7,154 @@ interface Props {
 }
 
 const { posts, sublink } = Astro.props;
+
+const postsByYear = posts.reduce((groups, post) => {
+  const year = getYear(post.data.date);
+  if (!groups.has(year)) {
+    groups.set(year, []);
+  }
+  groups.get(year)?.push(post);
+  return groups;
+}, new Map<string, typeof posts>());
+
+function getYear(date: Date | string) {
+  if (typeof date === "string") {
+    return date.split("-")[0];
+  }
+  return String(date.getFullYear());
+}
+
+function getMonthName(date: Date | string) {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  if (typeof date === "string") {
+    const [, month] = date.split("-");
+    return monthNames[parseInt(month, 10) - 1];
+  }
+
+  return monthNames[date.getMonth()];
+}
 ---
 
 <style>
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-large, 2rem);
+  }
+
+  .year-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  .year-heading {
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
+    color: var(--text-color-muted);
+    letter-spacing: 0.05em;
+  }
+
   ul {
     list-style: none;
     padding: 0;
-    max-width: fit-content;
-    margin: 0 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
   }
 
   li {
-    margin-bottom: var(--gap-small);
+    margin: 0;
+  }
+
+  .post-card {
     display: flex;
+    flex-direction: column;
     gap: var(--gap-small);
-    align-items: center;
+    padding-bottom: var(--gap-medium);
+    border-bottom: 1px solid color-mix(in srgb, var(--black) 10%, transparent);
   }
 
-  .date {
-    width: 8rem;
-    flex-shrink: 0;
-    font-family: var(--font-mono);
+  .post-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
-  .title {
-    flex: 1;
+  .post-title {
+    margin: 0;
+    font-size: var(--font-size-h4);
+  }
+
+  .post-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-title a:hover,
+  .post-title a:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent);
+  }
+
+  .post-month {
+    font-size: 0.9em;
+    color: var(--text-color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .post-description {
+    margin: 0;
+    color: var(--text-color-muted);
+  }
+
+  @media (min-width: 640px) {
+    .post-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
   }
 </style>
 
-<ul>
+<section class="post-list">
   {
-    posts.map(post => (
-      <li>
-        <span class="date">
-          <FormattedDate date={post.data.date} />
-        </span>
-        <span class="title">
-          <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a>
-        </span>
-      </li>
+    Array.from(postsByYear.entries()).map(([year, yearPosts]) => (
+      <div class="year-group">
+        <h2 class="year-heading">{year}</h2>
+        <ul>
+          {yearPosts.map(post => (
+            <li>
+              <article class="post-card">
+                <header class="post-header">
+                  <h3 class="post-title">
+                    <a href={`/${sublink}/${post.slug}`}>{post.data.title}</a>
+                  </h3>
+                  <span class="post-month">{getMonthName(post.data.date)}</span>
+                </header>
+                {post.data.description && (
+                  <p class="post-description">{post.data.description}</p>
+                )}
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
     ))
   }
-</ul>
+</section>
