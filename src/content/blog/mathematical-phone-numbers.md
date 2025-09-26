@@ -16,7 +16,7 @@ That's when it hit me: what if memorability came not from repetition, but from
 mathematical beauty? **The universe of mathematical phone numbers, it turns out,
 is surprisingly rich.**
 
-Ring-ring, 12491625. Those are the squares of the first five integers. Or
+Ring-ring, 1491625. Those are the squares of the first five integers. Or
 1235813: six Fibonacci numbers starting with 1 and 2. These aren't random digits
 to memorize through repetition. They're patterns you understand once and recall
 forever. Beyond these lie entire landscapes of numbercraft. Factorials compress
