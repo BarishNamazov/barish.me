@@ -7,8 +7,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 interface Props {
   titlePrefix?: string;
   description?: string;
+  ogType?: string;
 }
-let { titlePrefix, description } = Astro.props;
+let { titlePrefix, description, ogType } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,6 +19,7 @@ let { titlePrefix, description } = Astro.props;
       {titlePrefix}
       title={SITE_TITLE}
       description={description || SITE_DESCRIPTION}
+      {ogType}
     />
 
     <script>
