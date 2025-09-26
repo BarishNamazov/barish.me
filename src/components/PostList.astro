@@ -15,7 +15,7 @@ const postsByYear = posts.reduce((groups, post) => {
   }
   groups.get(year)?.push(post);
   return groups;
-}, new Map<string, typeof posts>());
+}, new Map<string, (CollectionEntry<"blog"> | CollectionEntry<"lessons">)[]>());
 
 function getYear(date: Date | string) {
   if (typeof date === "string") {
