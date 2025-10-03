@@ -39,9 +39,11 @@ software configuration.
   [Waybar](https://github.com/Alexays/Waybar)
 - **Terminal**: [kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell**: [bash](https://www.gnu.org/software/bash/)
+- **Terminal Multiplexer**: [tmux](https://github.com/tmux/tmux)
 - **Editor**: [Neovim](https://neovim.io/)
 - **File Manager**: [yazi](https://github.com/sxyazi/yazi)
-- **Browser**: [Mozilla Firefox](https://www.mozilla.org/firefox/)
+- **Browser**: [Mozilla Firefox](https://www.mozilla.org/firefox/) +
+  [Vimium](https://vimium.github.io/) + [uBlock Origin](https://ublockorigin.com/)
 - **Email Client**: [Betterbird](https://www.betterbird.eu/)
 
 Other frequently used software:
@@ -72,7 +74,7 @@ Other infrequently used software:
 
 ## Previously Used Software
 
-Software that I don't use anymore, but were useful in the past:
+Software that I don't use anymore, but that were useful in the past:
 
 - [Ubuntu](https://ubuntu.com/) + [GNOME](https://www.gnome.org/)
 - [Sublime Text](https://www.sublimetext.com/)
