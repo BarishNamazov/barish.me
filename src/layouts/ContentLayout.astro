@@ -1,9 +1,9 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import type { Post } from "../types";
 import BlogLayout from "./BlogLayout.astro";
 
 export interface Props {
-  post: CollectionEntry<"blog"> | CollectionEntry<"lessons">;
+  post: Post;
 }
 
 const { post } = Astro.props;

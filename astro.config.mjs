@@ -14,6 +14,7 @@ export default defineConfig({
     shikiConfig: {
       wrap: true,
       theme: tercotta,
-    }
+    },
   },
+  redirects: { "/blog/computing": "/lists/computing" },
 });

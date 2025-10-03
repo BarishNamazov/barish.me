@@ -1,20 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import PostList from "../../components/PostList.astro";
-import { getContentTypeConfig } from "../../content-types";
-import { sortContentByDate } from "../../utils/contentSorting";
-
-const config = getContentTypeConfig("blog");
-const posts = sortContentByDate(await getCollection("blog"));
+import ContentIndexPage from "../../components/ContentIndexPage.astro";
 ---
 
-<Layout titlePrefix={config.titlePrefix}>
-  <h1>{config.title}</h1>
-  <p>
-    {config.description}
-  </p>
-  <section>
-    <PostList posts={posts} sublink="blog" />
-  </section>
-</Layout>
+<ContentIndexPage contentType="blog" />

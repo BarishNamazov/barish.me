@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ListsDisplay from "../../components/ListsDisplay.astro";
+
+const lists = [
+  {
+    title: "Computing",
+    href: "/lists/computing",
+    description: "My hardware and software setup.",
+  },
+  {
+    title: "Resume",
+    href: "/resume",
+    description: "Brief overview of my education and work history.",
+  },
+];
+---
+
+<Layout titlePrefix="Lists">
+  <h1>Lists</h1>
+  <p>Curated pages I update from time to time.</p>
+  <section>
+    <ListsDisplay lists={lists} />
+  </section>
+</Layout>

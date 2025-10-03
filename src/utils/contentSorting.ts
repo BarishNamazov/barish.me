@@ -1,15 +1,11 @@
-export function sortContentByDate<T extends { data: { date: string | Date } }>(
+import { toDate, type DateValue } from "./dateFormatting";
+
+export function sortContentByDate<T extends { data: { date: DateValue } }>(
   content: T[],
 ): T[] {
   return content.sort((a, b) => {
-    const aDate =
-      typeof a.data.date === "string"
-        ? new Date(a.data.date + "-01")
-        : a.data.date;
-    const bDate =
-      typeof b.data.date === "string"
-        ? new Date(b.data.date + "-01")
-        : b.data.date;
+    const aDate = toDate(a.data.date);
+    const bDate = toDate(b.data.date);
     return bDate.valueOf() - aDate.valueOf();
   });
 }

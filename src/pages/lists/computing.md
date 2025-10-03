@@ -1,8 +1,7 @@
 ---
+layout: ../../layouts/ListLayout.astro
 title: How I do my computing
 description: My hardware and software setup.
-date: 2024-07
-updatedDate: 2025-09
 ---
 
 I am very open to nontraditional ways to approach software and hardware while
@@ -36,7 +35,8 @@ These are the software on my computer that I use almost every day. My
 software configuration.
 
 - **OS**: [Arch Linux](https://archlinux.org/)
-- **Window Manager**: [Hyprland](https://hyprland.org/) with [Waybar](
+- **Window Manager**: [Hyprland](https://hyprland.org/) with
+  [Waybar](https://github.com/Alexays/Waybar)
 - **Terminal**: [kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell**: [bash](https://www.gnu.org/software/bash/)
 - **Editor**: [Neovim](https://neovim.io/)

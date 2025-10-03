@@ -1,0 +1,71 @@
+---
+import Layout from "./Layout.astro";
+import { statSync } from "node:fs";
+import { resolve } from "node:path";
+import { formatDate } from "../utils/dateFormatting";
+
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
+}
+
+const props = Astro.props;
+const title = props.title || props.frontmatter?.title || "Untitled";
+const description = props.description || props.frontmatter?.description;
+const url = props.url;
+
+let lastUpdated: Date | null = null;
+if (url) {
+  try {
+    const filePath = resolve(process.cwd(), `src/pages${url}.md`);
+    const stats = statSync(filePath);
+    lastUpdated = stats.mtime;
+  } catch {
+    try {
+      const filePath = resolve(process.cwd(), `src/pages${url}/index.md`);
+      const stats = statSync(filePath);
+      lastUpdated = stats.mtime;
+    } catch {
+      // Silently fail - date won't be shown
+    }
+  }
+}
+---
+
+<style>
+  #list-title {
+    padding-top: var(--margin-medium);
+    border-top: 1rem solid var(--accent-dark);
+  }
+
+  .last-updated {
+    text-align: center;
+    margin: 0;
+  }
+
+  .list-content {
+    margin-top: var(--margin-large);
+  }
+</style>
+
+<Layout titlePrefix={title} description={description}>
+  <h1 id="list-title">{title}</h1>
+  {
+    lastUpdated && (
+      <p class="last-updated">
+        Last updated:{" "}
+        <time datetime={lastUpdated.toISOString()}>
+          {formatDate(lastUpdated)}
+        </time>
+      </p>
+    )
+  }
+  <div class="list-content">
+    <slot />
+  </div>
+</Layout>

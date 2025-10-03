@@ -1,73 +1,12 @@
 ---
+import { formatDate, getDatetime, type DateValue } from "../utils/dateFormatting";
+
 interface Props {
-  date: Date | string;
+  date: DateValue;
   format?: "short" | "long";
 }
 
 const { date, format = "short" } = Astro.props;
-
-function formatDate(date: Date | string, format: "short" | "long") {
-  if (typeof date === "string") {
-    // Handle YYYY-MM format
-    const [year, month] = date.split("-");
-    const monthNames =
-      format === "short"
-        ? [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ]
-        : [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ];
-    return `${monthNames[parseInt(month) - 1]} ${year}`;
-  }
-
-  // Handle full Date objects - check if it's just year-month (day = 1) or has a specific day
-  const day = date.getDate();
-  if (day === 1) {
-    // Likely a converted YYYY-MM date, show only month and year
-    return date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: format === "short" ? "short" : "long",
-    });
-  } else {
-    // Has a specific day, show full date
-    return date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: format === "short" ? "short" : "long",
-      day: "numeric",
-    });
-  }
-}
-
-function getDatetime(date: Date | string) {
-  if (typeof date === "string") {
-    // Convert YYYY-MM to ISO date (first day of month)
-    return `${date}-01`;
-  }
-  return date.toISOString();
-}
 ---
 
 <time datetime={getDatetime(date)}>

@@ -1,7 +1,8 @@
 ---
 import ContentPage from "../../components/ContentPage.astro";
+import { createStaticPathsForContentType } from "../../utils/getStaticPaths";
 
-export { getStaticPaths } from "../../components/ContentPage.astro";
+export const getStaticPaths = () => createStaticPathsForContentType("lessons");
 ---
 
 <ContentPage {...Astro.props} />

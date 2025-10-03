@@ -1,0 +1,75 @@
+---
+interface Props {
+  lists: { title: string; href: string; description?: string }[];
+}
+
+const { lists } = Astro.props;
+---
+
+<style>
+  .lists-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small);
+    padding-bottom: var(--gap-medium);
+    border-bottom: 1px solid color-mix(in srgb, var(--black) 10%, transparent);
+  }
+
+  .list-title {
+    margin: 0;
+    font-size: var(--font-size-h4);
+  }
+
+  .list-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .list-title a:hover,
+  .list-title a:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent);
+  }
+
+  .list-description {
+    margin: 0;
+    color: var(--text-color-muted);
+  }
+</style>
+
+<section class="lists-container">
+  <ul>
+    {lists.map(item => (
+      <li>
+        <article class="list-item">
+          <h3 class="list-title">
+            <a href={item.href}>{item.title}</a>
+          </h3>
+          {item.description && (
+            <p class="list-description">{item.description}</p>
+          )}
+        </article>
+      </li>
+    ))}
+  </ul>
+</section>
