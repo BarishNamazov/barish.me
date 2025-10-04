@@ -1,15 +1,11 @@
 ---
 title: "Linguistics of Package Managers (Part 1): CLI"
 description:
-  Package managers use different words for the same operations, and those
-  choices reveal competing philosophies about software. Verb-first commands
-  prioritize discoverability while flag-driven syntax optimizes for composition.
-  "Update" versus "upgrade" creates confusion about what actually changes.
-  "Remove" versus "purge" distinguishes deletion permanence in system tools but
-  disappears in language-specific package managers. Security operations blend
-  invisibly into routine commands. This exploration examines how command-line
-  syntax encodes assumptions about users, workflows, trust, and what operations
-  deserve explicit vocabulary.
+  Package managers use different words for identical operations, or the same
+  words for different operations, revealing competing philosophies about whether
+  commands should prioritize discoverability or composition. These syntactic
+  choices encode deeper assumptions about users, workflows, trust, and what
+  operations deserve their own vocabulary.
 date: 2025-10-04
 ---
 
