@@ -168,6 +168,8 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius-medium);
+  margin: auto;
+  display: block;
 }
 code {
   padding: 2px 5px;

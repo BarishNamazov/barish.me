@@ -2,10 +2,9 @@
 title: "Linguistics of Package Managers (Part 1): CLI"
 description:
   Package managers use different words for identical operations, or the same
-  words for different operations, revealing competing philosophies about whether
-  commands should prioritize discoverability or composition. These syntactic
-  choices encode deeper assumptions about users, workflows, trust, and what
-  operations deserve their own vocabulary.
+  words for different operations. The syntactic choices we see reflect on deeper
+  assumptions about users, workflows, trust, and what operations deserve their
+  own vocabulary.
 date: 2025-10-04
 ---
 
