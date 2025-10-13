@@ -46,16 +46,17 @@ software configuration.
   [Vimium](https://vimium.github.io/) + [uBlock Origin](https://ublockorigin.com/)
 - **Email Client**: [Betterbird](https://www.betterbird.eu/)
 
-Other frequently used software:
+Frequently used software:
 
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [Syncthing](https://syncthing.net/)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [Syncthing](https://syncthing.net/)
 - [OBS Studio](https://obsproject.com/)
 - [VLC Media Player](https://www.videolan.org/vlc/)
+- [Zotero](https://www.zotero.org/)
 
-Other infrequently used software:
+Less frequently used software:
 
 - [Typst](https://typst.app/)
 - [Ungoogled Chromium](https://ungoogled-software.github.io/ungoogled-chromium-binaries/)

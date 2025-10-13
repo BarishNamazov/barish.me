@@ -5,7 +5,7 @@
   --background-light: #fef4e8;
   --accent: #b85741;
   --accent-light: #f0b9a5;
-  --accent-lighter: #fbeeea;
+  --accent-lighter: #ffe5db;
   --accent-dark: #7a2e1f;
   --text-color: rgb(15, 18, 25);
   --text-color-muted: #666;
@@ -163,6 +163,42 @@ input {
 }
 table {
   width: 100%;
+  border-collapse: collapse;
+  margin: var(--margin-large) 0;
+  font-family: var(--font-serif);
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--accent-lighter);
+  border-bottom: 3px solid var(--accent-light);
+}
+
+th {
+  padding: var(--padding-medium) var(--padding-small);
+  text-align: left;
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-dark);
+  border-bottom: 2px solid var(--accent-light);
+}
+
+td {
+  padding: var(--padding-small);
+  border-bottom: 1px solid var(--accent-light);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--background-light);
+}
+
+tbody tr:hover {
+  background-color: var(--accent-lighter);
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 img {
   max-width: 100%;
