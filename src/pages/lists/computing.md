@@ -18,7 +18,8 @@ have suggestions, please reach out to me at hello@barish.me.
 - **Desktop computer**: custom-built i7 14700F, RTX 4070 SUPER, 32GB DDR5
 - **Laptop**: Asus Zenbook 14X (i7 13700H, 16GB LPDDR5, 2.8K OLED Touch), bought
   for $750
-- **Phone**: Android with [GrapheneOS](https://grapheneos.org/)
+- **Phone**: Android with [GrapheneOS](https://grapheneos.org/) and
+  [Olauncher](https://f-droid.org/packages/app.olauncher/)
 - **Tablet**: Samsung tablet with a pen
 - **Gaming console**: PlayStation 5
 - **Headphones**: Sony WH-1000XM5
@@ -43,7 +44,8 @@ software configuration.
 - **Editor**: [Neovim](https://neovim.io/)
 - **File Manager**: [yazi](https://github.com/sxyazi/yazi)
 - **Browser**: [Mozilla Firefox](https://www.mozilla.org/firefox/) +
-  [Vimium](https://vimium.github.io/) + [uBlock Origin](https://ublockorigin.com/)
+  [Vimium](https://vimium.github.io/) +
+  [uBlock Origin](https://ublockorigin.com/)
 - **Email Client**: [Betterbird](https://www.betterbird.eu/)
 
 Frequently used software:

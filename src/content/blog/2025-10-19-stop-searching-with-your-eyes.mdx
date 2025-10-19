@@ -1,0 +1,191 @@
+---
+title: Stop Searching with Your Eyes
+description: Or keep playing "Where's Waldo Now?" with your computing.
+date: 2025-10-19
+---
+
+import { Image } from "astro:assets";
+import homeScreen from "./2025-10-19-stop-searching-with-your-eyes/home-screen.png";
+import appDrawer from "./2025-10-19-stop-searching-with-your-eyes/app-drawer.png";
+
+A couple years ago I got drawn into the rabbit hole of "dumb phones."
+Unfortunately, I was not yet ready to commit to a full-on flip phone, so I
+settled for making changes to my current phone instead. One nice app I found was
+[olauncher](https://f-droid.org/packages/app.olauncher/), a minimalist launcher
+that removes icons. You can set up your home screen and swipe up for the app
+drawer where you find apps via search.
+
+<div
+  style={{
+    display: "flex",
+    gap: "1rem",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  }}
+>
+  <Image
+    src={homeScreen}
+    alt="My phone home screen"
+    style={{ width: "45%", height: "auto" }}
+  />
+  <Image
+    src={appDrawer}
+    alt="My phone app drawer"
+    style={{ width: "45%", height: "auto" }}
+  />
+</div>
+
+I quickly realized a really nice feature: typing the unambiguous substring of
+the app name opens the app immediately. No need for even clicking on the app
+name. Opening apps got significantly faster. The old pattern involved unlocking,
+scanning for the icon, maybe swiping, then tapping. With olauncher, I swipe up,
+type "yo", and Youtube opens. Type "chat" and ChatGPT opens.
+
+What surprised me was that even for apps I used constantly, apps whose locations
+I knew by heart, typing still beat visual search. I came for digital minimalism,
+but stayed for the efficiency.
+
+And then I started noticing this pattern everywhere else in my computing life.
+
+## File Navigation
+
+I had liked the file tree in VS Code until I worked on large codebases. Tens of
+thousands of files across deeply nested directories made visual navigation
+painful. On remote machines especially, VS Code didn't cache the tree, so
+expanding folders meant waiting for each level to load.
+
+When I switched to Neovim, I started with a file tree plugin. I abandoned it
+within days for Telescope with custom bindings. I became so much more efficient
+on navigating around the code base for both searching files and
+references/definitions.
+
+And that's not just for large projects. On smaller projects, I already know
+where files are or what they are, so the file tree is taking up my real estate.
+Plus, moving the cursor to the file tree and back to the code is an extra motion
+that slows me down. Typing the file name is still faster.
+
+## Code Navigation Beyond Files
+
+A favorite feature I have in Vim/Neovim is the jump list. With `ctrl+o` and
+`ctrl+i`, I can jump back and forth between locations I have visited.
+
+Example: I am looking into a code that calls a function defined elsewhere. I
+press `shift+k` to preview its definition. I want to learn more, so I press `gd`
+to go to the definition file. After reading, I want to go back to where I was
+before. I press `ctrl+o` to jump back right where I was. No file trees or even
+tabs are involved. I can easily jump back to the definition with `ctrl+i` as
+well.
+
+I know a similar workflow can exist in VSCode, but most times it involves using
+the mouse, which requires one to search for it using their eyes for the right
+places to click/look again.
+
+## Browsing the Web
+
+On Firefox I use Vimium add-on. Instead of reaching for my mouse to click a
+link, I press `f`. Hint letters appear over every clickable element, and typing
+them opens the links or clicks buttons. Tab switching works similarly: `T` opens
+fuzzy search across all tabs.
+
+Of course, I still grab my mouse when I'm casually browsing. But I do end up
+finding myself using it mostly for selecting text and/or dragging things around.
+
+This new habit also made me abandon an add-on I loved, Sidebery, for vertical
+tab management. With Vimium, I can quickly switch tabs without seeing them all
+the time. Less visual clutter makes me happier.
+
+## Browsing the File System
+
+Inside the terminal, instead of doing a lot of `cd`ing around with `Tab`s, I
+started using zoxide. Just like with olauncher, typing a few letters of the
+directory name gets me there quickly. No need to remember the full path or
+navigate step by step by looking at the `Tab` results.
+
+I also abandoned GUI file manager for Yazi, a terminal file manager with fuzzy
+search and keyboard navigation. This one took some getting used to, but now I
+rarely open a GUI file manager (thanks to kitty, I can preview images and PDFs
+in the terminal).
+
+## Browsing Windows / Apps
+
+In my desktop , I use Hyprland, a tiling window manager with workspaces. I have
+each of my important windows open in a dedicated workspace. Instead of the good
+old `alt+tab`, I use `super+<number>` to jump to the workspace directly. No need
+to cycle through windows visually.
+
+I also love the special workspace, which I toggle using `super+s`. I usually put
+Discord and my music app there, so no need to "waste" a numbered workspace for
+them. I can jump to them quickly without visual searching.
+
+Similar to Olauncher on my phone, I have wofi set up with fuzzy search to open
+applications.
+
+And definitely no swiping up with 3 fingers and seeing 59 tiny open windows
+(ahem, macOS users).
+
+## The Search Palette in Apps
+
+Modern software has quietly standardized on `ctrl+k` for command palettes. Press
+it in Firefox, VS Code, Figma, Linear, Obsidian, Slack, GitHub. Also on most
+documentation websites like MDN. You get a searchable list of all available
+actions.
+
+The pattern scales nicely. An application with 100+ features spread across
+nested menus exhausts you with visual navigation, but searching is always quick.
+
+## When You Actually Need to See Things
+
+This might sound contradictory now, but I actually love GUIs, especially the
+functional and usable ones. It's the most ideal when they provide power user
+features as well. But, I can think of many other reasons UIs are useful:
+
+- When you're learning a tool, you don't know what commands exist. Menus show
+  you what's possible. Both approaches should coexist: visual menus for
+  discovery, text search for retrieval once you know what you're looking for.
+
+- When you're exploring without a goal -- shopping, discovering music, browsing
+  documentation -- visual layouts help you stumble onto things you didn't know
+  you wanted. The value is serendipity, not efficiency.
+
+- When you remember spatial locations better than names. "Third icon from the
+  left" sticks better than command names and consistent layouts build muscle
+  memory pretty well. Unfortunately, I am horrible with spatial memory, so I
+  rely on text search more.
+
+## Does it Really Matter?
+
+I used to be skeptical about all this keyboard-driven computing. Yeah, probably
+saving a few minutes in a day, but I mean, is it really that big of a deal?
+Making my workflow faster won't magically make me a better developer or thinker
+-- which I agree with.
+
+It turns out, for me, this isn't really about productivity or time savings (even
+though they do exist and are nice). It's about reducing friction in my
+interactions with my devices. It feels smoother, more fluid, and I can focus
+better on the task at hand.
+
+It also allows me to express my intent better. Instead of going the traditional
+way of how the apps want me to interact with them, I can directly say what I
+want to do, in the way I configure it to. It's slightly liberating.
+
+About time savings, I guess I am around 30-50% faster when I am actively typing
+and navigating compared to when I didn't use these techniques.
+
+## Try Yourself
+
+Check out my [computing page](/lists/computing) for links to the tools I use to
+achieve this keyboard-driven workflow.
+
+I have realized that things that usually require a lot of mouse usage are the
+same things that require searching with your eyes. So if you can reduce the need
+for mouse usage, you are likely to reduce the need for searching with your eyes
+as well.
+
+Let me know how it goes!
+
+## Personal Anecdote
+
+One morning this year, I jumped on my desktop and started working and browsing
+the web. I even watched a Youtube video. After a couple hours, I realized that
+my mouse isn't working anymore. Messing with it for a bit, it turns out the
+mouse has been turned off the whole time. I guess I was slightly proud :-)

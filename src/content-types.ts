@@ -2,7 +2,7 @@ export const CONTENT_TYPES = [
   {
     key: "blog" as const,
     title: "Blog posts",
-    description: "I occasionally write.",
+    description: "These days I write to write weekly.",
     titlePrefix: "Blog posts",
   },
   {
