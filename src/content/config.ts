@@ -20,6 +20,7 @@ export const BlogSchema = z.object({
         ),
     ])
     .optional(),
+  katex: z.boolean().optional().default(false),
 });
 
 const blog = defineCollection({

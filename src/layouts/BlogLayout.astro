@@ -57,6 +57,14 @@ if ("frontmatter" in props) {
 </style>
 
 <Layout titlePrefix={post.title} description={post.description} ogType="article">
+  {post.katex && (
+    <>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    </>
+  )}
+
   <div class="print-header">
     <span>Abutalib (Barish) Namazov</span>
     <span class="print-url" id="current-url"></span>
@@ -70,6 +78,25 @@ if ("frontmatter" in props) {
       }
     });
   </script>
+
+  {post.katex && (
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof renderMathInElement !== 'undefined') {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\[', right: '\\]', display: true},
+              {left: '\\(', right: '\\)', display: false}
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
+  )}
+
   <h1 id="post-title">{post.title}</h1>
   <p>Published: <FormattedDate date={post.date} format="long" /></p>
   {

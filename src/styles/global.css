@@ -223,6 +223,31 @@ pre > code {
   font-family: var(--font-mono);
   font-size: var(--font-size-code);
 }
+
+/* Diff highlighting styles */
+pre.diff .line.add {
+  background-color: rgba(107, 143, 58, 0.15);
+  border-left: 3px solid #6b8f3a;
+}
+
+pre.diff .line.remove {
+  background-color: rgba(184, 87, 65, 0.15);
+  border-left: 3px solid #b85741;
+}
+
+pre.diff .line.add::before {
+  content: "+";
+  color: #6b8f3a;
+  margin-right: 0.5em;
+  user-select: none;
+}
+
+pre.diff .line.remove::before {
+  content: "-";
+  color: #b85741;
+  margin-right: 0.5em;
+  user-select: none;
+}
 blockquote {
   border-left: var(--border-blockquote);
   padding: 0 0 0 20px;
@@ -238,6 +263,19 @@ button {
 
 input {
   font-family: var(--font-serif);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-dark) 40%,
+    var(--accent-dark) 80%,
+    transparent
+  );
+  margin: var(--margin-large) 0;
 }
 
 @media print {
