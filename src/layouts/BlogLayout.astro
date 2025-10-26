@@ -10,6 +10,7 @@ type Metadata = {
   description: string;
   date: DateValue;
   updatedDate?: DateValue;
+  katex?: boolean;
 };
 
 type Props = Post | { frontmatter: Metadata };
@@ -81,6 +82,8 @@ if ("frontmatter" in props) {
 
   {post.katex && (
     <script>
+      declare function renderMathInElement(element: HTMLElement, options: any): void;
+
       document.addEventListener("DOMContentLoaded", () => {
         if (typeof renderMathInElement !== 'undefined') {
           renderMathInElement(document.body, {
