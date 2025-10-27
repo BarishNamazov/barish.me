@@ -1,7 +1,7 @@
 ---
 title: When C++ O3 is Slower than O2
 description: Performance surprises in C++ optimization levels.
-date: 2025-10-26
+publishedDate: 2025-10-26
 katex: true
 ---
 

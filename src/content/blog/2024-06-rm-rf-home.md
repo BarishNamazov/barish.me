@@ -2,7 +2,7 @@
 title: I ran "rm -rf ~" in production
 description:
   How I accidentally nuked my home directory (and why I still don't regret DIY)
-date: 2024-06
+publishedDate: 2024-06
 ---
 
 Earlier today, I was explaining to my dad why I don't pay for managed cloud

@@ -4,7 +4,7 @@ description:
   GUI package managers communicate through button labels, progress bars, and
   modal dialogs. These linguistic choices shape how users understand what
   installing software entails.
-date: 2025-10-12
+publishedDate: 2025-10-12
 ---
 
 In [Part 1](/blog/linguistics-of-package-managers-cli/), I explored how

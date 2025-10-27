@@ -1,7 +1,7 @@
 ---
 title: Finally, a Personal Website!
 description: This took way too long to happen, but it's finally here!
-date: 2023-10
+publishedDate: 2023-10
 ---
 
 I created [my first blog](https://barishdan.blogspot.com/) when I was 12, mostly

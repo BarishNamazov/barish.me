@@ -18,6 +18,5 @@ export default defineConfig({
       theme: tercotta,
       transformers: [transformerDiff(), transformerFontSize()],
     },
-  },
-  redirects: { "/blog/computing": "/lists/computing" },
+  }
 });

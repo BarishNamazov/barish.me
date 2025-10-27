@@ -4,13 +4,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 export async function GET(context) {
   const posts = await getCollection("blog");
+  const postsWithDates = posts.filter(post => post.data.publishedDate);
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
-    items: posts.map(post => ({
+    items: postsWithDates.map(post => ({
       ...post.data,
-      pubDate: post.data.date,
+      pubDate: post.data.publishedDate,
       link: `/blog/${post.slug}/`,
     })),
   });

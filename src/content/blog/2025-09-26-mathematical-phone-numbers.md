@@ -3,7 +3,7 @@ title: Mathematical Patterns in Phone Numbers
 description:
   Explore elegant phone numbers generated from mathematical sequences like
   primes, fibonacci, factorials, and more.
-date: 2025-09-26
+publishedDate: 2025-09-26
 ---
 
 I was recently shopping for a phone number in Azerbaijan. The targeted ads knew

@@ -1,7 +1,8 @@
 ---
-layout: ../../layouts/ListLayout.astro
+layout: ../layouts/BlogLayout.astro
 title: How I do my computing
 description: My hardware and software setup.
+updatedDate: 2025-10-27
 ---
 
 I am very open to nontraditional ways to approach software and hardware while
@@ -84,3 +85,29 @@ Software that I don't use anymore, but that were useful in the past:
 - [Code - OSS (Visual Studio Code)](https://github.com/microsoft/vscode)
 - [Obsidian](https://obsidian.md/)
 - [fish shell](https://fishshell.com/)
+
+## Programming Languages / Technologies
+
+These aren't a comprehensive list of my experience, but rather the tools I use
+currently:
+
+- **C++**: low-level or performance-critical software, competitive programming.
+  - Compiler: C++23 with the [clang](https://clang.llvm.org/) compiler.
+  - Linter/formatter: [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) and
+    [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
+  - Build systems: For larger projects, [Bazel](https://bazel.build/); for
+    smaller ones, [CMake](https://cmake.org/).
+- **Python**: scripting, data analysis, network programming.
+  - Package manager: [uv](https://docs.astral.sh/uv/).
+  - Linter/formatter: [ruff](https://docs.astral.sh/ruff/).
+  - Data libraries: pandas, numpy, seaborn, plotly.
+  - Networking libraries: aiohttp, asyncio, websockets.
+- **JavaScript/TypeScript**: web development, full-stack applications
+  - Runtime: [Bun](https://bun.sh/) where possible, otherwise Node.js.
+  - Linter/formatter: [ESLint](https://eslint.org/) and
+    [Prettier](https://prettier.io/).
+  - Frontend framework: [Nuxt](https://nuxt.com/).
+  - Backend framework: [Elysia](https://elysiajs.com/) or Nuxt/Nitro.
+  - Database integration: [kysely](https://kysely.dev/).
+- **Rust**: compilers, interpreters.
+  - Crates: itertools, logos, pest.

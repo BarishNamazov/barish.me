@@ -1,6 +1,6 @@
 ---
 title: "Olimpiada üçün C++-da Performans Mühəndisliyi, Dərs 1"
-date: 2025-05
+publishedDate: 2025-05
 description: "Dərs 1 -- giriş/çıxış, kompilyatorlar, vektorizasiya"
 tocHeading: Mündəricat
 ---

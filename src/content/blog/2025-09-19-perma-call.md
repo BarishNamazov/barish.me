@@ -1,6 +1,6 @@
 ---
 title: "Perma-Call: Permanently On-Call"
-date: 2025-09-19
+publishedDate: 2025-09-19
 description:
   "When the system owner becomes the default contact, regardless of who's
   actually on-call."

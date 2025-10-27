@@ -10,8 +10,10 @@ interface Props {
 
 const { posts, sublink } = Astro.props;
 
-const postsByYear = posts.reduce((groups, post) => {
-  const year = getYear(post.data.date);
+const postsWithDates = posts.filter(post => post.data.publishedDate);
+
+const postsByYear = postsWithDates.reduce((groups, post) => {
+  const year = getYear(post.data.publishedDate!);
   if (!groups.has(year)) {
     groups.set(year, []);
   }
@@ -116,7 +118,7 @@ const postsByYear = posts.reduce((groups, post) => {
                   <h3 class="post-title">
                     <a href={`/${sublink}/${stripDatePrefix(post.slug)}`}>{post.data.title}</a>
                   </h3>
-                  <span class="post-month">{formatDate(post.data.date)}</span>
+                  <span class="post-month">{formatDate(post.data.publishedDate!)}</span>
                 </header>
                 {post.data.description && (
                   <p class="post-description">{post.data.description}</p>

@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/ListLayout.astro
+layout: ../../layouts/BlogLayout.astro
 title: School Competitions
-description:
-  My journey through mathematics and informatics competitions, from accidentally
-  placing first in 7th grade to helping build Azerbaijan's olympiad community
-  from fewer than 50 participants to over 10,000.
+description: High school adventure in mathematics and informatics olympiads.
+updatedDate: 2025-10-14
 ---
 
 Mathematics and informatics competitions shaped my interests and taught me about

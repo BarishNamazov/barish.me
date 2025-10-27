@@ -8,7 +8,7 @@ import { BlogSchema } from "../content/config.ts";
 type Metadata = {
   title: string;
   description: string;
-  date: DateValue;
+  publishedDate?: DateValue;
   updatedDate?: DateValue;
   katex?: boolean;
 };
@@ -19,7 +19,11 @@ const props = Astro.props;
 
 let post: Metadata;
 if ("frontmatter" in props) {
-  post = BlogSchema.safeParse(props.frontmatter).data!;
+  const parseResult = BlogSchema.safeParse(props.frontmatter);
+  if (!parseResult.success) {
+    throw new Error(`Failed to parse frontmatter: ${parseResult.error.message}`);
+  }
+  post = parseResult.data;
 } else {
   post = props.data;
 }
@@ -101,7 +105,11 @@ if ("frontmatter" in props) {
   )}
 
   <h1 id="post-title">{post.title}</h1>
-  <p>Published: <FormattedDate date={post.date} format="long" /></p>
+  {
+    post.publishedDate && (
+      <p>Published: <FormattedDate date={post.publishedDate} format="long" /></p>
+    )
+  }
   {
     post.updatedDate && (
       <p>

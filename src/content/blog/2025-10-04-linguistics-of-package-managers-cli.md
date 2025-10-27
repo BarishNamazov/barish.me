@@ -5,7 +5,7 @@ description:
   words for different operations. The syntactic choices we see reflect on deeper
   assumptions about users, workflows, trust, and what operations deserve their
   own vocabulary.
-date: 2025-10-04
+publishedDate: 2025-10-04
 ---
 
 I was recently teaching a middle schooler how to use Linux when I got struck by

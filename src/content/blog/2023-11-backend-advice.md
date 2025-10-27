@@ -1,6 +1,6 @@
 ---
 title: "Beginner's FAQ for backend development"
-date: 2023-11
+publishedDate: 2023-11
 description:
   "A simple guide to answer questions one might have when developing backends."
 ---
