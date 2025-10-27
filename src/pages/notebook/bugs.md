@@ -4,7 +4,6 @@ title: Noteworthy Bugs
 description:
   Is this a normal bug, or one of those horrifying ones that prove your whole
   project is broken beyond repair and should be burned to the ground?
-updatedDate: 2025-10-27
 ---
 
 ![Obligatory xkcd](https://imgs.xkcd.com/comics/new_bug.png)
