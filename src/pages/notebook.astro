@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const notebookFiles = await Astro.glob("./notebook/*.md");
-const notebookEntries = notebookFiles.map(file => ({
+const notebookFiles = Object.values(import.meta.glob("./notebook/*.md", { eager: true }));
+const notebookEntries = notebookFiles.map((file: any) => ({
   title: file.frontmatter.title,
   href: file.url,
   description: file.frontmatter.description,

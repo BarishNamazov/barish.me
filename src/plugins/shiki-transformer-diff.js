@@ -26,7 +26,7 @@ export function transformerDiff(options = {}) {
         this.addClassToHast(node, classActivePre);
       }
     },
-    line(node, line) {
+    line(node, _line) {
       if (!this.options.meta?.__raw?.includes('diff')) {
         return;
       }
