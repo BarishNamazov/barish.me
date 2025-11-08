@@ -1,0 +1,151 @@
+---
+title: Solving a Hard Problem
+description:
+  There's a certain feeling in the process of solving a hard problem...
+publishedDate: 2025-11-08
+---
+
+export let colorCounter = 0;
+
+export const Feeling = () => {
+  const seed = (colorCounter * 0.618033988749895) % 1;
+  colorCounter++;
+  return (
+    <span className="feeling" style={{ "--seed": seed }}>
+      {" "}
+      feeling{" "}
+    </span>
+  );
+};
+
+<style>
+  {`
+  .feeling {
+    /* Base seed -> angle */
+    --seed: var(--seed);
+    --theta: calc(var(--seed) * 360deg);
+
+    --p1: calc((sin(var(--theta) * 3) + 1) / 2);
+    --p2: calc((cos((var(--theta) + 17deg) * 5) + 1) / 2);
+    --p3: calc((sin((var(--theta) + 53deg) * 7) + 1) / 2);
+    --p4: calc((cos((var(--theta) + 91deg) * 11) + 1) / 2);
+
+    --r1: calc((var(--p1) + var(--p2)) / 2);
+    --r2: calc((var(--p2) + var(--p3)) / 2);
+    --r3: calc((var(--p3) + var(--p4)) / 2);
+    --r4: calc((var(--p4) + var(--p1)) / 2);
+    --r5: calc((var(--p1) + var(--p3)) / 2);
+    --r6: calc((var(--p2) + var(--p4)) / 2);
+    --r7: calc((var(--p1) + var(--p2) + var(--p3)) / 3);
+    --r8: calc((var(--p2) + var(--p3) + var(--p4)) / 3);
+
+    /* Hue system */
+    --hue: calc(var(--seed) * 360);
+    --hue2: calc(var(--hue) + 10 + 25 * var(--r1));
+    --hue3: calc(var(--hue) - 10 - 20 * var(--r2));
+
+    --saturation: calc(50% + 30% * var(--r3));
+    --lightness: calc(50% + 20% * var(--r4));
+
+    --opacity1: calc(0.4 + 0.2 * var(--r5));
+    --opacity2: calc(0.5 + 0.25 * var(--r6));
+    --opacity3: calc(0.35 + 0.2 * var(--r7));
+
+    /* More evenly spread gradient angle & midpoint */
+    --gradient-angle: calc(20deg + 140deg * var(--r8));
+    --midpoint: calc(30% + 40% * var(--r2));
+
+    /* Shape / padding */
+    --padding-h: calc(0.3em + 0.3em * var(--r3));
+    --padding-v: calc(0.1em + 0.15em * var(--r4));
+
+    --radius1: calc(0.1em + 0.4em * var(--r1));
+    --radius2: calc(0.1em + 0.4em * var(--r2));
+    --radius3: calc(0.1em + 0.4em * var(--r3));
+    --radius4: calc(0.1em + 0.4em * var(--r4));
+
+    /* Orientations: use smoothed values to avoid hard bias */
+    --rotation: calc((var(--r5) - 0.5) * 10deg);    /* small, smooth tilt */
+    --skew-x: calc((var(--r6) - 0.5) * 8deg);
+    --scale-y: calc(0.97 + 0.08 * var(--r7));
+
+    /* Shadows / lighting */
+    --shadow-y1: calc(-0.1em - 0.18em * var(--r1));
+    --shadow-y2: calc(0.05em + 0.14em * var(--r2));
+    --blur: calc(0.08em + 0.22em * var(--r3));
+    --inner-shift-x: calc(-0.05em - 0.09em * var(--r4));
+    --brightness: calc(0.98 + 0.06 * var(--r5));
+
+    background:
+      linear-gradient(
+        var(--gradient-angle),
+        hsla(var(--hue),  var(--saturation), var(--lightness),          var(--opacity1)) 0%,
+        hsla(var(--hue2), calc(var(--saturation) + 5%), calc(var(--lightness) - 5%), var(--opacity2)) var(--midpoint),
+        hsla(var(--hue3), calc(var(--saturation) - 5%), calc(var(--lightness) + 5%), var(--opacity3)) 100%
+      );
+
+    padding: var(--padding-v) var(--padding-h);
+    border-radius:
+      var(--radius1) var(--radius2) var(--radius3) var(--radius4) /
+      var(--radius4) var(--radius1) var(--radius2) var(--radius3);
+
+    position: relative;
+    display: inline-block;
+    transform:
+      rotate(var(--rotation))
+      skewX(var(--skew-x))
+      scaleY(var(--scale-y));
+
+    box-shadow:
+      inset 0 var(--shadow-y1) var(--blur)
+        hsla(var(--hue), var(--saturation), calc(var(--lightness) - 20%), 0.4),
+      inset var(--inner-shift-x) var(--shadow-y2) calc(var(--blur) * 0.5)
+        hsla(var(--hue), var(--saturation), calc(var(--lightness) + 10%), 0.3),
+      0 0.05em 0.1em rgba(0, 0, 0, 0.05);
+
+    mix-blend-mode: multiply;
+    filter: brightness(var(--brightness));
+  }
+`}
+</style>
+
+<script>
+  {`
+  document.addEventListener('DOMContentLoaded', () => {
+    const offset = Math.floor(Math.random() * 1000);
+    document.querySelectorAll('.feeling').forEach((el, index) => {
+      const seed = ((index + offset) * 0.618033988749895) % 1;
+      el.style.setProperty('--seed', seed);
+    });
+  });
+`}
+</script>
+
+There's a certain <Feeling/> in the process of solving a hard problem.
+
+For a while, I'm a bit stuck. The problem seems tough. Then I make a neat
+observation, and a path shows up. That's when a <Feeling /> starts to build up;
+I realize its existence, but I don't give it much thought. I just jump down to
+my solution path like I'm putting my life on it.
+
+The path doesn't work out. But the <Feeling /> keeps my momentum; it makes me
+unable to stop. It's not entirely unreasonable; I did indeed see some new things
+through that path. Surely, I can make more progress.
+
+I want to collect my thoughts and decide what to do next, so I try to suppress
+the <Feeling />. As if I could. So much for my "methodological problem-solving
+strategies." I jot down what I know and stare at it.
+
+Times pass between exploring new paths. Maybe the problem is too hard for me. I
+did my best already. Perhaps I will come back to this problem in the future. But
+I am hesitant. I feel a judgement. It's that <Feeling />. I realize I've been
+interacting with _it_ for a while now. Wait, what even is _it_? Will I know once
+I solve the problem?
+
+I keep on chasing. The problem feels so solvable, yet I can't break it. Only if
+I could find that one opening. We are very acquianted now, the problem and I. I
+can almost see through it. The <Feeling /> reminds me of this. It won't let me
+forget.
+
+I look at it one more time. Then I see it. Something small. I don't know if this
+new thing will lead anywhere. But I have a <Feeling /> it will.

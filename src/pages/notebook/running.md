@@ -8,6 +8,14 @@ description: Running progress and notes.
 > use it socially, but it's a nice way to automatically track runs. It connects
 > to my Fitbit Inspire 3.
 
+## 2025-11-07: recovery from sickness
+
+Very busy past week. Had a friend visiting from abroad, and then I got sick for
+a bit. But did a run in the evening, was able to do easy 2.5 km in ~15 minutes.
+
+I could definitely go for more, but I am recovering, plus had a gym session
+earlier that day, so decided to not push myself too much.
+
 ## 2025-10-28: halfway to 5 km
 
 I've been using a pair of Asics Gel-Nimbus 25 for a couple years now, and they
