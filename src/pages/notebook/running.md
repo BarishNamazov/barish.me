@@ -8,6 +8,11 @@ description: Running progress and notes.
 > use it socially, but it's a nice way to automatically track runs. It connects
 > to my Fitbit Inspire 3.
 
+## 2025-11-11: going easy on myself
+
+Did a 2.8 km run in a solid 16m32s pace. Should have gone for at least 3 km, but
+surely will next time. I definitely feel like getting back into shape.
+
 ## 2025-11-07: recovery from sickness
 
 Very busy past week. Had a friend visiting from abroad, and then I got sick for
