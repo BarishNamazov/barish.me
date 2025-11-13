@@ -10,7 +10,7 @@ my background and interests.
 
 I like building things that are fast, reliable, and well-crafted.
 
-I spend a fair amount of time tinkering with my [computer](/lists/computing), and
+I spend a fair amount of time tinkering with my [computer](/computing), and
 some of those experiments or ideas end up on the [blog](/blog). Lately, I've
 been especially interested in modularity and how design choices shape the way
 systems grow over time.
