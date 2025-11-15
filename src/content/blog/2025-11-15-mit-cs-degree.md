@@ -74,6 +74,9 @@ is prohibited at MIT by its curriculum -- classes instead use
 This is just one path through MIT, not a specifically recommended or an optimal
 one.
 
+<button id="toggle-notes" type="button">toggle personal notes about
+classes</button>
+
 ### Semester 1 (Fall 2020)
 
 Before and during my first semester, I placed out of a couple of classes by exam
@@ -443,3 +446,17 @@ remarkable classmates and teaching staff. MIT values and encourages
 collaboration, and I felt that every semester. In the end, I think those
 opportunities and that culture matter more than any specific set of courses a
 college can offer.
+
+<script>
+(function () {
+    const btn = document.getElementById("toggle-notes");
+    let hidden = false;
+    btn.addEventListener("click", () => {
+        const items = document.querySelectorAll("ul li ul li");
+        hidden = !hidden;
+        items.forEach(el => {
+            el.style.display = hidden ? "none" : "";
+        });
+    });
+})();
+</script>

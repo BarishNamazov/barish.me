@@ -278,6 +278,34 @@ hr {
   margin: var(--margin-large) 0;
 }
 
+button {
+  padding: 0.6em 1.2em;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--border-radius-medium);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+button:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  color: var(--text-color-muted);
+  cursor: not-allowed;
+}
+
 @media print {
   .no-print {
     display: none !important;
