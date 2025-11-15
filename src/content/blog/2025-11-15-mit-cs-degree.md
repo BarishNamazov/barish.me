@@ -11,7 +11,7 @@ can make their own comparisons. This is both a record of my own path through MIT
 EECS and a reference for people trying to understand what the curriculum feels
 like from the inside.
 
-If you're mostly interested in the structure of MIT’s requirements, focus on the
+If you're mostly interested in the structure of MIT's requirements, focus on the
 early sections. If you care about what individual classes are like, the
 semester-by-semester notes will be more useful.
 
@@ -71,12 +71,25 @@ webpage publicly available on the web. Also keep in mind that "curved grading"
 is prohibited at MIT by its curriculum -- classes instead use
 [grade definitions](https://catalog.mit.edu/mit/procedures/academic-performance-grades/#gradestext).
 
+This is just one path through MIT, not a specifically recommended or an optimal
+one.
+
 ### Semester 1 (Fall 2020)
 
-- 18.01 Single Variable Calculus
+Before and during my first semester, I placed out of a couple of classes by exam
+rather than taking them in the usual way.
+
+- 18.01 Single Variable Calculus (placed out)
   - I took an exam to skip single variable calculus after speedrunning the
     content on OCW. The exam is pass-fail only, and I remember doing not too
     well on it, but I passed.
+
+- 6.0001 Introduction to Computer Science and Programming in Python (placed out)
+  - I took an exam to skip this class too. The exam asked simple questions about
+    recursion, time complexity, etc. It also had a couple of simple programming
+    questions.
+  - Now that I know the actual class content, I'd say the exam was much easier
+    compared to the actual class.
 
 - 18.02 Multivariable Calculus
   - Since I passed 18.01 exam, I was able to take this class. It felt much
@@ -90,13 +103,6 @@ is prohibited at MIT by its curriculum -- classes instead use
   - My hardest class during the semester. It teaches a good amount of chemistry
     while also introducing material science. I wish I had a better background
     from school.
-
-- 6.0001 Introduction to Computer Science and Programming in Python
-  - I took an exam to skip this class too. The exam asked simple questions about
-    recursion, time complexity, etc. It also had a couple of simple programming
-    questions.
-  - Now that I know the actual class content, I'd say the exam was much easier
-    compared to the actual class.
 
 - 8.01 Classical Mechanics
   - A very nice physics class. It was the first time everything actually fully
@@ -115,11 +121,11 @@ was a study-from-home semester.
 ### IAP 2021
 
 Independent Activities Period at MIT is basically the January semester where you
-can find variety of classes or activities. They are usually organized and taught
-by other students. It's fully optional to do anything during this period.
+can find a variety of classes or activities. They are usually organized and
+taught by other students. It's fully optional to do anything during this period.
 
-I took 6.148 web.lab class that teaches basic web development. It has a team
-competition as well, and I worked with a couple others to build a multi-player
+I took 6.148 web.lab, a class that teaches basic web development. It has a team
+competition as well, and I worked with a couple others to build a multiplayer
 card game.
 
 ### Semester 2 (Spring 2021)
@@ -211,8 +217,8 @@ enough for me to spend more time than expected on them. I was also working two
 campus jobs and was involved in club development.
 
 - 18.600 Probability and Random Variables
-  - Classic probability class. I never made it to the lectures, but the class
-    notes were pretty useful.
+  - Classic probability class. I never made it to the lectures unfortunately,
+    but the class notes were pretty useful.
 
 - 24.118 Paradox and Infinity
   - A philosophy class that studies puzzles, especially around paradoxes and
@@ -289,8 +295,8 @@ campus jobs and was involved in club development.
     optimizers wins.
   - I decided to use this class to learn Rust as well, and while the team turned
     out to be chaotic, we ended up getting through it. The night before the
-    final deadline, we were in last place. But we ended up finishing second.
-    Many all-nighters in this class.
+    final deadline, we were in last place. But we ended up finishing second due
+    to overnight efforts. Many all-nighters in this class.
 
 - 6.1800 (prev. 6.033) Computer Systems Engineering
   - An intro to designing and analyzing complex computer systems, from low level
@@ -351,9 +357,11 @@ teaching. It was a good decision.
 
 My final semester. I thought I had no requirement other than completing the
 second term of 6.UAR left. But it turned out I hadn't done the swim test either.
+Usually, the freshmen line up to do their swimming in the first semester, but
+COVID prevented that for me.
 
-I did it on the last possible day after a few increasingly insistent emails,
-and, despite being in bad shape back then, I passed.
+I did the swim test on the last possible day after a few increasingly insistent
+emails, and, luckily, I passed.
 
 To stay a full-time student, I still had to fill the 36 minimum units, so I took
 a few fun classes.
@@ -373,16 +381,16 @@ a few fun classes.
     performance topics.
   - A fun class with a distributed systems final problem set competition (Dune
     themed). I forgot to register a teammate, but I ended up winning it and
-    received a 3D-printed Dune sandworm thanks to my Python performance
-    engineering skills 🤡.
+    received a 3D-printed Dune sandworm thanks to my Python "performance
+    engineering" skills 🤡.
 
 - 6.100B (prev. 6.0002) Introduction to Computer Science and Programming in
   Python
   - The second part of the intro to Python class, focusing on computational
     modeling and numerical data calculations.
   - I took this class because I needed a 6-unit class. It's half a semester.
-  - Fun fact: most of my TAs in this class were my past students from the
-    classes I have taught.
+  - It was fun to see that most of my TAs in this class were my past students
+    from the classes I have taught.
 
 ### Physical Education
 
@@ -399,7 +407,7 @@ quarters I took them, but my classes were:
 
 - Yoga
   - I had no experience in yoga or stretching, so this was a nice experience.
-    It's definitely harder than what I expected.
+  - It's definitely harder than what I expected.
 
 - Broomball
   - You are on the ice rink with a broom and a ball, but instead of skates, you
