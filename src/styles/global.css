@@ -255,6 +255,43 @@ blockquote {
   font-size: 1em;
 }
 
+details {
+  margin: var(--margin-medium) 0;
+  padding: var(--padding-medium);
+  background-color: var(--background-light);
+  border: 2px solid var(--accent-light);
+  border-radius: var(--border-radius-medium);
+  transition: background-color 0.2s ease;
+}
+
+details[open] {
+  background-color: var(--accent-lighter);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-dark);
+  padding: var(--padding-small);
+  margin: calc(-1 * var(--padding-small));
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+summary:hover {
+  color: var(--accent);
+}
+
+summary::marker {
+  color: var(--accent);
+}
+
+details[open] > summary {
+  margin-bottom: var(--margin-medium);
+  padding-bottom: var(--padding-small);
+  border-bottom: 1px solid var(--accent-light);
+}
+
 button {
   font-family: var(--font-serif);
   font-size: 0.8em;
