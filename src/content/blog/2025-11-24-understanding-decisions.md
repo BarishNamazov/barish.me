@@ -1,7 +1,7 @@
 ---
 title: Understanding Decisions
 description:
-  An extensive exploration of how we make decisions and answering 9 key
+  An extensive exploration of how we make decisions and answers to 9 key
   questions about decision-making.
 publishedDate: 2025-11-24
 ---
