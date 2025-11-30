@@ -56,14 +56,6 @@ export function formatDate(
     return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
   }
 
-  const day = date.getDate();
-  if (day === 1) {
-    return date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: format === "short" ? "short" : "long",
-    });
-  }
-
   return date.toLocaleDateString("en-us", {
     year: "numeric",
     month: format === "short" ? "short" : "long",
