@@ -18,5 +18,5 @@ export default defineConfig({
       theme: tercotta,
       transformers: [transformerDiff(), transformerFontSize()],
     },
-  }
+  },
 });

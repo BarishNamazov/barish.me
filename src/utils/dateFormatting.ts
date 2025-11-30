@@ -51,7 +51,8 @@ export function formatDate(
 ): string {
   if (typeof date === "string") {
     const [year, month] = date.split("-");
-    const monthNames = format === "short" ? MONTH_NAMES_SHORT : MONTH_NAMES_LONG;
+    const monthNames =
+      format === "short" ? MONTH_NAMES_SHORT : MONTH_NAMES_LONG;
     return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
   }
 

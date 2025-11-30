@@ -2,7 +2,12 @@ import { defineCollection, z } from "astro:content";
 
 const dateSchema = z.union([
   z.date(),
-  z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, "Date must be in YYYY-MM or YYYY-MM-DD format"),
+  z
+    .string()
+    .regex(
+      /^\d{4}-\d{2}(-\d{2})?$/,
+      "Date must be in YYYY-MM or YYYY-MM-DD format",
+    ),
   z.coerce.date(),
 ]);
 

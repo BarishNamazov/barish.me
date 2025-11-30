@@ -116,9 +116,13 @@ const postsByYear = postsWithDates.reduce((groups, post) => {
               <article class="post-card">
                 <header class="post-header">
                   <h3 class="post-title">
-                    <a href={`/${sublink}/${stripDatePrefix(post.slug)}`}>{post.data.title}</a>
+                    <a href={`/${sublink}/${stripDatePrefix(post.slug)}`}>
+                      {post.data.title}
+                    </a>
                   </h3>
-                  <span class="post-month">{formatDate(post.data.publishedDate!)}</span>
+                  <span class="post-month">
+                    {formatDate(post.data.publishedDate!)}
+                  </span>
                 </header>
                 {post.data.description && (
                   <p class="post-description">{post.data.description}</p>

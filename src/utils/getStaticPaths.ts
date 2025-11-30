@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 import type { ContentTypeKey } from "../content-types";
 
 export function stripDatePrefix(slug: string): string {
-  return slug.replace(/^\d{4}-\d{2}(-\d{2})?-/, '');
+  return slug.replace(/^\d{4}-\d{2}(-\d{2})?-/, "");
 }
 
 export async function createStaticPathsForContentType(

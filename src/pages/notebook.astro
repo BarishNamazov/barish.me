@@ -1,16 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const notebookFiles = Object.values(import.meta.glob("./notebook/*.md", { eager: true }));
-const notebookEntries = notebookFiles.map((file: any) => ({
-  title: file.frontmatter.title,
-  href: file.url,
-  description: file.frontmatter.description,
-  updatedDate: file.frontmatter.updatedDate,
-  type: "notebook-entry" as const,
-})).sort((a, b) => {
-  return a.title.localeCompare(b.title);
-});
+const notebookFiles = Object.values(
+  import.meta.glob("./notebook/*.md", { eager: true }),
+);
+const notebookEntries = notebookFiles
+  .map((file: any) => ({
+    title: file.frontmatter.title,
+    href: file.url,
+    description: file.frontmatter.description,
+    updatedDate: file.frontmatter.updatedDate,
+    type: "notebook-entry" as const,
+  }))
+  .sort((a, b) => {
+    return a.title.localeCompare(b.title);
+  });
 
 const manualEntries = [
   {

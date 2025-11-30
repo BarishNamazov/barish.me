@@ -15,16 +15,16 @@
 
 export function transformerFontSize(options = {}) {
   const namedSizes = {
-    tiny: '0.7em',
-    small: '0.75em',
-    medium: '0.85em',
-    large: '1em',
-    xl: '1.15em',
-    ...options.namedSizes
+    tiny: "0.7em",
+    small: "0.75em",
+    medium: "0.85em",
+    large: "1em",
+    xl: "1.15em",
+    ...options.namedSizes,
   };
 
   return {
-    name: 'font-size',
+    name: "font-size",
     pre(node) {
       const meta = this.options.meta?.__raw;
       if (!meta) return;
@@ -53,10 +53,10 @@ export function transformerFontSize(options = {}) {
           node.properties = {};
         }
         if (!node.properties.style) {
-          node.properties.style = '';
+          node.properties.style = "";
         }
         node.properties.style += `font-size: ${fontSize};`;
       }
-    }
+    },
   };
 }

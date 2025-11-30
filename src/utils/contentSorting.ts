@@ -1,8 +1,8 @@
 import { toDate, type DateValue } from "./dateFormatting";
 
-export function sortContentByDate<T extends { data: { publishedDate?: DateValue } }>(
-  content: T[],
-): T[] {
+export function sortContentByDate<
+  T extends { data: { publishedDate?: DateValue } },
+>(content: T[]): T[] {
   return content.sort((a, b) => {
     if (!a.data.publishedDate && !b.data.publishedDate) return 0;
     if (!a.data.publishedDate) return 1;

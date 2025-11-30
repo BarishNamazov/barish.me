@@ -12,6 +12,6 @@ description:
 
 I used `mtime` to get the last updated date of some entries in my blog and it
 worked fine locally. I missed the point that when I deploy this website, the
-repository is cloned and `mtime` isn't preserved. A better way to fix this
-is to use git: `git log -1 --format=%ai -- <file>`, but keep in mind that
-it won't work before the file is committed.
+repository is cloned and `mtime` isn't preserved. A better way to fix this is to
+use git: `git log -1 --format=%ai -- <file>`, but keep in mind that it won't
+work before the file is committed.

@@ -21,7 +21,9 @@ let post: Metadata;
 if ("frontmatter" in props) {
   const parseResult = BlogSchema.safeParse(props.frontmatter);
   if (!parseResult.success) {
-    throw new Error(`Failed to parse frontmatter: ${parseResult.error.message}`);
+    throw new Error(
+      `Failed to parse frontmatter: ${parseResult.error.message}`,
+    );
   }
   post = parseResult.data;
 } else {
@@ -61,14 +63,37 @@ if ("frontmatter" in props) {
   }
 </style>
 
-<Layout titlePrefix={post.title} description={post.description} ogType="article">
-  {post.katex && (
-    <>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-      <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-      <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    </>
-  )}
+<Layout
+  titlePrefix={post.title}
+  description={post.description}
+  ogType="article"
+>
+  {
+    post.katex && (
+      <>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+          crossorigin="anonymous"
+        />
+        <script
+          is:inline
+          defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+          integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+          crossorigin="anonymous"
+        />
+        <script
+          is:inline
+          defer
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+          crossorigin="anonymous"
+        />
+      </>
+    )
+  }
 
   <div class="print-header">
     <span>Abutalib (Barish) Namazov</span>
@@ -84,30 +109,31 @@ if ("frontmatter" in props) {
     });
   </script>
 
-  {post.katex && (
-    <script>
-      declare function renderMathInElement(element: HTMLElement, options: any): void;
-
+  <script is:inline define:vars={{ hasKatex: post.katex }}>
+    /* global renderMathInElement */
+    if (hasKatex) {
       document.addEventListener("DOMContentLoaded", () => {
-        if (typeof renderMathInElement !== 'undefined') {
+        if (typeof renderMathInElement !== "undefined") {
           renderMathInElement(document.body, {
             delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\[', right: '\\]', display: true},
-              {left: '\\(', right: '\\)', display: false}
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: false },
+              { left: "\\[", right: "\\]", display: true },
+              { left: "\\(", right: "\\)", display: false },
             ],
-            throwOnError: false
+            throwOnError: false,
           });
         }
       });
-    </script>
-  )}
+    }
+  </script>
 
   <h1 id="post-title">{post.title}</h1>
   {
     post.publishedDate && (
-      <p>Published: <FormattedDate date={post.publishedDate} format="long" /></p>
+      <p>
+        Published: <FormattedDate date={post.publishedDate} format="long" />
+      </p>
     )
   }
   {
