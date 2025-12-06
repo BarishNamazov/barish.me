@@ -15,11 +15,11 @@
     "fonts:subset": "glyphhanger --subset='fonts-src/*.{ttf,otf,woff,woff2}' --formats=woff2 --output='public/fonts' --US_ASCII"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.5",
-    "@astrojs/rss": "^4.0.12",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.13.8",
+    "astro": "^5.16.4",
     "remark-toc": "^9.0.0"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { stripDatePrefix } from "../utils/getStaticPaths";
 
 export async function GET(context) {
   const posts = await getCollection("blog");
@@ -12,7 +13,7 @@ export async function GET(context) {
     items: postsWithDates.map(post => ({
       ...post.data,
       pubDate: post.data.publishedDate,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${stripDatePrefix(post.slug)}/`,
     })),
   });
 }
