@@ -1,10 +1,10 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import { SITE_TITLE } from "../consts";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE } from "../../consts";
 
-import "../styles/resume.css";
+import "./2024.css";
 
 export const RESUME_DESCRIPTION = `
 I am a computer engineer with experience in
@@ -29,12 +29,6 @@ I enjoy working with the latest technologies.
       title={SITE_TITLE}
       description={RESUME_DESCRIPTION}
     />
-
-    <script>
-      document.getElementById("download")?.addEventListener("click", () => {
-        window.open("/media/resume.pdf", "_blank");
-      });
-    </script>
   </head>
   <body>
     <Header class="no-print" />
@@ -43,17 +37,14 @@ I enjoy working with the latest technologies.
 
       <div>
         <p>{RESUME_DESCRIPTION}</p>
-        <button id="download">Download PDF</button>
-        <small
-          style="margin-top: var(--margin-small); font-size: 0.9em; color: var(--text-color-muted); text-align: center;"
-        >
-          or try printing this page!
-        </small>
+        <button id="download" onclick="window.print()">Print to PDF</button>
       </div>
 
       <blockquote style="margin: var(--margin-medium) 0;">
-        This resume is outdated (as of May 2024), and I currently don't plan to
-        update it. Keeping this page for archival purposes.
+        <strong
+          >You are viewing an outdated resume from early 2024. Shared for
+          archival purposes only.</strong
+        >
       </blockquote>
     </article>
 
