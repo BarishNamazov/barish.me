@@ -107,5 +107,5 @@ first-class citizen in your CSS, you gain the power of a typesetting engine
 without ever leaving your text editor.
 
 The best example of this is actually comes from the person who taught it to me:
-Lea wrote her [PhD thesis](https://phd.verou.me/) in the web tech and made it
-printable, and it indeed does look very pretty.
+Lea wrote her [PhD thesis](https://phd.verou.me/) with web technologies and made
+it printable, and it indeed does look very pretty.
