@@ -1,6 +1,6 @@
 ---
 title: How to Graduate from MIT
-description: Computer science requirements and the classes I took
+description: Computer Science degree requirements and the classes I took.
 publishedDate: 2025-11-15
 ---
 

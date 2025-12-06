@@ -375,4 +375,9 @@ button:disabled {
     background: none !important;
     border: 1px solid var(--black) !important;
   }
+
+  img,
+  p:has(img) {
+    break-inside: avoid;
+  }
 }
