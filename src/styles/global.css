@@ -350,6 +350,7 @@ button:disabled {
 
   html {
     background: var(--white) !important;
+    font-size: 0.75em;
   }
 
   body {
@@ -361,7 +362,17 @@ button:disabled {
     padding-top: var(--padding-small) !important;
   }
 
-  header {
+  body > header {
     display: none !important;
+  }
+
+  a[target="_blank"]::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  pre {
+    background: none !important;
+    border: 1px solid var(--black) !important;
   }
 }
