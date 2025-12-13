@@ -8,6 +8,16 @@ description:
 
 ![Obligatory xkcd](https://imgs.xkcd.com/comics/new_bug.png)
 
+## 2025-12-13: don't use expensive hash in your tests
+
+I was using `Bun.password.hash` for hashing passwords in an app I'm working on.
+The default behavior uses `argon2`, which is great for security, but
+unfortunately very slow.
+
+It never appeared to me that was the cause of my tests taking forever to run,
+because in each I have to login. I knew something was very wrong, but the
+profiling output made it very clear :-)
+
 ## 2025-10-27: don't use mtime with deployed files
 
 I used `mtime` to get the last updated date of some entries in my blog and it
