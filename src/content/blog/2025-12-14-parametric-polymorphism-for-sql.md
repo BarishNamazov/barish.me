@@ -384,7 +384,7 @@ FK.
 **3. Composable abstractions.** Mix and match concepts to build complex schemas
 from simple, reusable building blocks.
 
-**4. Database-native.** Unlike ORMs, GSQL compiles to standard SQL. You get full
+**4. Database-native.** Unlike ORMs, GSQL compiles to PostgreSQL. You get full
 access to database features (constraints, indexes, triggers) while eliminating
 repetition.
 
