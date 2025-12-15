@@ -66,7 +66,7 @@ landscape to see what solutions exist for this problem. Here's what I found:
 | **PostgreSQL Inheritance** | ❌ No                     | ⚠️ Partial (No FK on parent) | ❌ Manual         |
 | **Oracle Object Types**    | ❌ No                     | ✅ Yes                       | ⚠️ Limited        |
 | **Gel (EdgeDB)**           | ⚠️ Abstract types         | ✅ Yes                       | ✅ Yes            |
-| **Prisma / Drizzle** (TS)  | ❌ No (manual repetition) | ✅ Yes                      | ❌ Manual         |
+| **Prisma / Drizzle** (TS)  | ❌ No (manual repetition) | ✅ Yes                       | ❌ Manual         |
 | **Hibernate** (Java)       | ✅ Yes (Java Types)       | ⚠️ Partial (App-level only)  | ⚠️ Variable       |
 | **Entity Framework** (C#)  | ✅ Yes (C# Types)         | ⚠️ Partial (App-level only)  | ⚠️ Variable       |
 | **Active Record** (Ruby)   | ❌ No                     | ❌ None (No FKs)             | ❌ Poor           |
@@ -255,7 +255,6 @@ concept Discussing<Target, Author> {
 
 Notice how:
 
-- **Enums** are scoped to the concept and get namespaced when instantiated
 - **Multiple schemas** can be defined in one concept -- both `Threads` and
   `Comments` get created together
 - **Sibling-references** like `{Threads}_id` work because the schema name itself
