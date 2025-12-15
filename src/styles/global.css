@@ -170,6 +170,15 @@ table {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 thead {
   background-color: var(--accent-lighter);
   border-bottom: 3px solid var(--accent-light);

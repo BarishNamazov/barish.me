@@ -61,89 +61,83 @@ Application frameworks have spent decades trying to bridge the gap between
 object-oriented inheritance and relational tables. I surveyed the existing
 landscape to see what solutions exist for this problem. Here's what I found:
 
-| Solution                         | Generics/Templates     | Type Safety                  | Index Inheritance | Syntax Overhead | Maturity |
-| -------------------------------- | ---------------------- | ---------------------------- | ----------------- | --------------- | -------- |
-| **PostgreSQL Table Inheritance** | ❌ No                  | ⚠️ Partial (no FK on parent) | ❌ Manual         | Medium          | Mature   |
-| **Oracle Object Types**          | ❌ No                  | ✅ Yes                       | ⚠️ Limited        | High            | Mature   |
-| **Gel (EdgeDB)**                 | ⚠️ Abstract types only | ✅ Yes                       | ✅ Yes            | Medium          | Young    |
-| **Prisma ORM**                   | ❌ No                  | ✅ Application-level         | N/A (ORM)         | Low             | Middle   |
-| **Drizzle ORM**                  | ❌ No                  | ✅ Application-level         | N/A (ORM)         | Low             | Young    |
-| **TypeORM**                      | ❌ No                  | ✅ Application-level         | N/A (ORM)         | Medium          | Mature   |
-| **Hibernate (Java)**             | ✅ Yes (Java types)    | ⚠️ Partial (App-level only)  | ⚠️ Variable       | High            | Mature   |
-| **Entity Framework (C#)**        | ✅ Yes (C# types)      | ⚠️ Partial (App-level only)  | ⚠️ Variable       | Medium          | Mature   |
-| **Active Record (Ruby)**         | ❌ No                  | ❌ None (No FKs)             | ❌ Poor           | Low             | Mature   |
-| **Eloquent (Laravel)**           | ❌ No                  | ❌ None (No FKs)             | ❌ Poor           | Low             | Mature   |
-| **Django (Python)**              | ⚠️ Abstract Models     | ✅ Yes (Separate tables)     | ✅ Good           | Low             | Mature   |
+| Solution                   | Schema Generics           | Type Safety (FKs)            | Index Inheritance |
+| :------------------------- | :------------------------ | :--------------------------- | :---------------- |
+| **PostgreSQL Inheritance** | ❌ No                     | ⚠️ Partial (No FK on parent) | ❌ Manual         |
+| **Oracle Object Types**    | ❌ No                     | ✅ Yes                       | ⚠️ Limited        |
+| **Gel (EdgeDB)**           | ⚠️ Abstract types         | ✅ Yes                       | ✅ Yes            |
+| **Prisma / Drizzle** (TS)  | ❌ No (manual repetition) | ✅ Yes                      | ❌ Manual         |
+| **Hibernate** (Java)       | ✅ Yes (Java Types)       | ⚠️ Partial (App-level only)  | ⚠️ Variable       |
+| **Entity Framework** (C#)  | ✅ Yes (C# Types)         | ⚠️ Partial (App-level only)  | ⚠️ Variable       |
+| **Active Record** (Ruby)   | ❌ No                     | ❌ None (No FKs)             | ❌ Poor           |
+| **Eloquent** (Laravel)     | ❌ No                     | ❌ None (No FKs)             | ❌ Poor           |
+| **Django** (Python)        | ⚠️ Abstract models        | ✅ Yes (Separate tables)     | ✅ Yes            |
 
-### PostgreSQL Table Inheritance
+## The Ecosystem Gap
 
-Postgres offers table inheritance, but it's clunky and limited:
+The table above highlights a structural, frustrating gap in the modern stack.
+While application code has become modular and generic, database schemas remain
+static and repetitive.
 
-```sql
-CREATE TABLE announcements_base (
-  id          serial primary key,
-  message     text not null,
-  created_at  timestamptz not null default now()
-);
+**The "Fake Generics" of Typed ORMs (Prisma, Drizzle)**
 
-CREATE TABLE course_announcements (
-  course_id bigint not null references courses(id)
-) INHERITS (announcements_base);
-```
+Tools like Prisma and Drizzle address the problem at the application layer, not
+the database layer.
 
-The problems are well-documented: indexes aren't inherited, foreign key
-constraints don't work across the hierarchy, and this feature isn't used much in
-favor of partitioning.
+- **WET Schemas:** You might write a generic TypeScript function, but your
+  schema definition file still contains `CourseAnnouncement`,
+  `LessonAnnouncement`, and `ExamAnnouncement` defined line-by-line. Adding a
+  column requires manually editing three different models. The code is DRY, but
+  the schema is WET.
+- **Incompatible Types:** Because the ORM generates distinct, structurally
+  unique types for every model (e.g., `UserWhereInput` vs. `PostWhereInput`),
+  writing truly generic functions is difficult. Developers often resort to
+  complex structural typing or "any" casts, bypassing the strict type safety the
+  tool is supposed to provide.
 
-### Gel (formerly EdgeDB)
+**The Integrity vs. Flexibility Trade-off (Rails, Laravel)**
 
-[Gel](https://www.geldata.com/) supports abstract types and inheritance, which
-gets closer:
+Frameworks that prioritize schema reuse usually do so by sacrificing database
+integrity.
 
-```edgeql
-abstract type Announcement {
-  required message: str;
-  required link target -> Object;
-  index on (.target);
-}
+- **Polymorphic Associations** allow reuse of a single table, but they rely on
+  string discriminator columns (e.g., `kind="Course"`, `kind_id=123`). This
+  approach is risky because **Foreign Keys cannot validate these pairs**. The
+  database cannot ensure that `kind_id` corresponds to a valid row in the
+  `courses` table, leading to "orphaned" records.
 
-type CourseAnnouncement extending Announcement {
-  overloaded required link target -> Course;
-}
-```
+**The Complexity Trap (Hibernate, Entity Framework)**
 
-This is better, but you must manually redefine the `target` link for every
-specialized type using the `overloaded` keyword. It's still repetitive.
+Class-based inheritance mappers try to model OOP concepts in SQL, often
+resulting in performance pitfalls.
 
-### ORMs: Application-Layer Solutions
+- **Table-per-Type:** This strategy creates normalized tables (good) but
+  requires massive `JOIN` operations to reconstruct a single entity (bad).
+  Fetching a list of announcements often triggers complex queries across 4-5
+  joined tables.
+- **Single-Table Inheritance:** This dumps all fields into one sparse table. It
+  avoids joins but fills the database with `NULL` values and prevents the use of
+  `NOT NULL` constraints, weakening data quality.
 
-I looked at how popular ORMs handle this problem. They all make development
-easier, but none solve the database-level repetition.
+**The "Almost" Solutions (PostgreSQL, Django, Oracle)**
 
-**JavaScript/TypeScript** ORMs like Prisma, Drizzle, and TypeORM provide
-excellent developer experience with strong type safety at the application layer.
-But they still generate either separate tables (maintaining repetition) or
-polymorphic associations (sacrificing foreign key constraints).
+Other approaches get closer but fall short on execution.
 
-**Hibernate** offers three inheritance mapping strategies: single table with
-discriminators, joined tables, or table-per-class. Powerful, but requires
-extensive configuration and the type safety only exists in application code.
+- **PostgreSQL Inheritance:** Native `INHERITS` is structurally flawed. Child
+  tables do not inherit unique constraints or foreign keys from parents, making
+  it unsafe for enforcing relationships.
+- **Django Abstract Models:** Django allows you to define a base class that
+  others inherit from. This is a step in the right direction (DRY definition),
+  but it remains locked inside the Python runtime. The generated schema is still
+  just a collection of disconnected tables with no knowledge of their shared
+  structure.
+- **Oracle Object Types:** Oracle supports true object-relational features, but
+  they come with immense complexity and vendor lock-in, making them impractical
+  for general-purpose web development.
 
-**Entity Framework** has similar strategies with cleaner syntax. Its
-table-per-type approach creates proper foreign keys but requires joins for every
-query and models inheritance hierarchies, not reusable templates.
-
-**Django** provides abstract base models where you define common fields once and
-inherit from them. This reduces repetition while maintaining separate tables,
-but you still redefine foreign keys in each subclass.
-
-**Active Record and Eloquent** make polymorphic associations trivial but don't
-enforce foreign key constraints by default. They favor rapid development over
-database-level integrity.
-
-The pattern is clear: ORMs are great at application-level type safety but don't
-eliminate schema repetition. You either repeat yourself across tables or
-compromise on data integrity with polymorphic associations.
+There is currently no way to define a generic, reusable schema pattern _within_
+SQL that compiles to performant, constraint-safe relational tables without
+manual repetition.
 
 ## GSQL: Parametric Polymorphism for SQL
 
