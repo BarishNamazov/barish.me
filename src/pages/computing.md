@@ -44,7 +44,7 @@ software configuration.
 - **Terminal Multiplexer**: [tmux](https://github.com/tmux/tmux)
 - **Editor**: [Neovim](https://neovim.io/)
 - **File Manager**: [yazi](https://github.com/sxyazi/yazi)
-- **Browser**: [Mozilla Firefox](https://www.mozilla.org/firefox/) +
+- **Browser**: [Zen Browser](https://zen-browser.app/) +
   [Vimium](https://vimium.github.io/) +
   [uBlock Origin](https://ublockorigin.com/)
 - **Email Client**: [Betterbird](https://www.betterbird.eu/)
