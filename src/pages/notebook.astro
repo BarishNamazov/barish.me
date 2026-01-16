@@ -31,7 +31,10 @@ const manualEntries = [
   },
 ];
 
-const allEntries = [...notebookEntries, ...manualEntries];
+const SKIP_TITLES = ["Running"];
+const allEntries = [...notebookEntries, ...manualEntries].filter(
+  entry => !SKIP_TITLES.includes(entry.title),
+);
 ---
 
 <Layout titlePrefix="Notebook">

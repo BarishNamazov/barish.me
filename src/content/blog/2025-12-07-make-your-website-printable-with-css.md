@@ -64,8 +64,7 @@ a[href^="http"]::after {
 }
 
 /* Exclude your own domain so we don't have relative links */
-a[href^="https://barish.me"]::after
-{
+a[href^="https://barish.me"]::after {
   content: none;
 }
 ```
