@@ -30,6 +30,27 @@ let { titlePrefix, description, ogType } = Astro.props;
             a.rel = "noopener";
           }
         });
+
+        document.querySelectorAll("img").forEach(img => {
+          img.addEventListener("click", () => {
+            const overlay = document.createElement("div");
+            overlay.className = "img-lightbox";
+            const clone = document.createElement("img");
+            clone.src = img.src;
+            clone.alt = img.alt;
+            overlay.appendChild(clone);
+            document.body.appendChild(overlay);
+
+            const close = () => {
+              overlay.remove();
+              document.removeEventListener("keydown", onKey);
+            };
+            const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+
+            overlay.addEventListener("click", close);
+            document.addEventListener("keydown", onKey);
+          });
+        });
       });
     </script>
   </head>
