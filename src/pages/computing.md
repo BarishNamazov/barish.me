@@ -2,7 +2,7 @@
 layout: ../layouts/BlogLayout.astro
 title: How I do my computing
 description: My hardware and software setup.
-updatedDate: 2025-10-27
+updatedDate: 2026-05-22
 ---
 
 I am very open to nontraditional ways to approach software and hardware while
@@ -43,7 +43,8 @@ software configuration.
 - **Shell**: [bash](https://www.gnu.org/software/bash/)
 - **Terminal Multiplexer**: [tmux](https://github.com/tmux/tmux)
 - **Editor**: [Neovim](https://neovim.io/)
-- **File Manager**: [yazi](https://github.com/sxyazi/yazi)
+- **File Manager**: [yazi](https://github.com/sxyazi/yazi) +
+  [GNOME Files](https://apps.gnome.org/Nautilus/)
 - **Browser**: [Zen Browser](https://zen-browser.app/) +
   [Vimium](https://vimium.github.io/) +
   [uBlock Origin](https://ublockorigin.com/)
@@ -89,7 +90,7 @@ Software that I don't use anymore, but that were useful in the past:
 ## Programming Languages / Technologies
 
 These aren't a comprehensive list of my experience, but rather the tools I use
-currently:
+currently (if any):
 
 - **C++**: low-level or performance-critical software, competitive programming.
   - Compiler: C++23 with the [clang](https://clang.llvm.org/) compiler.
@@ -97,6 +98,9 @@ currently:
     [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
   - Build systems: For larger projects, [Bazel](https://bazel.build/); for
     smaller ones, [CMake](https://cmake.org/).
+- **Rust**: compilers, interpreters, anything with complicated logic where
+  safety matters.
+  - Crates: itertools, logos, pest.
 - **Python**: scripting, data analysis, network programming.
   - Package manager: [uv](https://docs.astral.sh/uv/).
   - Linter/formatter: [ruff](https://docs.astral.sh/ruff/).
@@ -105,9 +109,8 @@ currently:
 - **JavaScript/TypeScript**: web development, full-stack applications
   - Runtime: [Bun](https://bun.sh/) where possible, otherwise Node.js.
   - Linter/formatter: [ESLint](https://eslint.org/) and
-    [Prettier](https://prettier.io/).
+    [Prettier](https://prettier.io/). [Biome](https://biomejs.dev/) when it's
+    supported.
   - Frontend framework: [Nuxt](https://nuxt.com/).
   - Backend framework: [Elysia](https://elysiajs.com/) or Nuxt/Nitro.
   - Database integration: [kysely](https://kysely.dev/).
-- **Rust**: compilers, interpreters.
-  - Crates: itertools, logos, pest.
