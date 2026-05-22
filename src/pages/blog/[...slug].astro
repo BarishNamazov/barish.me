@@ -1,8 +1,20 @@
 ---
-import ContentPage from "../../components/ContentPage.astro";
-import { createStaticPathsForContentType } from "../../utils/getStaticPaths";
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { stripDatePrefix } from "../../utils/slugs";
 
-export const getStaticPaths = () => createStaticPathsForContentType("blog");
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map(post => ({
+    params: { slug: stripDatePrefix(post.slug) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<ContentPage {...Astro.props} />
+<BlogLayout {...post}>
+  <Content />
+</BlogLayout>

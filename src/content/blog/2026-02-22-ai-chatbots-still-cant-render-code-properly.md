@@ -64,7 +64,8 @@ this monstrousity.
 
 The CommonMark spec allows you to define nested code blocks by using more
 backticks for the outer block. So this is, in some way, the model producing bad
-markdown. But the solution, as solutions always are, is just prompting the model to use correct markdown formatting:
+markdown. But the solution, as solutions always are, is just prompting the model
+to use correct markdown formatting:
 
 > Show me a markdown code box that briefly explains how to write Hello World in
 > Python and how to run it. Make sure to handle nested code blocks with

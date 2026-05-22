@@ -45,7 +45,9 @@ let { titlePrefix, description, ogType } = Astro.props;
               overlay.remove();
               document.removeEventListener("keydown", onKey);
             };
-            const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+            const onKey = (e: KeyboardEvent) => {
+              if (e.key === "Escape") close();
+            };
 
             overlay.addEventListener("click", close);
             document.addEventListener("keydown", onKey);

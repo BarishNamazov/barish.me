@@ -39,6 +39,8 @@
   --padding-medium: 1em;
   --padding-large: 1.5em;
   --padding-xl: 3em;
+  --page-top-padding: 1.25em;
+  --page-heading-gap: 1.5rem;
   --margin-small: 0.5rem;
   --margin-medium: 1em;
   --margin-large: 2em;
@@ -86,8 +88,8 @@ body {
 main {
   width: var(--main-width);
   max-width: calc(100% - 2em);
-  margin: auto;
-  padding: var(--padding-xl) var(--padding-medium);
+  margin: 0 auto;
+  padding: var(--page-top-padding) var(--padding-medium) var(--padding-xl);
 }
 
 footer#site-footer {
@@ -110,6 +112,10 @@ h1 {
   font-size: var(--font-size-h1);
   color: var(--black);
   font-weight: var(--font-weight-bolder);
+}
+
+main > h1 {
+  margin-bottom: var(--page-heading-gap);
 }
 h2 {
   font-size: var(--font-size-h2);

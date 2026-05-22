@@ -1,8 +1,7 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: School Competitions
 description: High school adventure in mathematics and informatics olympiads.
-updatedDate: 2025-10-14
+publishedDate: 2025-10-14
 ---
 
 Mathematics and informatics competitions shaped my interests and taught me about

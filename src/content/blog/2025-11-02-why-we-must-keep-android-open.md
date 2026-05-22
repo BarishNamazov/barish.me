@@ -23,7 +23,7 @@ as well as the Android hacking community.
 
 My family of eight back then naturally accumulated a lot of phones over the
 years. I also got bunch of phones as prizes thanks to
-[school competitions](/notebook/school-competitions/). Most of them were budget
+[school competitions](/blog/school-competitions/). Most of them were budget
 Android phones, but I was able to get them working pretty well with lighter
 custom ROMs. My Note 3 still runs well on LineageOS today! I have the freedom of
 doing whatever I want with my older phones. One runs as a digital clock, one as
