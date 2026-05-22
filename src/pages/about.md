@@ -23,58 +23,11 @@ titlePrefix: About
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: var(--page-heading-gap);
 
     & h1 {
       flex: 1 1;
-    }
-  }
-
-  .activities {
-    margin-top: 2rem;
-  }
-
-  .category {
-    margin-bottom: 2rem;
-    border: 1px solid var(--accent-light);
-    border-radius: 8px;
-    overflow: hidden;
-
-    & summary {
-      padding: 1rem;
-      cursor: pointer;
-      list-style: none;
-      font-weight: 600;
-      user-select: none;
-
-      &::-webkit-details-marker {
-        display: none;
-      }
-
-      &::before {
-        content: '▶';
-        margin-right: 0.5rem;
-        transition: transform 0.2s ease;
-        display: inline-block;
-      }
-    }
-
-    &[open] summary::before {
-      transform: rotate(90deg);
-    }
-
-    & .content {
-      padding: 1rem;
-      background: var(--background-light);
-
-      & ul {
-        margin: 0;
-        padding-left: 1.2rem;
-
-        & li {
-          margin-bottom: 0.8rem;
-          line-height: 1.4;
-        }
-      }
+      margin-bottom: 0;
     }
   }
 </style>
@@ -84,60 +37,77 @@ titlePrefix: About
   <h1>Abutalib-Barish Namazov</h1>
 </div>
 
-My name is Abutalib but I usually go by Barish. I graduated from MIT in May 2024
-with an undergraduate degree in Computer Science and Engineering. Even though I
-try to educate myself in all areas of computers, these days I am mostly
-interested in software modularity. I enjoy teaching others, as well as creating
-educational content. Feel free to reach out to me via email at hello@barish.me.
+My name is Abutalib but I go by Barish. I graduated from MIT in May 2024 with an
+undergraduate degree in Computer Science and Engineering, and I'm now a PhD
+student at MIT CSAIL in the [Software Design Group](https://sdg.csail.mit.edu/).
+Reach me at hello@barish.me.
 
-Other than academics and related work, I enjoy playing video games and watching
-TV series. Lately, I also spend a good amount of time at the gym lifting.
+## Work & Research
 
-The things I have done in the near past include:
+I've worked at organizations both large and small. From July 2024 to August 2025
+I was a research engineer at [Citadel / GQS](https://www.citadel.com/), where
+I'd also interned as a software engineer in summer 2023; before that came a
+summer at [Microsoft](https://www.microsoft.com/) in 2022.
 
-<div class="activities">
-  <details class="category">
-    <summary>Work & Academic</summary>
-    <div class="content">
-      <ul>
-        <li>Work at <a href="https://www.citadel.com/">Citadel / GQS</a> as a full-time research engineer from July 2024 to August 2025.</li>
-        <li>Work on <a href="https://github.com/BarishNamazov/kodless">Kodless</a> as part of my <a href="https://superurop.mit.edu/scholars/abutalib-namazov/?scholar-cohort=648&scholar-page=1">SuperUROP</a> in Spring 2024.</li>
-        <li>Work with <a href="https://people.csail.mit.edu/dnj/">Daniel Jackson</a> on applying <a href="https://sdg.csail.mit.edu/projects/conceptual">concepts</a> into web development.</li>
-        <li>Work at <a href="https://www.citadel.com/">Citadel / GQS</a> as a software engineering intern during Summer 2023.</li>
-        <li>Work with <a href="https://github.com/LeaVerou/">Lea Verou</a> on HCI-related projects during Fall 2022 and Spring 2023.</li>
-        <li>Work at <a href="https://www.microsoft.com/">Microsoft</a> as a software engineering intern during Summer 2022.</li>
-        <li>Work with <a href="http://www.lns.mit.edu/~winklehn/">Daniel Winklehner</a> on building a <a href="https://doi.org/10.1016/j.nima.2023.168590">control system for an ion source experiment</a>.</li>
-        <li>Do competitive programming in <a href="https://codeforces.com/profile/toonewbie">various</a> <a href="https://www.codechef.com/users/toonewbie">online</a> <a href="https://www.hackerrank.com/toonewbie">competition</a> <a href="https://atcoder.jp/users/toonewbie">platforms</a>. I don't do these anymore, but I still enjoy solving problems from time to time.</li>
-      </ul>
-    </div>
-  </details>
+Outside of industry, I run a few projects that a lot of educational centers rely
+on, and I helped build [Fuiz](https://fuiz.org), a Kahoot-like platform for
+collaborative learning.
 
-  <details class="category">
-    <summary>Teaching</summary>
-    <div class="content">
-      <ul>
-        <li>Teach <a href="https://py.mit.edu/spring24">6.101/6.009</a> in Spring 2024.</li>
-        <li>Teach <a href="https://tedbilik.github.io/kamp2024/">Winter Camp 2024</a> with voluntary support from more people, continuing the tradition I started in 2023.</li>
-        <li>Teach <a href="https://61040-fa23.github.io/">6.1040/6.170</a> during Fall 2023.</li>
-        <li>Teach <a href="https://web.mit.edu/6.102/">6.102/6.031</a> and <a href="https://designftw.mit.edu/">6.S063</a> during Spring 2023.</li>
-        <li>Teach C++ and algorithms to high school students in Azerbaijan — <a href="https://tedbilik.github.io/kamp/">Winter Camp 2023</a>. <a href="https://www.youtube.com/playlist?list=PLbIa3q-p8rjpkmlD-K_BN6kKB3M9IjjA3">Here's a playlist</a>.</li>
-        <li>Teach <a href="https://py.mit.edu">6.101/6.009</a> during Fall 2021, Spring 2022, and Fall 2022.</li>
-      </ul>
-    </div>
-  </details>
+These days I write about what I'm working on in the
+[atelier](https://atelier.barish.me). Earlier projects include
+[Kodless](https://github.com/BarishNamazov/kodless), built for my
+[SuperUROP](https://superurop.mit.edu/scholars/abutalib-namazov/) with
+[Daniel Jackson](https://people.csail.mit.edu/dnj/) to bring
+[concepts](https://sdg.csail.mit.edu/projects/conceptual) to web development;
+HCI work with [Lea Verou](https://github.com/LeaVerou/) in 2022–2023; and a
+[control system for an ion source experiment](https://doi.org/10.1016/j.nima.2023.168590)
+with [Daniel Winklehner](http://www.lns.mit.edu/~winklehn/) in 2021.
 
-  <details class="category">
-    <summary>Community & Misc</summary>
-    <div class="content">
-      <ul>
-        <li>Lead <a href="https://opencode-mit.gitlab.io/">OpenCode @ MIT</a> with my friend <a href="https://adhami.me">Adhami</a>.</li>
-        <li>Live in <a href="https://burton5.netlify.app/">Burton 5</a> and serve as the floor chair and captain of the IM tennis team.</li>
-        <li>Be a member of the <a href="https://tsa.mit.edu/">MIT Turkish Students Association</a>.</li>
-        <li>Serve as vice-president of <a href="https://vga.mit.edu/">VGA</a> from 2021 to 2023.</li>
-      </ul>
-    </div>
-  </details>
-</div>
+## Teaching
 
-I’m grateful to have worked with so many people and organizations, and though I
-can’t list everyone I’ve learned from, I’m thankful to all of them.
+Teaching has been one of my biggest passions since 2016, when I started out with
+math and programming for students in Azerbaijan. Now I help train students for
+programming competitions and teach a group of volunteers how to teach.
+
+At MIT, I was on the staff of [6.101](https://py.mit.edu) for four semesters and
+also helped teach [6.102](https://web.mit.edu/6.102/),
+[6.S063](https://designftw.mit.edu/), and
+[6.1040](https://61040-fa23.github.io/).
+
+In 2023, I started a [winter camp](https://tedbilik.github.io/kamp/) in
+Azerbaijan that teaches C++ and algorithms to high schoolers, with the lectures
+recorded in a
+[playlist](https://www.youtube.com/playlist?list=PLbIa3q-p8rjpkmlD-K_BN6kKB3M9IjjA3).
+It [ran again in 2024](https://tedbilik.github.io/kamp2024/), this time with a
+group of volunteers helping out.
+
+## Community & Service
+
+Open knowledge and community matter a lot to me, and I try to contribute through
+teaching and sharing.
+
+I organize and host the National Olympiad in Informatics in Azerbaijan, and I
+created [kodlar.az](https://kodlar.az), a crowdsourced blog and wiki where people
+write about programming and computer science in Azerbaijani. I mentor students
+regularly and am always happy to talk through questions about education,
+learning, research, and careers -- if that sounds useful, don't hesitate to
+reach out.
+
+At MIT, I led [OpenCode @ MIT](https://opencode-mit.gitlab.io/) together with
+[Adhami](https://adhami.me), lived in [Burton 5](https://burton5.netlify.app/)
+as floor chair and IM tennis captain, and was VP of
+[Video Gamers Alliance](https://vga.mit.edu/) from 2021 to 2023.
+
+## Outside of Work
+
+I play a lot of video games and like keeping up with where the industry is
+headed, get to the theater for new releases often, and try to stay current with
+the TV worth watching. I also train regularly (weights, plus kickboxing and Muay
+Thai) and read a fair amount of philosophy, with a particular fondness for
+epistemology, philosophy of mind, and ethics.
+
+I used to do a lot of competitive programming on various platforms (find me by
+username `toonewbie`). I don't compete anymore, but I still solve problems now
+and then for fun.
+
+I'm grateful to everyone I've worked with and learned from along the way.
