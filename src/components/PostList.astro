@@ -1,14 +1,13 @@
 ---
 import type { Post } from "../types";
 import { getYear, formatDate } from "../utils/dateFormatting";
-import { stripDatePrefix } from "../utils/getStaticPaths";
+import { stripDatePrefix } from "../utils/slugs";
 
 interface Props {
   posts: Post[];
-  sublink: string;
 }
 
-const { posts, sublink } = Astro.props;
+const { posts } = Astro.props;
 
 const postsWithDates = posts.filter(post => post.data.publishedDate);
 
@@ -116,7 +115,7 @@ const postsByYear = postsWithDates.reduce((groups, post) => {
               <article class="post-card">
                 <header class="post-header">
                   <h3 class="post-title">
-                    <a href={`/${sublink}/${stripDatePrefix(post.slug)}`}>
+                    <a href={`/blog/${stripDatePrefix(post.slug)}`}>
                       {post.data.title}
                     </a>
                   </h3>

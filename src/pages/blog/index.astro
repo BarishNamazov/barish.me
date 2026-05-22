@@ -1,5 +1,20 @@
 ---
-import ContentIndexPage from "../../components/ContentIndexPage.astro";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostList from "../../components/PostList.astro";
+import { sortContentByDate } from "../../utils/contentSorting";
+
+const posts = sortContentByDate(await getCollection("blog"));
 ---
 
-<ContentIndexPage contentType="blog" />
+<Layout titlePrefix="Blog posts">
+  <h1>Blog posts</h1>
+  <p>
+    For my research notes, please see <a href="https://atelier.barish.me/"
+      >the atelier</a
+    >.
+  </p>
+  <section>
+    <PostList posts={posts} />
+  </section>
+</Layout>
