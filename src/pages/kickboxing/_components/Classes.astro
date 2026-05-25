@@ -1,0 +1,264 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Sessions" } = Astro.props;
+---
+
+<div class="kickboxing-sessions" data-kickboxing-sessions>
+  <div class="kickboxing-switch" data-kickboxing-switch>
+    <span class="kickboxing-switch__label">{label}</span>
+    <nav
+      class="kickboxing-switch__rail"
+      data-kickboxing-rail
+      aria-label="Choose a class"></nav>
+  </div>
+
+  <div class="kickboxing-sessions__stage">
+    <slot />
+  </div>
+</div>
+
+<script>
+  const buildSwitcher = (root: HTMLElement) => {
+    if (root.dataset.ready === "true") return;
+
+    const rail = root.querySelector<HTMLElement>("[data-kickboxing-rail]");
+    const classes = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-kickboxing-class]"),
+    );
+
+    if (!rail || classes.length === 0) return;
+    root.dataset.ready = "true";
+
+    const weekdayFmt = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+      timeZone: "UTC",
+    });
+    const dateFmt = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+
+    const dates = classes.map(cls => cls.dataset.classDate ?? "");
+
+    const tabs = classes.map((cls, index) => {
+      const iso = dates[index];
+      const parsed = new Date(`${iso}T00:00:00Z`);
+      const valid = !Number.isNaN(parsed.valueOf());
+      const number = cls.dataset.classNumber || String(index + 1);
+
+      const tab = document.createElement("button");
+      tab.type = "button";
+      tab.className = "kickboxing-switch__tab";
+      tab.dataset.index = String(index);
+      tab.setAttribute("aria-pressed", "false");
+
+      const num = document.createElement("span");
+      num.className = "kickboxing-switch__num";
+      num.textContent = `Class ${number}`;
+
+      const when = document.createElement("span");
+      when.className = "kickboxing-switch__date";
+      when.textContent = valid
+        ? `${weekdayFmt.format(parsed)} · ${dateFmt.format(parsed)}`
+        : iso || "—";
+
+      tab.append(num, when);
+      rail.appendChild(tab);
+      return tab;
+    });
+
+    const centerTab = (tab: HTMLElement, smooth: boolean) => {
+      const railBox = rail.getBoundingClientRect();
+      const tabBox = tab.getBoundingClientRect();
+      const delta =
+        tabBox.left + tabBox.width / 2 - (railBox.left + rail.clientWidth / 2);
+      rail.scrollBy({ left: delta, behavior: smooth ? "smooth" : "auto" });
+    };
+
+    const activate = (index: number, smooth = false) => {
+      classes.forEach((cls, i) => {
+        const isActive = i === index;
+        cls.hidden = !isActive;
+        tabs[i].classList.toggle("is-active", isActive);
+        tabs[i].setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      centerTab(tabs[index], smooth);
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activate(index, true));
+      tab.addEventListener("keydown", event => {
+        const offset =
+          event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+        if (!offset) return;
+        event.preventDefault();
+        const next = (index + offset + tabs.length) % tabs.length;
+        tabs[next].focus();
+        activate(next, true);
+      });
+    });
+
+    // Default to today's session, else the next upcoming, else the latest past.
+    const now = new Date();
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+
+    let initial = dates.indexOf(today);
+    if (initial === -1) {
+      const upcoming = dates
+        .map((date, i) => ({ date, i }))
+        .filter(item => item.date >= today)
+        .sort((a, b) => (a.date < b.date ? -1 : 1));
+
+      if (upcoming.length > 0) {
+        initial = upcoming[0].i;
+      } else {
+        const latest = dates
+          .map((date, i) => ({ date, i }))
+          .sort((a, b) => (a.date < b.date ? 1 : -1));
+        initial = latest.length > 0 ? latest[0].i : 0;
+      }
+    }
+
+    activate(initial);
+    // re-center once layout has settled (fonts/widths resolved)
+    requestAnimationFrame(() => centerTab(tabs[initial], false));
+  };
+
+  const initialize = () => {
+    document
+      .querySelectorAll<HTMLElement>("[data-kickboxing-sessions]")
+      .forEach(buildSwitcher);
+  };
+
+  initialize();
+  document.addEventListener("astro:page-load", initialize);
+</script>
+
+<style>
+  .kickboxing-sessions {
+    margin: 1.75rem 0 0;
+  }
+
+  .kickboxing-switch {
+    margin-bottom: 1.9rem;
+  }
+
+  .kickboxing-switch__label {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: var(--text-color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* horizontal rail the tabs hang from — scrolls and centers on the
+     active session so the list stays anchored around the current date */
+  .kickboxing-switch__rail {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    /* top padding gives the lifted/outlined active tab room so the
+       rail's overflow clipping doesn't cut its top edge */
+    padding: 0.5rem 0 0.95rem;
+    border-bottom: 2px solid color-mix(in srgb, var(--accent) 20%, transparent);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .kickboxing-switch__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* tabs are built in client JS, so they live outside the component's
+     scoped styles — target them globally. */
+  :global(.kickboxing-switch__tab) {
+    position: relative;
+    display: grid;
+    gap: 0.25rem;
+    justify-items: center;
+    flex: 0 0 auto;
+    min-width: 6.5rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+    border-radius: var(--border-radius-medium);
+    background: var(--white);
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.1;
+    transition:
+      transform 0.14s ease,
+      background 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  :global(.kickboxing-switch__num) {
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--accent-dark);
+  }
+
+  :global(.kickboxing-switch__date) {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-color-muted);
+  }
+
+  :global(.kickboxing-switch__tab:not(.is-active):hover) {
+    transform: translateY(-2px);
+    background: var(--white);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  :global(.kickboxing-switch__tab:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  :global(.kickboxing-switch__tab.is-active) {
+    transform: translateY(-2px);
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 12px 24px -12px var(--accent-dark);
+  }
+
+  :global(.kickboxing-switch__tab.is-active .kickboxing-switch__num),
+  :global(.kickboxing-switch__tab.is-active .kickboxing-switch__date) {
+    color: var(--white);
+  }
+
+  /* caret connecting the active tab to the session below it */
+  :global(.kickboxing-switch__tab.is-active::after) {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.95rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  @media print {
+    .kickboxing-switch__rail {
+      display: none;
+    }
+
+    .kickboxing-sessions__stage :global([data-kickboxing-class][hidden]) {
+      display: block !important;
+    }
+  }
+</style>

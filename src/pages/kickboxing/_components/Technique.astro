@@ -1,0 +1,12 @@
+---
+import KickboxingBlock from "./KickboxingBlock.astro";
+---
+
+<KickboxingBlock
+  kind="technique"
+  label="Technique"
+  timer={Astro.props.timer}
+  beeps={Astro.props.beeps}
+>
+  <slot />
+</KickboxingBlock>

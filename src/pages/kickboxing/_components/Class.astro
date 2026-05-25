@@ -1,0 +1,84 @@
+---
+interface Props {
+  date: string;
+  number?: string | number;
+  title?: string;
+}
+
+const { date, number, title } = Astro.props;
+
+const parsedDate = new Date(`${date}T00:00:00Z`);
+const isValidDate = !Number.isNaN(parsedDate.valueOf());
+const formattedDate = isValidDate
+  ? parsedDate.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    })
+  : date;
+---
+
+<section
+  class="kickboxing-class"
+  data-kickboxing-class
+  data-class-date={date}
+  data-class-number={number !== undefined ? String(number) : ""}
+>
+  <header class="kickboxing-class__header">
+    <h2 class="kickboxing-class__title">{title || formattedDate}</h2>
+    {title && <p class="kickboxing-class__date">{formattedDate}</p>}
+  </header>
+
+  <div class="kickboxing-class__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .kickboxing-class {
+    margin: 0;
+  }
+
+  .kickboxing-class[hidden] {
+    display: none;
+  }
+
+  .kickboxing-class__header {
+    margin-bottom: 1.4rem;
+  }
+
+  .kickboxing-class__title {
+    margin: 0;
+    color: var(--text-color);
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.06;
+    text-align: left;
+  }
+
+  .kickboxing-class__date {
+    margin: 0.45rem 0 0;
+    color: var(--text-color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    text-align: left;
+  }
+
+  /* tight margins on intro prose (direct children only — not the
+     paragraphs nested inside workout cards) */
+  .kickboxing-class__body > :global(p) {
+    margin: 0.4em 0;
+  }
+
+  .kickboxing-class__body :global(.kickboxing-block) {
+    margin: 1.1rem 0;
+  }
+
+  .kickboxing-class__body :global(.kickboxing-block:first-child) {
+    margin-top: 0;
+  }
+</style>

@@ -1,0 +1,309 @@
+---
+layout: ../../layouts/Layout.astro
+titlePrefix: Kickboxing
+---
+
+import {
+  Classes,
+  Class,
+  WarmUp,
+  Stretch,
+  Technique,
+  Drill,
+  Cardio,
+  CoolDown,
+} from "./_components/Kickboxing.astro";
+
+# Kickboxing
+
+> I'm teaching kickboxing to friends during the Summer of 2026. Here I keep my
+> own notes and timers for the sessions.
+
+<Classes>
+
+<Class date="2026-05-27">
+
+Welcome to the first session of kickboxing! Our goal is to have some fun and
+learn fighting techniques while getting a good workout in.
+
+In general, our classes will start with a warm-up and/or a stretch, then we'll
+focus on a few techniques and drills, and we'll finish with some cardio and
+cooldown.
+
+The first month we will focus on getting our fundamentals down, and we'll have
+some easy sparring sessions every few weeks to practice what we've learned in a
+real setting. Once in a while, we'll do a self-defense style class where we
+practice defending against a non-trained opponent.
+
+Today we'll start with our boxing fundamentals. Everything stays light and
+controlled.
+
+<WarmUp timer={2}>Jumping jacks</WarmUp>
+
+<WarmUp timer={2}>Joint circles (neck, shoulders, wrists/elbows)</WarmUp>
+
+<Technique>
+  **Stance** -- shoulder-width, lead toes forward, back heel off the ground,
+  knees soft, slight curl through the stomach, shoulders rolled forward a touch.
+
+  <Drill timer={3} beeps="1:30">
+    Alice holds a relaxed, balanced stance. Bob nudges Alice's shoulders
+    and chest from different angles; Alice absorbs and resets without stiffening or
+    tipping. Switch halfway.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Guard** -- hands just above the eyebrows with a small gap to peek through,
+  elbows tucked in (not flared).
+
+  <Drill timer={3} beeps="1:30">
+    Bob taps slowly toward Alice's temples and chin with open hands. Alice keeps the
+    guard glued and just lets the taps bounce off. Switch halfway.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Jab & cross** -- palm faces down on impact, hip leads then the arm follows,
+  shoulder shields the cheek. One hand out, one hand in -- never both. Same
+  target every rep.
+
+  <Drill timer={10} beeps="2:00">
+    Bob holds two open palms at head height as targets. Alice throws jab–cross
+    into them, resetting guard each time; Bob calls out if the recovering hand
+    drops. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Hooks** -- arm horizontal, elbow lined up behind the fist, rotate the hips
+  first then snap. Off hand stays on the head.
+
+  <Drill timer={8} beeps="2:00">
+    Bob holds palms facing each other at the sides of the head. Alice throws
+    lead and rear hooks into them, keeping the off hand up. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Uppercuts** -- power from the legs: bend, drop, unwind upward. Elbow stays
+  below the fist; snap the hand straight back to guard.
+
+  <Drill timer={6} beeps="2:00">
+    Bob holds palms facing down at chest/chin height. Alice drives uppercuts up
+    into them from the legs. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Parry & turtle shell** -- parry: pat the punch across with the opposite hand
+  (not a downward wipe). Turtle shell: gloves to forehead, back slightly rounded
+  to absorb rather than get knocked back.
+
+  <Drill timer={6} beeps="3:00">
+    Bob throws slow single straights at Alice's face; Alice parries each across.
+    Then Bob speeds into a light flurry and Alice turtle-shells. Switch after 3 min.
+  </Drill>
+</Technique>
+
+<Cardio timer={12} beeps="2:00">
+  **Shoulder Tag** -- partners in guard try to tap each other's shoulders. Three
+  taps and you owe 5 push-ups. Two-minute rounds, rotate partners.
+</Cardio>
+
+<CoolDown>
+  **Core finisher** -- round of sit-ups per person. **Push-up finisher** --
+  round of push-ups per person.
+</CoolDown>
+
+</Class>
+
+<Class date="2026-05-29">
+
+We'll learn kicking fundamentals. A bit of boxing recap to get hands working.
+
+Every kick is light and controlled, and we re-chamber instead of dropping the
+leg lazily. If your hips or ankles feel tight, ease off the height -- form
+first.
+
+<WarmUp timer={3}>1-2-step walks</WarmUp>
+
+<Stretch timer={3}>
+  Leg swings (front-back, then side-side) plus ankle and hip circles.
+</Stretch>
+
+<Technique>
+  **Boxing recap** -- quick stance check and a few jab–crosses so the hands stay
+  sharp before we shift to the legs.
+
+  <Drill timer={4} beeps="0:30">
+    Bob holds two open palms at head height. Alice throws jab–cross, resetting
+    guard each time. Switch every 30 sec.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Front kick / teep** -- lift the knee with the heel below it, pivot the
+  standing foot onto the ball, point the foot then pull the toes back, and strike
+  with the ball of the foot. Knee height sets kick height; re-chamber every rep.
+
+  <Drill timer={14} beeps="2:00">
+    Bob holds a pad (or crossed forearms) at belly height and braces. Alice teeps
+    it lightly, focusing on chamber → pivot → re-chamber. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Roundhouse** -- the pivot is important: the standing toes turn ~90° so the
+  hips and shoulders rotate fully. Leg horizontal, strike with shin or instep.
+  Kicking-side arm swings down, the other hand stays glued to the head.
+
+  <Drill timer={15} beeps="2:00">
+    Bob holds a pad (or kick shield) at rib height, angled, and braces. Alice
+    throws controlled roundhouses, re-chambering each one. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Knee strikes** -- like a teep but heel tucked to the bum and no pivot: push
+  tall onto the ball of the standing foot and drive the knee through the belly.
+  Hands pull down to protect the face.
+
+  <Drill timer={7} beeps="2:00">
+    Bob holds a pad against the belly with both hands and braces. Alice drives
+    light knees into it. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Leg defense** -- check: lift the shin on a 45° angle, toes up, hands high.
+  Cross-block: reach the opposite arm across, bend the knees, twist into the
+  kick to absorb it.
+
+  <Drill timer={8} beeps="4:00">
+    Bob throws slow, light low kicks at Alice's thigh; Alice checks each. Then Bob
+    throws a slow body kick and Alice cross-blocks. Switch halfway.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Small combos** -- jab–cross–roundhouse and teep–cross. Reset the stance after
+  every kick.
+
+  <Drill timer={8} beeps="2:00">
+    Bob holds guard or pads as targets. Alice runs the two combos slowly, hands
+    resetting between strikes. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Cardio timer={12}>
+  **Pyramid Kicking** -- punch the 1-2-3-2 pattern followed by X roundhouse
+  kicks where X climbs from 1 up to 12. Switch leg each round. At round 6,
+  everyone drops for 10 burpees, then keeps climbing.
+</Cardio>
+
+<CoolDown>
+  **Core finisher** -- round of sit-ups per person. **Push-up finisher** --
+  round of push-ups per person.
+</CoolDown>
+
+</Class>
+
+<Class date="2026-06-01">
+
+Today we bring the hands and legs together. You've got your boxing from session
+one and your kicks from session two -- now we stitch them into real
+combinations and learn to fire them on command.
+
+Same rules as always: everything light and controlled, re-chamber your kicks,
+and reset your guard after every strike. Form first -- speed comes later.
+
+We'll also start naming our punches by number so a partner can call combos out
+loud. That sets up our cardio game at the end.
+
+<WarmUp timer={3}>Shadowboxing -- hands only, then add teeps and roundhouses</WarmUp>
+
+<Stretch timer={3}>
+  Leg swings (front-back, then side-side), hip and ankle circles, shoulder rolls.
+</Stretch>
+
+<Technique>
+  **Recap flow** -- quick stance and guard check, then wake everything up: hands
+  first, then drop in a teep and a roundhouse so the legs are loose before we
+  start stitching them onto punches.
+
+  <Drill timer={5} beeps="2:30">
+    Bob holds guard or pads as targets. Alice flows jab–cross, teep, and
+    roundhouse at her own pace, re-chambering every kick and resetting guard
+    between strikes. Switch halfway.
+  </Drill>
+</Technique>
+
+<Technique>
+  **The number system** -- we name the strikes so a partner can call combos:
+  1 jab, 2 cross, 3 lead hook, 4 rear hook, 5 lead uppercut, 6 rear uppercut.
+  Kicks get called by name -- "teep," "roundhouse," "knee." Same target each rep,
+  hands reset between numbers.
+
+  <Drill timer={4} beeps="2:00">
+    Bob calls single numbers and kick names at random; Alice throws the matching
+    strike and resets to guard. Slow and correct, not fast and sloppy. Switch
+    every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Punch–kick combos** -- finishing a hand combo with a kick. The classic is
+  1–2–roundhouse: the cross loads the rear hip and that same side unwinds
+  straight into the kick. Also teep–2–3: teep to open up space, then land the
+  cross–hook as the foot comes down.
+
+  <Drill timer={10} beeps="2:00">
+    Bob holds pads for 1–2–roundhouse, then teep–2–3. Alice runs each combo,
+    re-chambering the kick and recovering into guard; Bob calls out any hand that
+    drops. Switch every 2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Level changes** -- mixing high and low so the target can't settle. Cross to
+  the body then lead hook upstairs (2-to-body, 3-to-head), and a low roundhouse
+  to the thigh then the rear hand up top. Sell the level change with the eyes and
+  shoulders.
+
+  <Drill timer={8} beeps="2:00">
+    Bob offers body and head pads plus a thigh target. Alice works 2-to-body into
+    3-upstairs, then low roundhouse into 2. Keep the off hand glued. Switch every
+    2 min.
+  </Drill>
+</Technique>
+
+<Technique>
+  **Defense into counter** -- stitching last session's defenses onto the combos.
+  Parry the jab and answer 2–3. Check the low kick and fire the rear roundhouse
+  straight back while the foot's still up. Cross-block the body kick, then close
+  with a knee.
+
+  <Drill timer={8} beeps="4:00">
+    Bob throws slow single attacks (jab, low kick, body kick); Alice reads it,
+    picks the matching defense, and immediately counters. Switch halfway.
+  </Drill>
+</Technique>
+
+<Cardio timer={12} beeps="2:00">
+  **The Call** -- partners face off in guard. Bob calls a combo out loud --
+  "1-2-kick," "teep-2-3," "1-2-3-low kick," "check-roundhouse" -- and Alice
+  executes it clean, then resets to guard for the next call. Reward sharp form
+  over speed; if a combo falls apart, call the same one again. Two-minute rounds,
+  swap the caller each round.
+</Cardio>
+
+<CoolDown>
+  **Light stretch** -- hips, hamstrings, shoulders, wrists. **Core finisher** --
+  round of sit-ups per person. **Push-up finisher** -- round of push-ups per
+  person.
+</CoolDown>
+
+</Class>
+
+</Classes>
