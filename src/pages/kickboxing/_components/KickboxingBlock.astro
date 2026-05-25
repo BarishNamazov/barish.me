@@ -152,19 +152,19 @@ const timerLabel = duration ? formatDuration(duration) : undefined;
     const now = context.currentTime;
 
     if (kind === "start") {
-      playTone(context, 523.25, now, 0.9, "square", 0.32);
+      playTone(context, 523.25, now, 1.1, "square", 0.6);
       return;
     }
 
     if (kind === "cue") {
-      playTone(context, 659.25, now, 0.35, "sine", 0.42);
-      playTone(context, 880, now + 0.38, 0.45, "sine", 0.38);
+      playTone(context, 659.25, now, 0.6, "sine", 0.8);
+      playTone(context, 880, now + 0.6, 0.7, "sine", 0.75);
       return;
     }
 
-    playTone(context, 392, now, 0.16, "triangle", 0.4);
-    playTone(context, 523.25, now + 0.18, 0.16, "triangle", 0.4);
-    playTone(context, 784, now + 0.36, 0.28, "triangle", 0.44);
+    playTone(context, 392, now, 0.3, "triangle", 0.7);
+    playTone(context, 523.25, now + 0.32, 0.3, "triangle", 0.7);
+    playTone(context, 784, now + 0.64, 0.5, "triangle", 0.78);
   };
 
   const initializeTimers = () => {
@@ -416,7 +416,8 @@ const timerLabel = duration ? formatDuration(duration) : undefined;
   .kickboxing-timer {
     display: grid;
     width: min(20rem, 100%);
-    grid-template-columns: auto minmax(3rem, 1fr) auto;
+    max-width: 100%;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 0.6rem;
     padding: 0.38rem 0.42rem 0.38rem 0.7rem;
@@ -546,14 +547,27 @@ const timerLabel = duration ? formatDuration(duration) : undefined;
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 768px) {
     .kickboxing-block__header {
       align-items: flex-start;
       flex-direction: column;
     }
 
     .kickboxing-timer {
-      width: 100%;
+      width: min(20rem, 100%);
+      align-self: center;
+      gap: 0.45rem;
+      padding-left: 0.55rem;
+    }
+
+    .kickboxing-timer__readout {
+      min-width: 2.6rem;
+      font-size: 0.9rem;
+    }
+
+    .kickboxing-timer__button {
+      min-width: 0;
+      padding: 0.4rem 0.5rem;
     }
   }
 
